@@ -4,44 +4,49 @@ sidebar_position: 1
 
 # Quickstart
 
-Let's discover **Docusaurus in less than 5 minutes**.
+:::info Info:
+A guide on how to create your first data stream and start publish/subscribe to data.
 
-## Getting Started
+**No idea what pub/sub is?** Read [this](./main-concepts/pub-sub.md) first.
+:::
 
-Get started by **creating a new site**.
+## 1 Create A Stream
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
 
-### What you'll need
+## 2 Setup
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+### 1 Installation
 
-## Generate a new site
+The client is available on [npm](https://www.npmjs.com/package/streamr-client) and can be installed simply by:
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```
+npm install streamr-client
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+### 2 Initialization
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
 
-## Start your site
+## 3 Publish Data
 
-Run the development server:
+```ts
+const streamId = 'streamr.eth/demos/helsinki-trams';
 
-```bash
-cd my-website
-npm run start
+streamr.subscribe(streamId, (message) => {
+  // handle for individual messages
+});
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+## 4 Subscribe To Data
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+```ts
+// Requires MATIC tokens (Polygon blockchain gas token)
+const stream = await streamr.createStream({
+  id: '/foo/bar',
+});
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+await stream.publish({ timestamp: Date.now() });
+```
+
+You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.

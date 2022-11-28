@@ -72,9 +72,21 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'main-concepts/test',
+            docId: 'main-concepts/data-streams',
             position: 'left',
             label: 'Main Concepts',
+          },
+          {
+            type: 'doc',
+            docId: 'guides/example',
+            position: 'left',
+            label: 'Guides',
+          },
+          {
+            type: 'doc',
+            docId: 'run-a-node/example',
+            position: 'left',
+            label: 'Run A Node',
           },
           {
             href: 'https://streamr.network/core',
