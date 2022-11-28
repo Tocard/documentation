@@ -10,15 +10,15 @@ const config = {
   tagline:
     'Publish and subscribe to json based real-time messages powered by the decentralized Streamr network.',
   url: 'https://streamr.network/',
-  baseUrl: '/',
+  baseUrl: '/documentation/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'streamr-dev', // Usually your GitHub org/user name.
+  projectName: 'documentation', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -102,8 +102,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Quickstart',
+                to: 'docs/quickstart',
               },
             ],
           },
@@ -129,7 +129,7 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                href: 'https://github.com/facebook/docusaurus',
               },
               {
                 label: 'GitHub',
