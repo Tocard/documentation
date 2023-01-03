@@ -4,10 +4,10 @@ sidebar_position: 1
 
 # Quickstart
 
-:::info Info:
+:::tip Key Point:
 A guide on how to create your first data stream and start publish/subscribe to data.
 
-**No idea what pub/sub is?** Read [this](./main-concepts/pub-sub.md) first.
+**Ideally you have heard of pub/sub before. If not, read [this](./main-concepts/pub-sub.md) first.**
 :::
 
 ## 1 Create A Stream

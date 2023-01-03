@@ -2,7 +2,11 @@
 sidebar_position: 2
 ---
 
-# Data Streams
+# Managing streams with the client
+
+:::tip Key Point:
+Place holder
+:::
 
 ### Creating a stream
 

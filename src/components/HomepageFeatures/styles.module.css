@@ -25,6 +25,7 @@
 .card:hover {
   transform: translateY(-2px);
   box-shadow: rgb(0 0 0 / 20%) 0px 6px 10px;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 1000px) {

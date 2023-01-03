@@ -6,9 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Welcome To The Streamr Documentation',
+  title: 'Welcome to the Streamr documentation',
   tagline:
-    'Publish and subscribe to json based real-time messages powered by the decentralized Streamr network.',
+    'Publish and subscribe to your json based real-time data powered by the decentralized Streamr network.',
   url: 'https://streamr.network/',
   baseUrl: '/documentation/',
   onBrokenLinks: 'throw',
@@ -72,7 +72,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'main-concepts/data-streams',
+            docId: 'main-concepts/data-streams/data-streams',
             position: 'left',
             label: 'Main Concepts',
           },

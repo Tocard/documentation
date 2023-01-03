@@ -4,7 +4,17 @@ sidebar_position: 4
 
 # Data Storage
 
-You can enable storage on your streams to retain historical messages and access it later via `resend`. By default storage is not enabled on streams. You can enable it with:
+:::tip Key Point:
+You can enable storage on your streams to **[retain historical messages](main-concepts/storage#requesting-historical-messages) and access it later via `resend`**. By default storage is not enabled on streams.
+:::
+
+## Enable storage
+
+### Enable it with the Streamr Hub:
+
+coming soon
+
+### Enable it with the Streamr client:
 
 ```js
 const { StreamrClient, STREAMR_STORAGE_NODE_GERMANY } = require('streamr-client')
@@ -21,3 +31,83 @@ await stream.removeFromStorageNode(STREAMR_STORAGE_NODE_GERMANY);
 // fetch the storage nodes for a stream
 const storageNodes = stream.getStorageNodes();
 ```
+
+## Request historical messages
+
+:::caution Important:
+In order to fetch historical messages the stream needs to have **[storage enabled](main-concepts/storage#enable-storage)**.
+:::
+
+By default `subscribe` will not request historical messages.
+
+### Fetch historical messages with the `resend` method
+
+```js
+// Fetches the last 10 messages stored for the stream
+const resend1 = await streamr.resend(
+  streamId,
+  {
+    last: 10,
+  },
+  onMessage
+);
+```
+
+### Fetch historical messages and subscribe to real-time messages
+
+```js
+// Fetches the last 10 messages and subscribes to the stream
+const sub1 = await streamr.subscribe(
+  {
+    id: streamId,
+    resend: {
+      last: 10,
+    },
+  },
+  onMessage
+);
+```
+
+### Resend from a specific timestamp up to the newest message
+
+```js
+const sub2 = await streamr.resend(streamId, {
+  from: {
+    timestamp: Date.now() - 1000 * 60 * 5, // 5 minutes ago
+    sequenceNumber: 0, // optional
+  },
+  publisher: '0x12345...', // optional
+});
+```
+
+### Resend a range of messages
+
+```js
+const sub3 = await streamr.resend(streamId, {
+  from: {
+    timestamp: Date.now() - 1000 * 60 * 10, // 10 minutes ago
+  },
+  to: {
+    timestamp: Date.now() - 1000 * 60 * 5, // 5 minutes ago
+  },
+  // when using from and to the following parameters are optional
+  // but, if specified, both must be present
+  publisher: '0x12345...',
+  msgChainId: 'ihuzetvg0c88ydd82z5o',
+});
+```
+
+### Listen to completion of resend
+
+If you choose one of the above resend options when subscribing, you can listen on the completion of this resend by doing the following:
+
+```js
+const sub = await streamr.subscribe(options);
+sub.once('resendComplete', () => {
+  console.log(
+    'Received all requested historical messages! Now switching to real time!'
+  );
+});
+```
+
+Note that only one of the resend options can be used for a particular subscription.

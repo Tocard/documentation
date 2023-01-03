@@ -4,25 +4,63 @@ sidebar_position: 3
 
 # Access Control
 
-## Stream access control
+:::tip Key Point:
+Who gets to read, write and edit streams is **enforced by the on-chain stream registry**. Every modification to the registry requires a small amount of MATIC to pay for the transaction.
+
+For each stream + user there can be a permission assignment containing a subset of those permissions.
+
+**A user is defined by an Ethereum address**. Meaning you give an address permission to read/write/edit streams.
+:::
+
+## Permission types
+
+:::caution Important:
+You have to give permission to publish **before** users can publish data on the stream.
+:::
 
 There are 5 different stream permissions:
 
-- StreamPermission.PUBLISH
-- StreamPermission.SUBSCRIBE
-- StreamPermission.EDIT
-- StreamPermission.DELETE
-- StreamPermission.GRANT
+| Permissions | User can                         | Owner | Editor | Publisher | Subscriber |
+| ----------- | -------------------------------- | :---: | :----: | :-------: | :--------: |
+| PUBLISH     | Publish data to a stream (write) |  ✔️   |   ✔️   |    ✔️     |     ❌     |
+| SUBSCRIBE   | Subscribe to stream (read)       |  ✔️   |   ✔️   |    ❌     |     ✔️     |
+| EDIT        | Edit stream details              |  ✔️   |   ✔️   |    ❌     |     ❌     |
+| DELETE      | Delete the stream                |  ✔️   |   ❌   |    ❌     |     ❌     |
+| GRANT       | Share stream permissions         |  ✔️   |   ❌   |    ❌     |     ❌     |
 
 You can import the `StreamPermission` enum with:
 
 ```js
 const { StreamPermission } = require('streamr-client');
+
+StreamPermission.PUBLISH;
+StreamPermission.SUBSCRIBE;
+StreamPermission.EDIT;
+StreamPermission.DELETE;
+StreamPermission.GRANT;
 ```
 
-For each stream + user there can be a permission assignment containing a subset of those permissions. It is also possible to grant public permissions for streams (only `StreamPermission.PUBLISH` and `StreamPermission.SUBSCRIBE`). If a stream has e.g. a public subscribe permissions, it means that anyone can subscribe to that stream.
+### Public permission
 
-To grant a permission for a user:
+- The `publish` and `subscribe` stream permissions may also be **public**, meaning that anyone could `subscribe` and/or `publish` to the stream.
+
+- If a stream has e.g. a public `subscribe` permissions, it means that anyone can `subscribe` to that stream.
+
+- Public `publish` permission is **not recommended.**
+
+## Manage permissions
+
+:::info Good to know
+There are two ways to manage the permissions of your Stream:
+
+- Programmatically with the **[Streamr client](main-concepts/access-control#with-streamr-client)**
+- or with a frontend provided by the **[Streamr Hub](main-concepts/access-control#with-the-streamr-hub)**.
+
+:::
+
+### With Streamr client
+
+#### Grant permission
 
 ```js
 // Requires MATIC tokens (Polygon blockchain gas token)
@@ -32,7 +70,7 @@ await stream.grantPermissions({
 });
 ```
 
-Or to grant a public permission:
+#### Grant public permission
 
 ```js
 await stream.grantPermissions({
@@ -41,7 +79,7 @@ await stream.grantPermissions({
 });
 ```
 
-To revoke a permission from a user:
+#### Revoke permission from a user
 
 ```js
 // Requires MATIC tokens (Polygon blockchain gas token)
@@ -51,7 +89,7 @@ await stream.revokePermissions({
 });
 ```
 
-Or revoke public permission:
+#### Revoke public permission
 
 ```js
 await stream.revokePermissions({
@@ -60,7 +98,11 @@ await stream.revokePermissions({
 });
 ```
 
-The method `streamr.setPermissions` can be used to set an exact set of permissions for one or more streams. Note that if there are existing permissions for the same users in a stream, the previous permissions are overwritten. Note that this method cannot be used from a stream, but via the `StreamrClient` instance:
+#### Set permissions
+
+:::info Good to know
+The method `streamr.setPermissions` can be used to set an exact set of permissions for one or more streams. Note that if there are existing permissions for the same users in a stream, the previous permissions are overwritten. Note that this method cannot be used from a stream, but via the `StreamrClient` instance.
+:::
 
 ```js
 // Requires MATIC tokens (Polygon blockchain gas token)
@@ -80,6 +122,8 @@ await streamr.setPermissions({
     ]
 })
 ```
+
+#### Check permissions
 
 You can query the existence of a permission with `hasPermission()`. Usually you want to use `allowPublic: true` flag so that also the existence of a public permission is checked:
 
@@ -105,3 +149,7 @@ permissions = [
   { public: true, permissions: ['subscribe'] },
 ];
 ```
+
+### With the Streamr Hub
+
+coming soon

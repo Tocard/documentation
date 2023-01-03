@@ -14,23 +14,30 @@ const FeatureList: GatewayCard[] = [
   {
     title: 'Quickstart',
     icon: '🚀',
-    description: (
-      <>afafas asdjflkaö jldö jfklasö jflsaö fjklaö fadsfa afs fdsafa sadf</>
-    ),
+    description: <>The essentials to get you started with Streamr.</>,
     link: '/docs/quickstart',
   },
   {
     title: 'Main Concepts',
     icon: '📚',
     description: (
-      <>afafas asdjflkaö jldö jfklasö jflsaö fjkla flsaö fjklaö fadsfa </>
+      <>
+        Dive deeper into the Streamr network and learn how to manage your
+        real-time data.
+      </>
     ),
     link: '/docs/quickstart',
   },
   {
     title: 'Guides',
     icon: '🦮',
-    description: <>afafas asdjflkaö jldö jfklasö jflsaö fjklaö vfsafasfas</>,
+    description: (
+      <>
+        Find guides to specific use-cases. Want to build a chat app, send
+        notifications or want to build a multiplayer game? Check out this
+        section!
+      </>
+    ),
     link: '/docs/quickstart',
   },
   {
@@ -38,8 +45,8 @@ const FeatureList: GatewayCard[] = [
     icon: '👾',
     description: (
       <>
-        afafas asdjflkaö jldö jfklasö jflsaö fjklaö fasdfa fasdfa fasdfas fasdf
-        as
+        Learn how to become part of the Streamr network and start earning
+        rewards!
       </>
     ),
     link: '/docs/quickstart',
@@ -48,7 +55,7 @@ const FeatureList: GatewayCard[] = [
 
 function Feature({ title, icon, description, link }: GatewayCard) {
   return (
-    <Link to={link}>
+    <Link style={{ textDecoration: 'none' }} to={link}>
       <div className={styles.card}>
         <div className={styles.icon}>{icon}</div>
         <div className="text--left">

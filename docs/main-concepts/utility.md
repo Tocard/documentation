@@ -1,5 +1,9 @@
 # Utility Functions
 
+:::tip Key Point:
+Place holder
+:::
+
 The static function `StreamrClient.generateEthereumAccount()` generates a new Ethereum private key and returns an object with fields `address` and `privateKey`.
 
 ```js
