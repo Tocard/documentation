@@ -10,11 +10,11 @@ You can enable storage on your streams to **[retain historical messages](main-co
 
 ## Enable storage
 
-### Enable it with the Streamr Hub:
+### Enable with Streamr Hub:
 
 coming soon
 
-### Enable it with the Streamr client:
+### Enable with Streamr client:
 
 ```js
 const { StreamrClient, STREAMR_STORAGE_NODE_GERMANY } = require('streamr-client')
