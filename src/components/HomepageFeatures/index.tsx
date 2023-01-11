@@ -15,7 +15,7 @@ const FeatureList: GatewayCard[] = [
     title: 'Quickstart',
     icon: '🚀',
     description: <>The essentials to get you started with Streamr.</>,
-    link: '/docs/quickstart',
+    link: '/docs/guides/quickstart',
   },
   {
     title: 'Main Concepts',
@@ -26,7 +26,7 @@ const FeatureList: GatewayCard[] = [
         real-time data.
       </>
     ),
-    link: '/docs/quickstart',
+    link: '/docs/guides/quickstart',
   },
   {
     title: 'Guides',
@@ -38,7 +38,7 @@ const FeatureList: GatewayCard[] = [
         section!
       </>
     ),
-    link: '/docs/quickstart',
+    link: '/docs/guides/quickstart',
   },
   {
     title: 'Run A Node',
@@ -49,7 +49,7 @@ const FeatureList: GatewayCard[] = [
         rewards!
       </>
     ),
-    link: '/docs/quickstart',
+    link: '/docs/guides/quickstart',
   },
 ];
 

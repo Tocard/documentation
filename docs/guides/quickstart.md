@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Quickstart
+# Quickstart client
 
 :::tip Key Point:
 A guide on how to create your first data stream and start publish/subscribe to data.

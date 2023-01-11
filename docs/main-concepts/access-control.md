@@ -50,7 +50,7 @@ StreamPermission.GRANT;
 
 ## Manage permissions
 
-:::info Good to know
+:::info Good to know:
 There are two ways to manage the permissions of your Stream:
 
 - Programmatically with the **[Streamr client](main-concepts/access-control#with-streamr-client)**

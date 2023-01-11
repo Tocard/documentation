@@ -35,17 +35,11 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/streamr-dev/documentation',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://blog.streamr.network/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -66,19 +60,19 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'quickstart',
+            docId: 'guides/quickstart',
             position: 'left',
             label: 'Quickstart',
           },
           {
             type: 'doc',
-            docId: 'main-concepts/data-streams/data-streams',
+            docId: 'main-concepts/data-streams',
             position: 'left',
             label: 'Main Concepts',
           },
           {
             type: 'doc',
-            docId: 'guides/example',
+            docId: 'guides/quickstart',
             position: 'left',
             label: 'Guides',
           },
@@ -103,7 +97,7 @@ const config = {
             items: [
               {
                 label: 'Quickstart',
-                to: 'docs/quickstart',
+                to: 'docs/guides/quickstart',
               },
             ],
           },
@@ -111,16 +105,12 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discord.gg/gZAm8P7hK8',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/streamr',
               },
             ],
           },
@@ -129,16 +119,16 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://blog.streamr.network/',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/streamr-dev',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        //copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
