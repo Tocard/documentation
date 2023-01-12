@@ -1,4 +1,4 @@
-# Metrics publishing
+# Metrics Publishing
 
 By default, the `StreamrClient` publishes metrics to the network at regular intervals. The metrics include, for example, information about data volumes passing through the node, and are attributed to your node id. Here's the content of the metrics messages:
 

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Data streams
+# Data Streams
 
 ## Intro to data streams
 

@@ -1,4 +1,4 @@
-# Encryption keys
+# Encryption Keys
 
 Messages published to a non-public stream are always encrypted. The publishing client creates the encryption keys and delivers them to the subscribers automatically. In most use cases, there is no need to manage encryption keys manually.
 
