@@ -7,7 +7,7 @@ sidebar_position: 1
 :::tip Key Point:
 A guide on how to create your first data stream and start publish/subscribe to data.
 
-**Ideally you have heard of pub/sub before. If not, read [this](./main-concepts/pub-sub.md) first.**
+**Read more about pub/sub [here](./resources/pub-sub.md).**
 :::
 
 ## 1 Create A Stream
