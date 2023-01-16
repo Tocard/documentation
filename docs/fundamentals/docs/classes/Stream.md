@@ -1,30 +1,6 @@
-[Streamr Client - v7.2.1](../README.md) / Stream
-
 # Class: Stream
 
 A convenience API for managing and accessing an individual stream.
-
-## Table of contents
-
-### Properties
-
-- [id](Stream.md#id)
-
-### Methods
-
-- [addToStorageNode](Stream.md#addtostoragenode)
-- [delete](Stream.md#delete)
-- [detectFields](Stream.md#detectfields)
-- [getMetadata](Stream.md#getmetadata)
-- [getPermissions](Stream.md#getpermissions)
-- [getStorageNodes](Stream.md#getstoragenodes)
-- [getStreamParts](Stream.md#getstreamparts)
-- [grantPermissions](Stream.md#grantpermissions)
-- [hasPermission](Stream.md#haspermission)
-- [publish](Stream.md#publish)
-- [removeFromStorageNode](Stream.md#removefromstoragenode)
-- [revokePermissions](Stream.md#revokepermissions)
-- [update](Stream.md#update)
 
 ## Important
 
@@ -54,13 +30,13 @@ ___
 
 ### getPermissions
 
-▸ **getPermissions**(): `Promise`<[`PermissionAssignment`](../README.md#permissionassignment)[]\>
+▸ **getPermissions**(): `Promise`<[`PermissionAssignment`](../API Reference#permissionassignment)[]\>
 
 See [StreamrClient.getPermissions](StreamrClient.md#getpermissions).
 
 #### Returns
 
-`Promise`<[`PermissionAssignment`](../README.md#permissionassignment)[]\>
+`Promise`<[`PermissionAssignment`](../API Reference#permissionassignment)[]\>
 
 ___
 
@@ -74,7 +50,7 @@ See [StreamrClient.grantPermissions](StreamrClient.md#grantpermissions).
 
 | Name | Type |
 | :------ | :------ |
-| `...assignments` | [`PermissionAssignment`](../README.md#permissionassignment)[] |
+| `...assignments` | [`PermissionAssignment`](../API Reference#permissionassignment)[] |
 
 #### Returns
 
@@ -129,7 +105,7 @@ See [StreamrClient.revokePermissions](StreamrClient.md#revokepermissions).
 
 | Name | Type |
 | :------ | :------ |
-| `...assignments` | [`PermissionAssignment`](../README.md#permissionassignment)[] |
+| `...assignments` | [`PermissionAssignment`](../API Reference#permissionassignment)[] |
 
 #### Returns
 
@@ -139,7 +115,7 @@ See [StreamrClient.revokePermissions](StreamrClient.md#revokepermissions).
 
 ### id
 
-• `Readonly` **id**: [`StreamID`](../README.md#streamid)
+• `Readonly` **id**: [`StreamID`](../API Reference#streamid)
 
 ___
 
@@ -204,13 +180,13 @@ ___
 
 ### getStreamParts
 
-▸ **getStreamParts**(): [`StreamPartID`](../README.md#streampartid)[]
+▸ **getStreamParts**(): [`StreamPartID`](../API Reference#streampartid)[]
 
 Returns the partitions of the stream.
 
 #### Returns
 
-[`StreamPartID`](../README.md#streampartid)[]
+[`StreamPartID`](../API Reference#streampartid)[]
 
 ___
 

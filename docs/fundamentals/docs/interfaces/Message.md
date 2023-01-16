@@ -1,21 +1,6 @@
-[Streamr Client - v7.2.1](../README.md) / Message
-
 # Interface: Message
 
 Represents a message in the Streamr Network.
-
-## Table of contents
-
-### Properties
-
-- [content](Message.md#content)
-- [msgChainId](Message.md#msgchainid)
-- [publisherId](Message.md#publisherid)
-- [sequenceNumber](Message.md#sequencenumber)
-- [signature](Message.md#signature)
-- [streamId](Message.md#streamid)
-- [streamPartition](Message.md#streampartition)
-- [timestamp](Message.md#timestamp)
 
 ## Properties
 
@@ -37,7 +22,7 @@ ___
 
 ### publisherId
 
-• **publisherId**: [`EthereumAddress`](../README.md#ethereumaddress)
+• **publisherId**: [`EthereumAddress`](../API Reference#ethereumaddress)
 
 Publisher of message.
 
@@ -61,7 +46,7 @@ ___
 
 ### streamId
 
-• **streamId**: [`StreamID`](../README.md#streamid)
+• **streamId**: [`StreamID`](../API Reference#streamid)
 
 Identifies the stream the message was published to.
 

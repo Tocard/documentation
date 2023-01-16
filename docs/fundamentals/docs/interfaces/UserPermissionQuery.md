@@ -1,15 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / UserPermissionQuery
-
 # Interface: UserPermissionQuery
-
-## Table of contents
-
-### Properties
-
-- [allowPublic](UserPermissionQuery.md#allowpublic)
-- [permission](UserPermissionQuery.md#permission)
-- [streamId](UserPermissionQuery.md#streamid)
-- [user](UserPermissionQuery.md#user)
 
 ## Properties
 

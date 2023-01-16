@@ -1,15 +1,6 @@
-[Streamr Client - v7.2.1](../README.md) / SubscriptionEvents
-
 # Interface: SubscriptionEvents
 
 Events emitted by [Subscription](../classes/Subscription.md).
-
-## Table of contents
-
-### Properties
-
-- [error](SubscriptionEvents.md#error)
-- [resendComplete](SubscriptionEvents.md#resendcomplete)
 
 ## Properties
 

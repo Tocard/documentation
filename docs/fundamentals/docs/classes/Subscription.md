@@ -1,5 +1,3 @@
-[Streamr Client - v7.2.1](../README.md) / Subscription
-
 # Class: Subscription
 
 A convenience API for managing an individual subscription.
@@ -10,25 +8,11 @@ A convenience API for managing an individual subscription.
 
   ↳ **`Subscription`**
 
-## Table of contents
-
-### Properties
-
-- [streamPartId](Subscription.md#streampartid)
-
-### Methods
-
-- [[asyncIterator]](Subscription.md#[asynciterator])
-- [off](Subscription.md#off)
-- [on](Subscription.md#on)
-- [once](Subscription.md#once)
-- [unsubscribe](Subscription.md#unsubscribe)
-
 ## Properties
 
 ### streamPartId
 
-• `Readonly` **streamPartId**: [`StreamPartID`](../README.md#streampartid)
+• `Readonly` **streamPartId**: [`StreamPartID`](../API Reference#streampartid)
 
 ## Methods
 

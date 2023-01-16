@@ -1,5 +1,3 @@
-[Streamr Client - v7.2.1](../README.md) / StreamMessage
-
 # Class: StreamMessage<T\>
 
 ## Type parameters
@@ -7,54 +5,6 @@
 | Name | Type |
 | :------ | :------ |
 | `T` | `unknown` |
-
-## Table of contents
-
-### Constructors
-
-- [constructor](StreamMessage.md#constructor)
-
-### Properties
-
-- [contentType](StreamMessage.md#contenttype)
-- [encryptionType](StreamMessage.md#encryptiontype)
-- [groupKeyId](StreamMessage.md#groupkeyid)
-- [messageId](StreamMessage.md#messageid)
-- [messageType](StreamMessage.md#messagetype)
-- [newGroupKey](StreamMessage.md#newgroupkey)
-- [parsedContent](StreamMessage.md#parsedcontent)
-- [prevMsgRef](StreamMessage.md#prevmsgref)
-- [serializedContent](StreamMessage.md#serializedcontent)
-- [signature](StreamMessage.md#signature)
-- [LATEST\_VERSION](StreamMessage.md#latest_version)
-
-### Methods
-
-- [clone](StreamMessage.md#clone)
-- [getContent](StreamMessage.md#getcontent)
-- [getMessageID](StreamMessage.md#getmessageid)
-- [getMessageRef](StreamMessage.md#getmessageref)
-- [getMsgChainId](StreamMessage.md#getmsgchainid)
-- [getNewGroupKey](StreamMessage.md#getnewgroupkey)
-- [getParsedContent](StreamMessage.md#getparsedcontent)
-- [getPreviousMessageRef](StreamMessage.md#getpreviousmessageref)
-- [getPublisherId](StreamMessage.md#getpublisherid)
-- [getSequenceNumber](StreamMessage.md#getsequencenumber)
-- [getSerializedContent](StreamMessage.md#getserializedcontent)
-- [getStreamId](StreamMessage.md#getstreamid)
-- [getStreamPartID](StreamMessage.md#getstreampartid)
-- [getStreamPartition](StreamMessage.md#getstreampartition)
-- [getTimestamp](StreamMessage.md#gettimestamp)
-- [serialize](StreamMessage.md#serialize)
-- [deserialize](StreamMessage.md#deserialize)
-- [getSupportedVersions](StreamMessage.md#getsupportedversions)
-- [isEncrypted](StreamMessage.md#isencrypted)
-- [isUnencrypted](StreamMessage.md#isunencrypted)
-- [validateContentType](StreamMessage.md#validatecontenttype)
-- [validateEncryptionType](StreamMessage.md#validateencryptiontype)
-- [validateMessageType](StreamMessage.md#validatemessagetype)
-- [validateSequence](StreamMessage.md#validatesequence)
-- [versionSupportsEncryption](StreamMessage.md#versionsupportsencryption)
 
 ## Constructors
 
@@ -252,11 +202,11 @@ ___
 
 ### getPublisherId
 
-▸ **getPublisherId**(): [`EthereumAddress`](../README.md#ethereumaddress)
+▸ **getPublisherId**(): [`EthereumAddress`](../API Reference#ethereumaddress)
 
 #### Returns
 
-[`EthereumAddress`](../README.md#ethereumaddress)
+[`EthereumAddress`](../API Reference#ethereumaddress)
 
 ___
 
@@ -282,21 +232,21 @@ ___
 
 ### getStreamId
 
-▸ **getStreamId**(): [`StreamID`](../README.md#streamid)
+▸ **getStreamId**(): [`StreamID`](../API Reference#streamid)
 
 #### Returns
 
-[`StreamID`](../README.md#streamid)
+[`StreamID`](../API Reference#streamid)
 
 ___
 
 ### getStreamPartID
 
-▸ **getStreamPartID**(): [`StreamPartID`](../README.md#streampartid)
+▸ **getStreamPartID**(): [`StreamPartID`](../API Reference#streampartid)
 
 #### Returns
 
-[`StreamPartID`](../README.md#streampartid)
+[`StreamPartID`](../API Reference#streampartid)
 
 ___
 

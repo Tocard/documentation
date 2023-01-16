@@ -1,31 +1,8 @@
-[Streamr Client - v7.2.1](../README.md) / NetworkNodeStub
-
 # Interface: NetworkNodeStub
 
 **`Deprecated`**
 
 This in an internal interface
-
-## Table of contents
-
-### Properties
-
-- [addMessageListener](NetworkNodeStub.md#addmessagelistener)
-- [getMetricsContext](NetworkNodeStub.md#getmetricscontext)
-- [getNeighbors](NetworkNodeStub.md#getneighbors)
-- [getNeighborsForStreamPart](NetworkNodeStub.md#getneighborsforstreampart)
-- [getNodeId](NetworkNodeStub.md#getnodeid)
-- [getRtt](NetworkNodeStub.md#getrtt)
-- [getStreamParts](NetworkNodeStub.md#getstreamparts)
-- [hasProxyConnection](NetworkNodeStub.md#hasproxyconnection)
-- [hasStreamPart](NetworkNodeStub.md#hasstreampart)
-- [publish](NetworkNodeStub.md#publish)
-- [removeMessageListener](NetworkNodeStub.md#removemessagelistener)
-- [setExtraMetadata](NetworkNodeStub.md#setextrametadata)
-- [subscribe](NetworkNodeStub.md#subscribe)
-- [subscribeAndWaitForJoin](NetworkNodeStub.md#subscribeandwaitforjoin)
-- [unsubscribe](NetworkNodeStub.md#unsubscribe)
-- [waitForJoinAndPublish](NetworkNodeStub.md#waitforjoinandpublish)
 
 ## Properties
 
@@ -79,7 +56,7 @@ ___
 
 ### getNeighborsForStreamPart
 
-• **getNeighborsForStreamPart**: (`streamPartId`: [`StreamPartID`](../README.md#streampartid)) => readonly `string`[]
+• **getNeighborsForStreamPart**: (`streamPartId`: [`StreamPartID`](../API Reference#streampartid)) => readonly `string`[]
 
 #### Type declaration
 
@@ -89,7 +66,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `streamPartId` | [`StreamPartID`](../README.md#streampartid) |
+| `streamPartId` | [`StreamPartID`](../API Reference#streampartid) |
 
 ##### Returns
 
@@ -133,21 +110,21 @@ ___
 
 ### getStreamParts
 
-• **getStreamParts**: () => `Iterable`<[`StreamPartID`](../README.md#streampartid)\>
+• **getStreamParts**: () => `Iterable`<[`StreamPartID`](../API Reference#streampartid)\>
 
 #### Type declaration
 
-▸ (): `Iterable`<[`StreamPartID`](../README.md#streampartid)\>
+▸ (): `Iterable`<[`StreamPartID`](../API Reference#streampartid)\>
 
 ##### Returns
 
-`Iterable`<[`StreamPartID`](../README.md#streampartid)\>
+`Iterable`<[`StreamPartID`](../API Reference#streampartid)\>
 
 ___
 
 ### hasProxyConnection
 
-• **hasProxyConnection**: (`streamPartId`: [`StreamPartID`](../README.md#streampartid), `contactNodeId`: `string`, `direction`: [`ProxyDirection`](../enums/ProxyDirection.md)) => `boolean`
+• **hasProxyConnection**: (`streamPartId`: [`StreamPartID`](../API Reference#streampartid), `contactNodeId`: `string`, `direction`: [`ProxyDirection`](../enums/ProxyDirection.md)) => `boolean`
 
 #### Type declaration
 
@@ -157,7 +134,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `streamPartId` | [`StreamPartID`](../README.md#streampartid) |
+| `streamPartId` | [`StreamPartID`](../API Reference#streampartid) |
 | `contactNodeId` | `string` |
 | `direction` | [`ProxyDirection`](../enums/ProxyDirection.md) |
 
@@ -169,7 +146,7 @@ ___
 
 ### hasStreamPart
 
-• **hasStreamPart**: (`streamPartId`: [`StreamPartID`](../README.md#streampartid)) => `boolean`
+• **hasStreamPart**: (`streamPartId`: [`StreamPartID`](../API Reference#streampartid)) => `boolean`
 
 #### Type declaration
 
@@ -179,7 +156,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `streamPartId` | [`StreamPartID`](../README.md#streampartid) |
+| `streamPartId` | [`StreamPartID`](../API Reference#streampartid) |
 
 ##### Returns
 
@@ -249,7 +226,7 @@ ___
 
 ### subscribe
 
-• **subscribe**: (`streamPartId`: [`StreamPartID`](../README.md#streampartid)) => `void`
+• **subscribe**: (`streamPartId`: [`StreamPartID`](../API Reference#streampartid)) => `void`
 
 #### Type declaration
 
@@ -259,7 +236,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `streamPartId` | [`StreamPartID`](../README.md#streampartid) |
+| `streamPartId` | [`StreamPartID`](../API Reference#streampartid) |
 
 ##### Returns
 
@@ -269,7 +246,7 @@ ___
 
 ### subscribeAndWaitForJoin
 
-• **subscribeAndWaitForJoin**: (`streamPart`: [`StreamPartID`](../README.md#streampartid), `timeout?`: `number`) => `Promise`<`number`\>
+• **subscribeAndWaitForJoin**: (`streamPart`: [`StreamPartID`](../API Reference#streampartid), `timeout?`: `number`) => `Promise`<`number`\>
 
 #### Type declaration
 
@@ -279,7 +256,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `streamPart` | [`StreamPartID`](../README.md#streampartid) |
+| `streamPart` | [`StreamPartID`](../API Reference#streampartid) |
 | `timeout?` | `number` |
 
 ##### Returns
@@ -290,7 +267,7 @@ ___
 
 ### unsubscribe
 
-• **unsubscribe**: (`streamPartId`: [`StreamPartID`](../README.md#streampartid)) => `void`
+• **unsubscribe**: (`streamPartId`: [`StreamPartID`](../API Reference#streampartid)) => `void`
 
 #### Type declaration
 
@@ -300,7 +277,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `streamPartId` | [`StreamPartID`](../README.md#streampartid) |
+| `streamPartId` | [`StreamPartID`](../API Reference#streampartid) |
 
 ##### Returns
 

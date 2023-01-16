@@ -62,7 +62,7 @@ const config = {
             type: 'doc',
             docId: 'guides/quickstart',
             position: 'left',
-            label: 'Quickstart',
+            label: 'Guides',
           },
           {
             type: 'doc',
@@ -72,9 +72,9 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'guides/quickstart',
+            docId: 'fundamentals/pub-sub',
             position: 'left',
-            label: 'Guides',
+            label: 'Fundamentals',
           },
           {
             type: 'doc',

@@ -29,7 +29,7 @@ const FeatureList: GatewayCard[] = [
     link: '/docs/guides/quickstart',
   },
   {
-    title: 'Guides',
+    title: 'What is pub/sub?',
     icon: '🦮',
     description: (
       <>

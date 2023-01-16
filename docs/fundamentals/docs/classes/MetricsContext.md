@@ -1,18 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / MetricsContext
-
 # Class: MetricsContext
-
-## Table of contents
-
-### Constructors
-
-- [constructor](MetricsContext.md#constructor)
-
-### Methods
-
-- [addMetrics](MetricsContext.md#addmetrics)
-- [createReportProducer](MetricsContext.md#createreportproducer)
-- [getMetric](MetricsContext.md#getmetric)
 
 ## Constructors
 
@@ -31,7 +17,7 @@
 | Name | Type |
 | :------ | :------ |
 | `namespace` | `string` |
-| `definitions` | [`MetricsDefinition`](../README.md#metricsdefinition) |
+| `definitions` | [`MetricsDefinition`](../API Reference#metricsdefinition) |
 
 #### Returns
 
@@ -47,7 +33,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `onReport` | (`report`: [`MetricsReport`](../README.md#metricsreport)) => `void` |
+| `onReport` | (`report`: [`MetricsReport`](../API Reference#metricsreport)) => `void` |
 | `interval` | `number` |
 | `abortSignal` | `AbortSignal` |
 | `formatNumber?` | (`value`: `number`) => `string` |

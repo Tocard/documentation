@@ -1,15 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / EthereumNetworkConfig
-
 # Interface: EthereumNetworkConfig
-
-## Table of contents
-
-### Properties
-
-- [chainId](EthereumNetworkConfig.md#chainid)
-- [gasPriceStrategy](EthereumNetworkConfig.md#gaspricestrategy)
-- [highGasPriceStrategy](EthereumNetworkConfig.md#highgaspricestrategy)
-- [overrides](EthereumNetworkConfig.md#overrides)
 
 ## Properties
 

@@ -1,5 +1,3 @@
-[Streamr Client - v7.2.1](../README.md) / StreamMessageOptions
-
 # Interface: StreamMessageOptions<T\>
 
 ## Type parameters
@@ -7,20 +5,6 @@
 | Name |
 | :------ |
 | `T` |
-
-## Table of contents
-
-### Properties
-
-- [content](StreamMessageOptions.md#content)
-- [contentType](StreamMessageOptions.md#contenttype)
-- [encryptionType](StreamMessageOptions.md#encryptiontype)
-- [groupKeyId](StreamMessageOptions.md#groupkeyid)
-- [messageId](StreamMessageOptions.md#messageid)
-- [messageType](StreamMessageOptions.md#messagetype)
-- [newGroupKey](StreamMessageOptions.md#newgroupkey)
-- [prevMsgRef](StreamMessageOptions.md#prevmsgref)
-- [signature](StreamMessageOptions.md#signature)
 
 ## Properties
 

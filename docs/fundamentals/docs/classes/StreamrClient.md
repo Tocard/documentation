@@ -1,61 +1,6 @@
-[Streamr Client - v7.2.1](../README.md) / StreamrClient
-
 # Class: StreamrClient
 
 The main API used to interact with Streamr.
-
-## Table of contents
-
-### Constructors
-
-- [constructor](StreamrClient.md#constructor)
-
-### Properties
-
-- [id](StreamrClient.md#id)
-- [generateEthereumAccount](StreamrClient.md#generateethereumaccount)
-
-### Methods
-
-- [addEncryptionKey](StreamrClient.md#addencryptionkey)
-- [addStreamToStorageNode](StreamrClient.md#addstreamtostoragenode)
-- [closeProxyConnections](StreamrClient.md#closeproxyconnections)
-- [connect](StreamrClient.md#connect)
-- [createStream](StreamrClient.md#createstream)
-- [deleteStream](StreamrClient.md#deletestream)
-- [destroy](StreamrClient.md#destroy)
-- [getAddress](StreamrClient.md#getaddress)
-- [getNode](StreamrClient.md#getnode)
-- [getOrCreateStream](StreamrClient.md#getorcreatestream)
-- [getPermissions](StreamrClient.md#getpermissions)
-- [getStorageNodeMetadata](StreamrClient.md#getstoragenodemetadata)
-- [getStorageNodes](StreamrClient.md#getstoragenodes)
-- [getStoredStreams](StreamrClient.md#getstoredstreams)
-- [getStream](StreamrClient.md#getstream)
-- [getStreamPublishers](StreamrClient.md#getstreampublishers)
-- [getStreamSubscribers](StreamrClient.md#getstreamsubscribers)
-- [getSubscriptions](StreamrClient.md#getsubscriptions)
-- [grantPermissions](StreamrClient.md#grantpermissions)
-- [hasPermission](StreamrClient.md#haspermission)
-- [isStoredStream](StreamrClient.md#isstoredstream)
-- [isStreamPublisher](StreamrClient.md#isstreampublisher)
-- [isStreamSubscriber](StreamrClient.md#isstreamsubscriber)
-- [off](StreamrClient.md#off)
-- [on](StreamrClient.md#on)
-- [once](StreamrClient.md#once)
-- [openProxyConnections](StreamrClient.md#openproxyconnections)
-- [publish](StreamrClient.md#publish)
-- [removeStreamFromStorageNode](StreamrClient.md#removestreamfromstoragenode)
-- [resend](StreamrClient.md#resend)
-- [revokePermissions](StreamrClient.md#revokepermissions)
-- [searchStreams](StreamrClient.md#searchstreams)
-- [setPermissions](StreamrClient.md#setpermissions)
-- [setStorageNodeMetadata](StreamrClient.md#setstoragenodemetadata)
-- [subscribe](StreamrClient.md#subscribe)
-- [unsubscribe](StreamrClient.md#unsubscribe)
-- [updateEncryptionKey](StreamrClient.md#updateencryptionkey)
-- [updateStream](StreamrClient.md#updatestream)
-- [waitForStorage](StreamrClient.md#waitforstorage)
 
 ## Important
 
@@ -127,7 +72,7 @@ Returns a list of subscriptions matching the given criteria.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `streamDefinition?` | [`StreamDefinition`](../README.md#streamdefinition) | leave as `undefined` to get all subscriptions |
+| `streamDefinition?` | [`StreamDefinition`](../API Reference#streamdefinition) | leave as `undefined` to get all subscriptions |
 
 #### Returns
 
@@ -145,7 +90,7 @@ Publishes a message to a stream partition in the network.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `streamDefinition` | [`StreamDefinition`](../README.md#streamdefinition) | the stream or stream partition to publish the message to |
+| `streamDefinition` | [`StreamDefinition`](../API Reference#streamdefinition) | the stream or stream partition to publish the message to |
 | `content` | `unknown` | the content (the payload) of the message (must be JSON serializable) |
 | `metadata?` | [`PublishMetadata`](../interfaces/PublishMetadata.md) | provide additional metadata to be included in the message or to control the publishing process |
 
@@ -167,9 +112,9 @@ Performs a resend of stored historical data.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `streamDefinition` | [`StreamDefinition`](../README.md#streamdefinition) | the stream partition for which data should be resent |
-| `options` | [`ResendOptions`](../README.md#resendoptions) | defines the kind of resend that should be performed |
-| `onMessage?` | [`MessageListener`](../README.md#messagelistener) | callback will be invoked for each message retrieved |
+| `streamDefinition` | [`StreamDefinition`](../API Reference#streamdefinition) | the stream partition for which data should be resent |
+| `options` | [`ResendOptions`](../API Reference#resendoptions) | defines the kind of resend that should be performed |
+| `onMessage?` | [`MessageListener`](../API Reference#messagelistener) | callback will be invoked for each message retrieved |
 
 #### Returns
 
@@ -191,7 +136,7 @@ Subscribes to a stream partition in the network.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | the stream or stream partition to subscribe to, additionally a resend can be performed by providing resend options |
-| `onMessage?` | [`MessageListener`](../README.md#messagelistener) | callback will be invoked for each message received in subscription |
+| `onMessage?` | [`MessageListener`](../API Reference#messagelistener) | callback will be invoked for each message received in subscription |
 
 #### Returns
 
@@ -215,7 +160,7 @@ no-op if subscription does not exist
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `streamDefinitionOrSubscription?` | [`StreamDefinition`](../README.md#streamdefinition) \| [`Subscription`](Subscription.md) | leave as `undefined` to unsubscribe from all existing subscriptions. |
+| `streamDefinitionOrSubscription?` | [`StreamDefinition`](../API Reference#streamdefinition) \| [`Subscription`](Subscription.md) | leave as `undefined` to unsubscribe from all existing subscriptions. |
 
 #### Returns
 
@@ -311,7 +256,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `streamDefinition` | [`StreamDefinition`](../README.md#streamdefinition) |
+| `streamDefinition` | [`StreamDefinition`](../API Reference#streamdefinition) |
 | `nodeIds` | `string`[] |
 | `direction` | [`ProxyDirection`](../enums/ProxyDirection.md) |
 
@@ -375,13 +320,13 @@ ___
 
 ### getAddress
 
-▸ **getAddress**(): `Promise`<[`EthereumAddress`](../README.md#ethereumaddress)\>
+▸ **getAddress**(): `Promise`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
 Gets the Ethereum address of the wallet associated with the current [StreamrClient](StreamrClient.md) instance.
 
 #### Returns
 
-`Promise`<[`EthereumAddress`](../README.md#ethereumaddress)\>
+`Promise`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
 ___
 
@@ -401,7 +346,7 @@ ___
 
 ### getPermissions
 
-▸ **getPermissions**(`streamIdOrPath`): `Promise`<[`PermissionAssignment`](../README.md#permissionassignment)[]\>
+▸ **getPermissions**(`streamIdOrPath`): `Promise`<[`PermissionAssignment`](../API Reference#permissionassignment)[]\>
 
 Returns the list of all permissions in effect for a given stream.
 
@@ -413,7 +358,7 @@ Returns the list of all permissions in effect for a given stream.
 
 #### Returns
 
-`Promise`<[`PermissionAssignment`](../README.md#permissionassignment)[]\>
+`Promise`<[`PermissionAssignment`](../API Reference#permissionassignment)[]\>
 
 ___
 
@@ -439,7 +384,7 @@ ___
 
 ### getStorageNodes
 
-▸ **getStorageNodes**(`streamIdOrPath?`): `Promise`<[`EthereumAddress`](../README.md#ethereumaddress)[]\>
+▸ **getStorageNodes**(`streamIdOrPath?`): `Promise`<[`EthereumAddress`](../API Reference#ethereumaddress)[]\>
 
 Gets a list of storage nodes.
 
@@ -451,7 +396,7 @@ Gets a list of storage nodes.
 
 #### Returns
 
-`Promise`<[`EthereumAddress`](../README.md#ethereumaddress)[]\>
+`Promise`<[`EthereumAddress`](../API Reference#ethereumaddress)[]\>
 
 ___
 
@@ -477,7 +422,7 @@ ___
 
 ### getStreamPublishers
 
-▸ **getStreamPublishers**(`streamIdOrPath`): `AsyncIterable`<[`EthereumAddress`](../README.md#ethereumaddress)\>
+▸ **getStreamPublishers**(`streamIdOrPath`): `AsyncIterable`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
 Gets all ethereum addresses that have [PUBLISH](../enums/StreamPermission.md#publish) permission to the stream.
 
@@ -489,13 +434,13 @@ Gets all ethereum addresses that have [PUBLISH](../enums/StreamPermission.md#pub
 
 #### Returns
 
-`AsyncIterable`<[`EthereumAddress`](../README.md#ethereumaddress)\>
+`AsyncIterable`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
 ___
 
 ### getStreamSubscribers
 
-▸ **getStreamSubscribers**(`streamIdOrPath`): `AsyncIterable`<[`EthereumAddress`](../README.md#ethereumaddress)\>
+▸ **getStreamSubscribers**(`streamIdOrPath`): `AsyncIterable`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
 Gets all ethereum addresses that have [SUBSCRIBE](../enums/StreamPermission.md#subscribe) permission to the stream.
 
@@ -507,7 +452,7 @@ Gets all ethereum addresses that have [SUBSCRIBE](../enums/StreamPermission.md#s
 
 #### Returns
 
-`AsyncIterable`<[`EthereumAddress`](../README.md#ethereumaddress)\>
+`AsyncIterable`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
 ___
 
@@ -522,7 +467,7 @@ Grants permissions on a given stream.
 | Name | Type |
 | :------ | :------ |
 | `streamIdOrPath` | `string` |
-| `...assignments` | [`PermissionAssignment`](../README.md#permissionassignment)[] |
+| `...assignments` | [`PermissionAssignment`](../API Reference#permissionassignment)[] |
 
 #### Returns
 
@@ -540,7 +485,7 @@ Checks whether the given permission is in effect.
 
 | Name | Type |
 | :------ | :------ |
-| `query` | [`PermissionQuery`](../README.md#permissionquery) |
+| `query` | [`PermissionQuery`](../API Reference#permissionquery) |
 
 #### Returns
 
@@ -688,7 +633,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `streamDefinition` | [`StreamDefinition`](../README.md#streamdefinition) |
+| `streamDefinition` | [`StreamDefinition`](../API Reference#streamdefinition) |
 | `nodeIds` | `string`[] |
 | `direction` | [`ProxyDirection`](../enums/ProxyDirection.md) |
 
@@ -728,7 +673,7 @@ Revokes permissions on a given stream.
 | Name | Type |
 | :------ | :------ |
 | `streamIdOrPath` | `string` |
-| `...assignments` | [`PermissionAssignment`](../README.md#permissionassignment)[] |
+| `...assignments` | [`PermissionAssignment`](../API Reference#permissionassignment)[] |
 
 #### Returns
 
@@ -771,7 +716,7 @@ defined will be removed (per stream).
 
 | Name | Type |
 | :------ | :------ |
-| `...items` | { `assignments`: [`PermissionAssignment`](../README.md#permissionassignment)[] ; `streamId`: `string`  }[] |
+| `...items` | { `assignments`: [`PermissionAssignment`](../API Reference#permissionassignment)[] ; `streamId`: `string`  }[] |
 
 #### Returns
 

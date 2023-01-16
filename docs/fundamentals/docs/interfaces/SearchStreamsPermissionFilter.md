@@ -1,15 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / SearchStreamsPermissionFilter
-
 # Interface: SearchStreamsPermissionFilter
-
-## Table of contents
-
-### Properties
-
-- [allOf](SearchStreamsPermissionFilter.md#allof)
-- [allowPublic](SearchStreamsPermissionFilter.md#allowpublic)
-- [anyOf](SearchStreamsPermissionFilter.md#anyof)
-- [user](SearchStreamsPermissionFilter.md#user)
 
 ## Properties
 

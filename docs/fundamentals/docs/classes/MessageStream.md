@@ -1,5 +1,3 @@
-[Streamr Client - v7.2.1](../README.md) / MessageStream
-
 # Class: MessageStream
 
 Provides asynchronous iteration with
@@ -14,12 +12,6 @@ Provides asynchronous iteration with
 ## Implements
 
 - `AsyncIterable`<[`Message`](../interfaces/Message.md)\>
-
-## Table of contents
-
-### Methods
-
-- [[asyncIterator]](MessageStream.md#[asynciterator])
 
 ## Methods
 

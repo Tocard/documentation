@@ -1,16 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / StreamMetadata
-
 # Interface: StreamMetadata
-
-## Table of contents
-
-### Properties
-
-- [config](StreamMetadata.md#config)
-- [description](StreamMetadata.md#description)
-- [inactivityThresholdHours](StreamMetadata.md#inactivitythresholdhours)
-- [partitions](StreamMetadata.md#partitions)
-- [storageDays](StreamMetadata.md#storagedays)
 
 ## Properties
 

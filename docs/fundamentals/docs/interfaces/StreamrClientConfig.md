@@ -1,24 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / StreamrClientConfig
-
 # Interface: StreamrClientConfig
-
-## Table of contents
-
-### Properties
-
-- [auth](StreamrClientConfig.md#auth)
-- [cache](StreamrClientConfig.md#cache)
-- [contracts](StreamrClientConfig.md#contracts)
-- [decryption](StreamrClientConfig.md#decryption)
-- [gapFill](StreamrClientConfig.md#gapfill)
-- [gapFillTimeout](StreamrClientConfig.md#gapfilltimeout)
-- [id](StreamrClientConfig.md#id)
-- [logLevel](StreamrClientConfig.md#loglevel)
-- [maxGapRequests](StreamrClientConfig.md#maxgaprequests)
-- [metrics](StreamrClientConfig.md#metrics)
-- [network](StreamrClientConfig.md#network)
-- [orderMessages](StreamrClientConfig.md#ordermessages)
-- [retryResendAfter](StreamrClientConfig.md#retryresendafter)
 
 ## Properties
 
@@ -98,7 +78,7 @@ ___
 
 ### logLevel
 
-• `Optional` **logLevel**: [`LogLevel`](../README.md#loglevel)
+• `Optional` **logLevel**: [`LogLevel`](../API Reference#loglevel)
 
 ___
 

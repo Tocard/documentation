@@ -1,14 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / StreamMessageType
-
 # Enumeration: StreamMessageType
-
-## Table of contents
-
-### Enumeration Members
-
-- [GROUP\_KEY\_REQUEST](StreamMessageType.md#group_key_request)
-- [GROUP\_KEY\_RESPONSE](StreamMessageType.md#group_key_response)
-- [MESSAGE](StreamMessageType.md#message)
 
 ## Enumeration Members
 

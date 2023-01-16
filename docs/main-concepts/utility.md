@@ -5,7 +5,7 @@ sidebar_position: 6
 # Utility Functions
 
 :::tip Key Point:
-Place holder
+The Streamr client offers a couple of helper methodes to make your life easier.
 :::
 
 ## Search for streams

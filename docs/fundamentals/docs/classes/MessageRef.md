@@ -1,25 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / MessageRef
-
 # Class: MessageRef
-
-## Table of contents
-
-### Constructors
-
-- [constructor](MessageRef.md#constructor)
-
-### Properties
-
-- [sequenceNumber](MessageRef.md#sequencenumber)
-- [timestamp](MessageRef.md#timestamp)
-
-### Methods
-
-- [clone](MessageRef.md#clone)
-- [compareTo](MessageRef.md#compareto)
-- [serialize](MessageRef.md#serialize)
-- [toArray](MessageRef.md#toarray)
-- [fromArray](MessageRef.md#fromarray)
 
 ## Constructors
 

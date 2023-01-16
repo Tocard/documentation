@@ -1,53 +1,8 @@
-[Streamr Client - v7.2.1](../README.md) / BigNumber
-
 # Class: BigNumber
 
 ## Implements
 
 - `Hexable`
-
-## Table of contents
-
-### Constructors
-
-- [constructor](BigNumber.md#constructor)
-
-### Properties
-
-- [\_hex](BigNumber.md#_hex)
-- [\_isBigNumber](BigNumber.md#_isbignumber)
-
-### Methods
-
-- [abs](BigNumber.md#abs)
-- [add](BigNumber.md#add)
-- [and](BigNumber.md#and)
-- [div](BigNumber.md#div)
-- [eq](BigNumber.md#eq)
-- [fromTwos](BigNumber.md#fromtwos)
-- [gt](BigNumber.md#gt)
-- [gte](BigNumber.md#gte)
-- [isNegative](BigNumber.md#isnegative)
-- [isZero](BigNumber.md#iszero)
-- [lt](BigNumber.md#lt)
-- [lte](BigNumber.md#lte)
-- [mask](BigNumber.md#mask)
-- [mod](BigNumber.md#mod)
-- [mul](BigNumber.md#mul)
-- [or](BigNumber.md#or)
-- [pow](BigNumber.md#pow)
-- [shl](BigNumber.md#shl)
-- [shr](BigNumber.md#shr)
-- [sub](BigNumber.md#sub)
-- [toBigInt](BigNumber.md#tobigint)
-- [toHexString](BigNumber.md#tohexstring)
-- [toJSON](BigNumber.md#tojson)
-- [toNumber](BigNumber.md#tonumber)
-- [toString](BigNumber.md#tostring)
-- [toTwos](BigNumber.md#totwos)
-- [xor](BigNumber.md#xor)
-- [from](BigNumber.md#from)
-- [isBigNumber](BigNumber.md#isbignumber)
 
 ## Constructors
 

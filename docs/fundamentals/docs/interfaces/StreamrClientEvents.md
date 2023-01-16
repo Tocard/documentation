@@ -1,13 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / StreamrClientEvents
-
 # Interface: StreamrClientEvents
-
-## Table of contents
-
-### Properties
-
-- [addToStorageNode](StreamrClientEvents.md#addtostoragenode)
-- [removeFromStorageNode](StreamrClientEvents.md#removefromstoragenode)
 
 ## Properties
 

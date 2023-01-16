@@ -1,13 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / TrackerRegistryContract
-
 # Interface: TrackerRegistryContract
-
-## Table of contents
-
-### Properties
-
-- [contractAddress](TrackerRegistryContract.md#contractaddress)
-- [jsonRpcProvider](TrackerRegistryContract.md#jsonrpcprovider)
 
 ## Properties
 
@@ -19,4 +10,4 @@ ___
 
 ### jsonRpcProvider
 
-• `Optional` **jsonRpcProvider**: [`ConnectionInfo`](../README.md#connectioninfo)
+• `Optional` **jsonRpcProvider**: [`ConnectionInfo`](../API Reference#connectioninfo)

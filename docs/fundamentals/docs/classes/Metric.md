@@ -1,17 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / Metric
-
 # Class: Metric
-
-## Table of contents
-
-### Constructors
-
-- [constructor](Metric.md#constructor)
-
-### Methods
-
-- [getLatestValue](Metric.md#getlatestvalue)
-- [record](Metric.md#record)
 
 ## Constructors
 

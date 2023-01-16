@@ -1,14 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / StorageNodeAssignmentEvent
-
 # Interface: StorageNodeAssignmentEvent
-
-## Table of contents
-
-### Properties
-
-- [blockNumber](StorageNodeAssignmentEvent.md#blocknumber)
-- [nodeAddress](StorageNodeAssignmentEvent.md#nodeaddress)
-- [streamId](StorageNodeAssignmentEvent.md#streamid)
 
 ## Properties
 
@@ -20,10 +10,10 @@ ___
 
 ### nodeAddress
 
-• `Readonly` **nodeAddress**: [`EthereumAddress`](../README.md#ethereumaddress)
+• `Readonly` **nodeAddress**: [`EthereumAddress`](../API Reference#ethereumaddress)
 
 ___
 
 ### streamId
 
-• `Readonly` **streamId**: [`StreamID`](../README.md#streamid)
+• `Readonly` **streamId**: [`StreamID`](../API Reference#streamid)

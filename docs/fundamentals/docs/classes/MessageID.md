@@ -1,30 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / MessageID
-
 # Class: MessageID
-
-## Table of contents
-
-### Constructors
-
-- [constructor](MessageID.md#constructor)
-
-### Properties
-
-- [msgChainId](MessageID.md#msgchainid)
-- [publisherId](MessageID.md#publisherid)
-- [sequenceNumber](MessageID.md#sequencenumber)
-- [streamId](MessageID.md#streamid)
-- [streamPartition](MessageID.md#streampartition)
-- [timestamp](MessageID.md#timestamp)
-
-### Methods
-
-- [clone](MessageID.md#clone)
-- [getStreamPartID](MessageID.md#getstreampartid)
-- [serialize](MessageID.md#serialize)
-- [toArray](MessageID.md#toarray)
-- [toMessageRef](MessageID.md#tomessageref)
-- [fromArray](MessageID.md#fromarray)
 
 ## Constructors
 
@@ -36,11 +10,11 @@
 
 | Name | Type |
 | :------ | :------ |
-| `streamId` | [`StreamID`](../README.md#streamid) |
+| `streamId` | [`StreamID`](../API Reference#streamid) |
 | `streamPartition` | `number` |
 | `timestamp` | `number` |
 | `sequenceNumber` | `number` |
-| `publisherId` | [`EthereumAddress`](../README.md#ethereumaddress) |
+| `publisherId` | [`EthereumAddress`](../API Reference#ethereumaddress) |
 | `msgChainId` | `string` |
 
 ## Properties
@@ -53,7 +27,7 @@ ___
 
 ### publisherId
 
-• **publisherId**: [`EthereumAddress`](../README.md#ethereumaddress)
+• **publisherId**: [`EthereumAddress`](../API Reference#ethereumaddress)
 
 ___
 
@@ -65,7 +39,7 @@ ___
 
 ### streamId
 
-• **streamId**: [`StreamID`](../README.md#streamid)
+• **streamId**: [`StreamID`](../API Reference#streamid)
 
 ___
 
@@ -93,11 +67,11 @@ ___
 
 ### getStreamPartID
 
-▸ **getStreamPartID**(): [`StreamPartID`](../README.md#streampartid)
+▸ **getStreamPartID**(): [`StreamPartID`](../API Reference#streampartid)
 
 #### Returns
 
-[`StreamPartID`](../README.md#streampartid)
+[`StreamPartID`](../API Reference#streampartid)
 
 ___
 

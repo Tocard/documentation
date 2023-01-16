@@ -1,25 +1,4 @@
-[Streamr Client - v7.2.1](../README.md) / EncryptedGroupKey
-
 # Class: EncryptedGroupKey
-
-## Table of contents
-
-### Constructors
-
-- [constructor](EncryptedGroupKey.md#constructor)
-
-### Properties
-
-- [encryptedGroupKeyHex](EncryptedGroupKey.md#encryptedgroupkeyhex)
-- [groupKeyId](EncryptedGroupKey.md#groupkeyid)
-- [serialized](EncryptedGroupKey.md#serialized)
-
-### Methods
-
-- [serialize](EncryptedGroupKey.md#serialize)
-- [toArray](EncryptedGroupKey.md#toarray)
-- [deserialize](EncryptedGroupKey.md#deserialize)
-- [fromArray](EncryptedGroupKey.md#fromarray)
 
 ## Constructors
 
