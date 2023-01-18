@@ -60,7 +60,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'guides/quickstart',
+            docId: 'guides/quickstart-client',
             position: 'left',
             label: 'Guides',
           },
@@ -97,7 +97,7 @@ const config = {
             items: [
               {
                 label: 'Quickstart',
-                to: 'docs/guides/quickstart',
+                to: 'docs/guides/quickstart-client',
               },
             ],
           },

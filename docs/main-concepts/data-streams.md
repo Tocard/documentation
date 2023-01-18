@@ -95,7 +95,7 @@ Given the structure of this data point, the stream's fields could be configured 
 
 ### Creating a stream
 
-```js
+```ts
 // Requires MATIC tokens (Polygon blockchain gas token)
 const stream = await streamr.createStream({
   id: '/foo/bar',
@@ -106,7 +106,7 @@ console.log(stream.id); // e.g. `0x12345.../foo/bar`
 
 You can also create a stream by defining the address in the provided id. Please note that the creation will only succeed if you specify the same address as provided for authentication when creating the `streamr` instance:
 
-```js
+```ts
 // Requires MATIC tokens (Polygon blockchain gas token)
 const stream = await client.createStream({
   id: `${address}/foo/bar`,
@@ -119,7 +119,7 @@ More information on Stream IDs can be found under the [stream creation project d
 
 ### Subscribing to a stream
 
-```js
+```ts
 const subscription = await streamr.subscribe(
     streamId,
     (content, metadata) => { ... }
@@ -132,7 +132,7 @@ The second parameter `metadata` contains metadata about the message, e.g. timest
 
 Unsubscribing from an existent subscription:
 
-```js
+```ts
 await streamr.unsubscribe(streamId);
 // or, unsubscribe them all:
 const streams = await streamr.unsubscribe();
@@ -140,13 +140,13 @@ const streams = await streamr.unsubscribe();
 
 Getting all streams the client is subscribed to:
 
-```js
+```ts
 const subscriptions = streamr.getSubscriptions();
 ```
 
 ### Publishing to a stream
 
-```js
+```ts
 // Here's our example data point
 const msg = {
   temperature: 25.4,
@@ -176,13 +176,13 @@ The `Stream` type provides a convenient way to interact with a stream without ha
 
 #### Getting existing streams
 
-```js
+```ts
 const stream = await streamr.getStream(streamId);
 ```
 
 The method getOrCreateStream gets the stream if it exists, and if not, creates it:
 
-```js
+```ts
 // May require MATIC tokens (Polygon blockchain gas token)
 const stream = await streamr.getOrCreateStream({
   id: streamId,
@@ -193,7 +193,7 @@ const stream = await streamr.getOrCreateStream({
 
 To update the description of a stream:
 
-```js
+```ts
 // Requires MATIC tokens (Polygon blockchain gas token)
 await stream.update({
   description: 'New description',
@@ -204,7 +204,7 @@ await stream.update({
 
 To delete a stream:
 
-```js
+```ts
 // Requires MATIC tokens (Polygon blockchain gas token)
 await stream.delete();
 ```
