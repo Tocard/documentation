@@ -2,15 +2,12 @@
 sidebar_position: 3
 ---
 
-# Access Control
-
-:::tip Key Point:
+# Access control
 Who gets to read, write and edit streams is **enforced by the on-chain stream registry**. Every modification to the registry requires a small amount of MATIC to pay for the transaction.
 
 For each stream + user there can be a permission assignment containing a subset of those permissions.
 
 **A user is defined by an Ethereum address**. Meaning you give an address permission to read/write/edit streams.
-:::
 
 ## Permission types
 
@@ -20,13 +17,13 @@ You have to give permission to publish **before** users can publish data on the 
 
 There are 5 different stream permissions:
 
-| Permissions | User can                         | Owner | Editor | Publisher | Subscriber |
-| ----------- | -------------------------------- | :---: | :----: | :-------: | :--------: |
-| PUBLISH     | Publish data to a stream (write) |  ✔️   |   ✔️   |    ✔️     |     ❌     |
-| SUBSCRIBE   | Subscribe to stream (read)       |  ✔️   |   ✔️   |    ❌     |     ✔️     |
-| EDIT        | Edit stream details              |  ✔️   |   ✔️   |    ❌     |     ❌     |
-| DELETE      | Delete the stream                |  ✔️   |   ❌   |    ❌     |     ❌     |
-| GRANT       | Share stream permissions         |  ✔️   |   ❌   |    ❌     |     ❌     |
+| Permission  | User can                         |
+| ----------- | -------------------------------- |
+| PUBLISH     | Publish data to a stream (write) |
+| SUBSCRIBE   | Subscribe to stream (read)       |
+| EDIT        | Edit the stream details          |
+| DELETE      | Delete the stream                |
+| GRANT       | Share stream permissions         |
 
 You can import the `StreamPermission` enum with:
 
@@ -53,8 +50,8 @@ StreamPermission.GRANT;
 :::info Good to know:
 There are two ways to manage the permissions of your Stream:
 
-- Programmatically with the **[Streamr client](main-concepts/access-control#with-streamr-client)**
-- or with a frontend provided by the **[Streamr Hub](main-concepts/access-control#with-the-streamr-hub)**.
+- Programmatically with the **[Streamr client](usage/access-control#with-streamr-client)**
+- or with a frontend provided by the **[Streamr Hub](usage/access-control#with-the-streamr-hub)**.
 
 :::
 

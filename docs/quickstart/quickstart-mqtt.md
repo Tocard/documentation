@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Quickstart MQTT
+# MQTT
 
 :::tip Key point
 This tutorial will show you how to publish data into the Streamr Network from inside your app or device using any MQTT library.
@@ -17,7 +17,7 @@ This tutorial will show you how to publish data into the Streamr Network from in
 
 If you have a Helium setup, you may benefit from reading this blog post first, [Helium x Streamr](https://blog.helium.com/helium-x-streamr-ea89c4b61a14)
 
-## 1. Install & run the Broker node.
+## Install & run the Broker node.
 
 You'll need to run a Streamr Broker node to connect your app to.
 
@@ -49,7 +49,7 @@ The node's address (its public key) is displayed when the Broker node is started
 
 **TODO: Don't include the session key extension.**
 
-## 2. Configure your stream
+## Configure your stream
 
 In order to create a stream you will need an Ethereum account with a small amount of `MATIC` (the native token of the Polygon blockchain) to pay for gas to create the stream and make the permission assignment.
 
@@ -74,7 +74,7 @@ await stream.grantPermissions({
 });
 ```
 
-## 2. Push data
+## Push data
 
 In this step we configure the MQTT client to connect and push data to the running Broker node, which will take care of the rest.
 
@@ -139,7 +139,7 @@ $ streamr stream subscribe 0x.../sensor/firehose --private-key YOUR_PRIVATE_KEY
 
 \*\* Note, if the stream is publicly subscribale, then you can omit the private key flag.
 
-## 3. Bonus: Subscribe to streams
+## Bonus: Subscribe to streams
 
 Just like you used the Broker node's MQTT interface to publish data into the network, you can also pull data out of the Network via any Broker nodes interface just as well using the same pattern described in the above steps. Just make sure that the Broker node has `SUBSCRIBE` permission to the stream you are interested in.
 

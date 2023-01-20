@@ -1,4 +1,4 @@
-# Stream Partitioning
+# Stream partitioning
 
 :::tip Key Point:
 Partitioning (sharding) **enables streams to scale horizontally**.

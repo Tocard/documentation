@@ -6,11 +6,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Welcome to the Streamr documentation',
+  title: 'Welcome to the Streamr docs',
   tagline:
     'Publish and subscribe to your json based real-time data powered by the decentralized Streamr network.',
   url: 'https://streamr.network/',
-  baseUrl: '/documentation/',
+  baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -60,25 +60,25 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'guides/quickstart-client',
+            docId: 'quickstart/nodejs',
             position: 'left',
-            label: 'Guides',
+            label: 'Quickstart',
           },
           {
             type: 'doc',
-            docId: 'main-concepts/data-streams',
+            docId: 'usage/streams',
             position: 'left',
-            label: 'Main Concepts',
+            label: 'Usage',
           },
           {
             type: 'doc',
-            docId: 'fundamentals/pub-sub',
+            docId: 'streamr-network/pub-sub',
             position: 'left',
-            label: 'Fundamentals',
+            label: 'Streamr Network',
           },
           {
             type: 'doc',
-            docId: 'run-a-node/example',
+            docId: 'node-runners/run-a-node',
             position: 'left',
             label: 'Run A Node',
           },
@@ -97,7 +97,7 @@ const config = {
             items: [
               {
                 label: 'Quickstart',
-                to: 'docs/guides/quickstart-client',
+                to: 'docs/quickstart/JS-client',
               },
             ],
           },

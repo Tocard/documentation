@@ -2,11 +2,8 @@
 sidebar_position: 4
 ---
 
-# Data Storage
-
-:::tip Key Point:
-You can enable storage on your streams to **[retain historical messages](main-concepts/storage#requesting-historical-messages) and access it later via `resend`**. By default storage is not enabled on streams.
-:::
+# Storage
+You can enable storage on your streams to **[retain historical messages](usage/storage#requesting-historical-messages) and access it later via `resend`**. By default storage is not enabled on streams.
 
 ## Enable storage
 
@@ -35,7 +32,7 @@ const storageNodes = stream.getStorageNodes();
 ## Request historical messages
 
 :::caution Important:
-In order to fetch historical messages the stream needs to have **[storage enabled](main-concepts/storage#enable-storage)**.
+In order to fetch historical messages the stream needs to have **[storage enabled](usage/storage#enable-storage)**.
 :::
 
 By default `subscribe` will not request historical messages.

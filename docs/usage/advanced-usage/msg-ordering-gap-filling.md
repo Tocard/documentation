@@ -1,4 +1,4 @@
-# Disable message ordering and gap filling
+# Message ordering and gap filling
 
 If your use case tolerates missing messages and message arriving out-of-order, you can turn off message ordering and gap filling when creating a instance of the client:
 

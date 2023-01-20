@@ -1,4 +1,4 @@
-# Publish & subscribe snippets
+# IOT device
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

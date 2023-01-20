@@ -2,10 +2,10 @@
 sidebar_position: 1
 ---
 
-# What Is Pub/Sub?
+# What is pub/sub
 
 :::tip Key Point:
-Understand what is Pub/Sub, why do businesses require Pub/Sub, and the advantages of Pub/Sub compared to similar technologies. Also, learn about core Pub/Sub concepts that include the terms topic, publisher, and subscriber.
+Understand what is pub/sub, why do businesses require Pub/Sub, and the advantages of Pub/Sub compared to similar technologies. Also, learn about core Pub/Sub concepts that include the terms topic, publisher, and subscriber.
 :::
 
 Pub/sub, short for publish/subscribe, is a messaging pattern that allows for the asynchronous and scablable communication of components in a distributed system.

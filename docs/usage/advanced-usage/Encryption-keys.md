@@ -28,7 +28,7 @@ client.updateEncryptionKey({
 })
 ```
 
-You may want to call this method regularly (e.g. daily/weekly). Alternatively you can call it anytime you observe new expired subscribers (that is, someone bought your data stream for a limited period of time, and that period has now elapsed).
+You may want to call this method regularly (e.g. daily/weekly). Alternatively you can call it anytime you observe new expired subscribers (that is, someone bought your stream for a limited period of time, and that period has now elapsed).
 
 ## Optimization: key rotation
 

@@ -13,43 +13,39 @@ type GatewayCard = {
 const FeatureList: GatewayCard[] = [
   {
     title: 'Quickstart',
-    icon: '🚀',
-    description: <>The essentials to get you started with Streamr.</>,
-    link: '/docs/guides/quickstart',
+    icon: '🪄',
+    description: <>Practical guides for developers to get started with Streamr</>,
+    link: '/docs/quickstart/nodejs',
   },
   {
-    title: 'Main Concepts',
-    icon: '📚',
+    title: 'Usage',
+    icon: '👩🏽‍💻',
     description: (
       <>
-        Dive deeper into the Streamr network and learn how to manage your
-        real-time data.
+        Get your head around the main concepts. Learn how to interact with the Network. 
       </>
     ),
-    link: '/docs/guides/quickstart',
+    link: '/docs/quickstart/nodejs',
   },
   {
-    title: 'What is pub/sub?',
-    icon: '🦮',
+    title: 'Streamr Network',
+    icon: '🌐',
     description: (
       <>
-        Find guides to specific use-cases. Want to build a chat app, send
-        notifications or want to build a multiplayer game? Check out this
-        section!
+        Technical theory and advanced topics related to how the Streamr Network works.
       </>
     ),
-    link: '/docs/guides/quickstart',
+    link: '/docs/quickstart/nodejs',
   },
   {
-    title: 'Run A Node',
+    title: 'Node runners',
     icon: '👾',
     description: (
       <>
-        Learn how to become part of the Streamr network and start earning
-        rewards!
+        Learn how to contribute your bandwidth and support the Network as a node runner.
       </>
     ),
-    link: '/docs/guides/quickstart',
+    link: '/docs/quickstart/nodejs',
   },
 ];
 
