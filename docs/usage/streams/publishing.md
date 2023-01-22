@@ -2,10 +2,42 @@
 sidebar_position: 3
 ---
 
-# Publishing
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+# Publishing
+
+### Publishing to a stream
+
+```ts
+// Here's our example data point
+const msg = {
+  temperature: 25.4,
+  humidity: 10,
+  happy: true,
+};
+
+// Publish using the stream id only
+await streamr.publish(streamId, msg);
+
+// Publish with a specific timestamp as a Date object (default is now)
+await streamr.publish(streamId, msg, { timestamp: new Date(1546300800123) });
+
+// Publish with a specific timestamp in ms
+await streamr.publish(streamId, msg, { timestamp: 1546300800123 });
+
+// Publish with a specific timestamp as a ISO8601 string
+await streamr.publish(streamId, msg, { timestamp: '2019-01-01T00:00:00.123Z' });
+
+// For convenience, stream.publish(...) equals streamr.publish(stream, ...)
+await stream.publish(msg);
+```
+
+:::caution Important:
+You must grant `PUBLISH` permission **before** the user can publish data to the stream.
+
+Learn more about [stream permissions](./permissions.md)
+:::
 
 <Tabs groupId="environment">
   <TabItem value="light-node" label="Light node">

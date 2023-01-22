@@ -1,11 +1,10 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-# Metrics API
+# Dashboards and APIs
 Earned rewards will be automatically sent to the node’s address and therefore compounded (up to the 20,000 DATA cap). The estimated payout date is the first business day of each month.
 
-## Dashboards and API
 There is an API as well as a community-built [BrubeckScan dashboard](https://brubeckscan.app/) for checking earnings and other mining and staking statistics.
 
 In order to see the rewards a Broker node has accumulated, the following API endpoints are available:

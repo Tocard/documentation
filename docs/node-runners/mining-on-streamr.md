@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-# Mining concepts
+# Mining on Streamr
 Mining means that a Broker node subscribes to selected incentivized streams and helps propagate the messages in those streams, essentially contributing bandwidth to the stream in exchange for earning DATA tokens. Technically, the mining process is controlled by a mining plugin that is included with the Broker node.
 
 The mining process and associated token economics are described at a high level on the DATA token page on the project website, as well as in the Tokenomics section of the docs.
@@ -26,5 +26,3 @@ Staking happens by simply transferring DATA tokens to your node's address. Your 
 You can stake between 0 and 20,000 DATA tokens on your node address. You can, of course, have more DATA on your node address than that, but reward calculation will cap it to 20,000. For example, if the node has 40,000 DATA, can only earn rewards as if it had 20,000 DATA. In order to get the benefits from 40,000 DATA, you need to have two nodes running that each have 20,000 DATA.
 
 At launch, staking is possible only on the Polygon Mainnet. If you have DATA token holdings on the Ethereum Mainnet or some other chain, you need to move them to the Polygon Mainnet and deposit them to the address of your Broker node(s). Only DATA can be used for staking. The stake needs to remain on the node’s address - if you transfer it out, the node will not accumulate rewards anymore. Rewards already claimed will not be affected.
-
-For a step-by-step tutorial on how to run a Broker node and stake tokens on it, see [this blog post](https://blog.streamr.network/streamr-network-staking-how-to-mine-rewards-in-the-brubeck-mainnet/).

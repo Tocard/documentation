@@ -1,11 +1,9 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Run a node
-
 ## Setting up a Broker node
-
 Broker nodes are Streamr nodes that run externally to your application. You start up a node on a server, and interface with it remotely using one of the supported protocols.
 
 The Broker node ships with plugins for HTTP, Websocket, and MQTT protocols. Libraries for these protocols exist in practically every programming language, meaning that you can conveniently publish and subscribe to data from the Streamr Network using any programming language. Learn how to connect your applications to your node using one of these protocols.
@@ -13,7 +11,6 @@ The Broker node ships with plugins for HTTP, Websocket, and MQTT protocols. Libr
 When applications use the Streamr Network via a Broker node, data signing, encryption, validation, and other complex cryptography happens at the node. This offloads processing from the application, and is also suitable for environments with limited hardware resources.
 
 ## Two ways to run your node
-
 The software comes in two flavours of packaging: a Docker image and an npm package.
 
 Which method should you choose? If you have either Docker or Node.js (16.x) already installed, use the one you know. Otherwise, try the Docker approach first, and if that doesn’t work for you, go for the npm approach.
@@ -21,15 +18,12 @@ Which method should you choose? If you have either Docker or Node.js (16.x) alre
 Once you have either Docker or Node.js installed, the steps to download and start the node are very similar, regardless of whether you’re running Linux, macOS, or Windows (use PowerShell). You may need to adapt the commands for your platform or install OS-specific dependencies, if they are missing.
 
 ## The configuration wizard
-
 As part of both approaches, we show how to run the configuration wizard to initialize your node’s config file, which will be saved on your disk. The wizard will let you either generate or import an Ethereum private key for your node, as well as ask which plugins you want to enable.
 
 ## The Docker approach
-
 If you don’t have Docker, get it [here](https://docs.docker.com/get-docker/). Once installed, you can download, configure, and start the Streamr Broker.
 
 ### Step 1: Set up a directory to be mounted into a running Docker container
-
 You’ll need a place in the host operating system where the Broker configuration file will be stored. This directory will be mounted into the running Docker container so that it persists and remains accessible outside of Docker.
 
 -   Create the directory with the command:
@@ -39,7 +33,6 @@ mkdir ~/.streamrDocker
 ```
 
 ### Step 2: Configure your node with Docker and Config Wizard
-
 -   Start the config wizard with the below command. Docker will download the Broker image unless you have it already.
 
 **Linux / macOS**
@@ -63,7 +56,6 @@ docker run -it -v ${pwd}:/home/streamr/.streamr streamr/broker-node:latest bin/c
 Towards the end, the wizard asks if you would like it to display your Ethereum private key. From here you should copy-paste it to a safe place! You can also find it later in the configuration file, which is saved by default to `.streamrDocker/broker-config.json` under your home directory.
 
 ### Step 3: Start the Broker Node using Docker
-
 -   Start the node with the below command:
 
 Note that the `--publish` argument for Docker command is not required and only provided for examples sake. Streamr Node is smart enough to find it's way to connect to another Streamr Node without punching holes in the firewall.
@@ -95,11 +87,9 @@ INFO [2022-02-17T07:51:07.056] (broker              ): Welcome to the Streamr Ne
 ```
 
 ## The npm approach
-
 If you don’t have Node.js, install it using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) or manually from the [Node.js site](https://nodejs.org/en/download/). The Broker requires at least Node.js version 14.x. Once installed, you can download, configure, and start the Streamr Broker.
 
 ### Step 1: Install the latest version using npm
-
 -   Run `npm install -g streamr-broker@latest` to download and install the package. You may need administrative access to run this command.
 
 ```
@@ -109,7 +99,6 @@ npm install -g streamr-broker@latest
 -   There can be plenty of output from npm. If the installation fails with an error, you should address it before continuing.
 
 ### Step 2: Configure your node with streamr-broker-init
-
 -   Run `streamr-broker-init` to generate a configuration file using a step-by-step wizard. Answer the questions by using arrow keys and ‘enter’ to navigate.
 -   Generate or Import Ethereum private key: generate one unless you have one you want to use with the node
 -   Plugins to enable: select the interface protocols you're planning to use and press 'enter'
@@ -119,7 +108,6 @@ npm install -g streamr-broker@latest
 Towards the end, the wizard asks if you would like it to display your Ethereum private key. From here, you should copy-paste it to a safe place! You can also find it later in the configuration file, which is saved by default to `.streamr/broker-config.json` under your home directory.
 
 ### Step 3: Start the Broker node
-
 -   Run `streamr-broker` to start the node! You should start to see logging similar to this:
 
 ```
@@ -134,13 +122,4 @@ INFO [2022-02-17T07:51:07.056] (broker              ): Welcome to the Streamr Ne
 ```
 
 ## Staying safe
-
 The config file contains your node’s private key. If someone gets access to the private key, they can publish and subscribe as you, and steal any tokens you might have in your node's wallet! Read more about identity, keys, and wallets.
-
-## Keeping up to date
-
-Learn how to keep your node up to date.
-
-## Using your Broker node
-
-Next, use your node to publish and subscribe data by connecting your application, or learn about mining.

@@ -2,10 +2,37 @@
 sidebar_position: 2
 ---
 
-# Subscribing
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+# Subscribing
+
+### Subscribing to a stream
+
+```ts
+const subscription = await streamr.subscribe(
+    streamId,
+    (content, metadata) => { ... }
+)
+```
+
+The callback's first parameter, `content`, contains the value given to the `publish` method.
+
+The second parameter `metadata` contains metadata about the message, e.g. timestamp.
+
+Unsubscribing from an existent subscription:
+
+```ts
+await streamr.unsubscribe(streamId);
+// or, unsubscribe them all:
+const streams = await streamr.unsubscribe();
+```
+
+Getting all streams the client is subscribed to:
+
+```ts
+const subscriptions = streamr.getSubscriptions();
+```
 
 <Tabs groupId="environment">
   <TabItem value="light-node" label="Light node">
