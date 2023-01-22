@@ -40,7 +40,7 @@ You can generate an Ethereum private key using any Ethereum wallet, or you can u
 :::
 
 ## Create the stream
-A stream is simply a **sequence of data points in time**, i.e. an append only log. This is semantically equivalent to **topics** in traditional [pub/sub networks](usage/pub-sub.md).
+A stream is simply a **sequence of data points in time**, i.e. an append only log. This is semantically equivalent to **topics** in traditional pub/sub networks.
 
 
 ```ts

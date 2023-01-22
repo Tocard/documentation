@@ -57,37 +57,25 @@ const config = {
           alt: 'Streamr Logo',
           src: 'img/streamr-logo.svg',
         },
-        items: [
-          {
-            type: 'doc',
-            docId: 'quickstart/nodejs',
-            position: 'left',
-            label: 'Quickstart',
-          },
-          {
-            type: 'doc',
-            docId: 'usage/streams',
-            position: 'left',
-            label: 'Usage',
-          },
-          {
-            type: 'doc',
-            docId: 'streamr-network/pub-sub',
-            position: 'left',
-            label: 'Streamr Network',
-          },
-          {
-            type: 'doc',
-            docId: 'node-runners/run-a-node',
-            position: 'left',
-            label: 'Run A Node',
-          },
-          {
-            href: 'https://streamr.network/core',
-            label: 'Streamr Hub',
-            position: 'right',
-          },
-        ],
+        // items: [
+        //   {
+        //     type: 'doc',
+        //     docId: 'quickstart/nodejs',
+        //     position: 'left',
+        //     label: 'Quickstart',
+        //   },
+        //   {
+        //     type: 'doc',
+        //     docId: 'node-runners/run-a-node',
+        //     position: 'left',
+        //     label: 'Run A Node',
+        //   },
+        //   {
+        //     href: 'https://streamr.network/core',
+        //     label: 'Streamr Hub',
+        //     position: 'right',
+        //   },
+        // ],
       },
       footer: {
         style: 'dark',
