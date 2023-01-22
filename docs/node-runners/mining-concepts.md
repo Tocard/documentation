@@ -5,7 +5,7 @@ sidebar_position: 3
 # Mining concepts
 Mining means that a Broker node subscribes to selected incentivized streams and helps propagate the messages in those streams, essentially contributing bandwidth to the stream in exchange for earning DATA tokens. Technically, the mining process is controlled by a mining plugin that is included with the Broker node.
 
-The mining process and associated token economics are described at a high level on the <a target="_blank" rel="noopener noreferrer" href={routes.site.discover.dataToken()}>DATA token page</a> on the project website, as well as in the <Link to={docsLinks.tokenomics}>Tokenomics</Link> section of the docs.
+The mining process and associated token economics are described at a high level on the DATA token page on the project website, as well as in the Tokenomics section of the docs.
 
 ## Coming in Tatum
 The full token economics, along with delegated staking and the ability to incentivize any stream, will be launched in the Tatum milestone.
@@ -13,8 +13,8 @@ The full token economics, along with delegated staking and the ability to incent
 ## Mining in Brubeck
 A simplified form of mining is possible in the current mainnet, called Brubeck. To mine, you need to do two things:
 
--   <Link to={docsLinks.installingABrokerNode}>Run a Broker node</Link>
--   Stake on the Broker node (see below section)
+- Run a Broker node
+- Stake on the Broker node (see below section)
 
 Mining incentives for the Brubeck mainnet have been decided by the Streamr governance process here: [SIP-7](https://snapshot.org/#/streamr.eth/proposal/0x483729ba13a18c5630247d57a28e02241efb47cf52b7055d27488448e1f4e22c).
 
