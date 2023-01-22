@@ -9,6 +9,8 @@ The Streamr Network consists of _nodes_ that interconnect peer-to-peer using the
 
 The Streamr Network is a building block for decentralized applications - a message transport middleware, enabling any number of parties to distribute or exchange information without directly coupling or relying on a central server to broker data. Read more about various use cases.
 
+All of the data in the [Streamr network](usage/streamr-network.md) is contained inside individual streams. The data may originate, for example from machines on the factory floor, sensors in a smart city, in-house databases or systems, or from commercial streaming data feeds.
+
 For further reading, checkout the [light paper](https://streamr.network/lightpaper) and [Network white paper](https://streamr.network/network-whitepaper).
 
 ### Explore the Network

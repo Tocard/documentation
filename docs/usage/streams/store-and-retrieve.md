@@ -1,18 +1,11 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 ---
 
-# Storage
+# Store and retrieve data
 You can enable storage on your streams to **[retain historical messages](usage/storage#requesting-historical-messages) and access it later via `resend`**. By default storage is not enabled on streams.
 
 ## Enable storage
-
-### Enable with Streamr Hub:
-
-coming soon
-
-### Enable with Streamr client:
-
 ```js
 const { StreamrClient, STREAMR_STORAGE_NODE_GERMANY } = require('streamr-client')
 ...

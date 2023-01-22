@@ -2,6 +2,14 @@
 sidebar_position: 2
 ---
 # Creating
+A stream is simply a **sequence of data points in time**, i.e. an append only log. This is semantically equivalent to **topics** in traditional pub/sub networks.
+
+:::tip Stream properties:
+- Sequence of data points in time
+- Any kind of real-time data can be stored in it
+- The data will always be retrieved in the correct order
+- Identified by unique stream IDs
+:::
 
 ```ts
 // Requires MATIC tokens (Polygon blockchain gas token)
