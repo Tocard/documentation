@@ -8,12 +8,13 @@ This tutorial will show you how to publish data into the Streamr Network from in
 - NodeJS 16.13.x or greater
 - MacOS/Linux environments (Windows environments may require minor adjustments)
 - A small amount of `MATIC` to pay for gas on Polygon mainnet. You can reachout to us on the #dev channel of [Discord](https://discord.gg/gZAm8P7hK8) for some tokens.
+- A MQTT library of your choice (this tutorial uses [MQTT.js](https://www.npmjs.com/package/mqtt))
 
 If you have a Helium setup, you may benefit from reading this blog post first, [Helium x Streamr](https://blog.helium.com/helium-x-streamr-ea89c4b61a14)
 
 ## Install & run the Broker node.
 
-You'll need to run a Streamr Broker node to connect your app to.
+You'll need to run a [Streamr Broker node](../streamr-network/nodes#broker-nodes) to connect your app to.
 
 ```shell
 $ npm i -g streamr-broker
@@ -26,6 +27,8 @@ $ streamr-broker-init
 ```
 
 During initiziliation make sure to enable the `mqtt-plugin` and assign a port to it (default is 1883). Other plugins are unnecessary. For more in depth information on installing a Broker node, see the guide on [running a Broker node](https://streamr.network/docs/streamr-network/installing-broker-node).
+
+![image](@site/static/img/mqtt-guide-1.png)
 
 Once the init script is complete you may view your generated configuration file with:
 
@@ -43,13 +46,38 @@ The node's address (its public key) is displayed when the Broker node is started
 
 **TODO: Don't include the session key extension.**
 
-## Configure your stream
+## Configure your stream with our js client
 
-In order to create a stream you will need an Ethereum account with a small amount of `MATIC` (the native token of the Polygon blockchain) to pay for gas to create the stream and make the permission assignment.
+Create a folder cd into it and create a package.json by running
+
+```shell
+$ npm init
+```
+
+The client is available on [NPM](https://www.npmjs.com/package/streamr-client) and can be installed simply with:
+
+```shell
+$ npm install streamr-client
+```
+
+:::note
+Make sure the `PRIVATE_KEY` you add has a small amount of `MATIC` (the native token of the Polygon blockchain) in its wallet to pay for gas to create the stream and make the permission assignment.
+:::
 
 TODO: ** Create a stream widget **
 
-```javascript
+```ts
+// Import the Streamr client
+import StreamrClient from 'streamr-client';
+const PRIVATE_KEY = '';
+
+// Initialize the client with an Ethereum account
+const streamr = new StreamrClient({
+  auth: {
+    privateKey: PRIVATE_KEY,
+  },
+});
+
 const stream = await streamr.getOrCreateStream({
   id: '/sensor/firehose',
 });
@@ -57,11 +85,13 @@ const stream = await streamr.getOrCreateStream({
 
 #### Assign permission to your Broker node
 
-The Broker node needs permission to publish data to your stream. We will be granting the Broker node `PUBLISH` and `SUBSCRIBE` permissions on the stream we just created. This step will consume a small amount of `MATIC` tokens.
+The Broker node **needs permission to publish data to your stream**. We will be granting the Broker node `PUBLISH` and `SUBSCRIBE` permissions on the stream we just created. This step will consume a small amount of `MATIC` tokens.
 
-\*\* Note, take care to not confuse `stream` with `streamr` ;)
+:::note
+Take care to not confuse `stream` with `streamr` ;)
+:::
 
-```javascript
+```ts
 await stream.grantPermissions({
   user: BrokerNodeAddress,
   permissions: [StreamPermission.PUBLISH, StreamPermission.SUBSCRIBE],
@@ -96,28 +126,35 @@ The following instructions are specific to your choice of MQTT library- this tut
 
 In the code sample below, we provide the URL (the IP or address to your Broker node) along with the MQTT port (the default is 1883). To authenticate, use an empty `username` field and enter the `ApiKey` as the `password`.
 
-```javascript
+```ts
 // Node.js example
 
-const mqttClient = await mqtt.connectAsync('mqtt://localhost:1883', {
+const mqttClient = mqtt.connect('mqtt://localhost:1883', {
   username: '',
   password: ApiKey,
 });
 ```
 
-\*\* Note- For URL authentication, for example `mqtt://"":ApiKey@1.2.3.4:1883`. Some MQTT libraries may have issue with an empty username, to get around this you can provide "x" as the username.
+:::note
+For URL authentication, for example `mqtt://"":ApiKey@1.2.3.4:1883`. Some MQTT libraries may have issue with an empty username, to get around this you can provide "x" as the username.
+:::
 
-\*\* Note: If you're connecting to the MQTT interface over the open internet, please remember to make sure the port is open.
+:::note
+If you're connecting to the MQTT interface over the open internet, please remember to make sure the port is open.
 Technical information about the plugin interface can be found in the [Broker plugin docs](https://github.com/streamr-dev/network-monorepo/blob/main/packages/broker/plugins.md).
+:::
 
 #### Start pushing data
 
 With your Broker node running and your MQTT client configured correctly, the final remaining step is to start pushing the data. You will push data by providing a `StreamId` as the first parameter and the JSON payload as the second parameter. The stream ID contains the ethereum addres, i.e. `0x123/sensor/firehose`.
 
-\*\* Push valid JSON! Invalid JSON may silently fail so be sure to run your payload through a JSON validator to double check.
+:::info
+Push valid JSON! Invalid JSON may silently fail so be sure to run your payload through a JSON validator to double check.
+:::
 
-```javascript
+```ts
 // Node.js example
+const StreamId = stream.id;
 
 await mqttClient.publish(StreamId, JSON.stringify({ foo: bar }));
 ```
@@ -139,13 +176,13 @@ Just like you used the Broker node's MQTT interface to publish data into the net
 
 Once connected, you can listen for the `message` callback on the MQTT client. The first parameter will be the `StreamId` and the second parameter will contain the message JSON payload:
 
-```javascript
+```ts
 // NodeJS example
 
 mqttClient.subscribe(StreamId)
 ...
 mqttClient.on('connect', () => {
-    mqttClient.on('message', (streamId, rawData) => {
+    mqttClient.on('message', (StreamId, rawData) => {
         ...
     })
 })
