@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 # Web app frameworks
-In this quickstart guide you'll be using Streamr in a **NextJS** web application. You'll be creating a stream that's publicly readable, but only you can write to it. Your **NextJS** app will be a consumer (subscriber) of the stream. If you want the browser app to be able to write data to the stream, then you'll need to create a publicly writable stream (typically not recommended) or grant access to individual users of your app. This step is typically accomplished with a centralized gate keeping service.
+In this quickstart guide you'll be using Streamr in a **NextJS** web application. You'll be creating a stream that's publicly readable, but only you can write to it. Your NextJS app will be a consumer (subscriber) of the stream. If you want the browser app to be able to write data to the stream, then you'll need to create a publicly writable stream (typically not recommended) or grant access to individual users of your app. This step is typically accomplished with a centralized gate keeping service.
 
 **Prerequisites:**
 - NPM v8 or greater
