@@ -1,9 +1,7 @@
-# Connect with MQTT
-
-This tutorial will show you how to publish data into the Streamr Network from inside your app or device using any MQTT library.
+# Use any language or device
+This tutorial will show you how to publish data into the Streamr Network from inside your app by interfacing with a Broker node that you run using the MQTT protocol. MQTT client libraries are available for a huge variety of programming languages but you can also use WebSockets or HTTP if you prefer.
 
 **Prerequisites:**
-
 - NPM v8 or greater
 - NodeJS 16.13.x or greater
 - MacOS/Linux environments (Windows environments may require minor adjustments)
@@ -13,7 +11,6 @@ This tutorial will show you how to publish data into the Streamr Network from in
 If you have a Helium setup, you may benefit from reading this blog post first, [Helium x Streamr](https://blog.helium.com/helium-x-streamr-ea89c4b61a14)
 
 ## Install & run the Broker node.
-
 You'll need to run a [Streamr Broker node](../streamr-network/nodes#broker-nodes) to connect your app to.
 
 ```shell

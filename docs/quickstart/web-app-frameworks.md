@@ -2,28 +2,23 @@
 sidebar_position: 2
 ---
 
-# NextJS and ReactJS
-
-This is a quickstart guide on reading and writing (publishing and subscribing) to data on the Streamr Network from inside the browser environment
+# Web app frameworks
+In this quickstart guide you'll be using Streamr in a **NextJS** web application. You'll be creating a stream that's publicly readable, but only you can write to it. Your **NextJS** app will be a consumer (subscriber) of the stream. If you want the browser app to be able to write data to the stream, then you'll need to create a publicly writable stream (typically not recommended) or grant access to individual users of your app. This step is typically accomplished with a centralized gate keeping service.
 
 **Prerequisites:**
-
 - NPM v8 or greater
 - NodeJS 16.13.x or greater
 - A basic understanding of ReactJS and/or NextJS
 - A small amount of `MATIC` to pay for gas on Polygon mainnet. You can reachout to us on the #dev channel of [Discord](https://discord.gg/gZAm8P7hK8) for some tokens.
 
 ## Setup & installation
-
 #### Stream creation
-
 First, you need to create a stream to send data from A to B. Then, you will have to set the permissions to who can `PUBLISH` (write) and `SUBSCRIBE` (read) the data from this stream.
 
 [This script](https://github.com/streamr-dev/create-stream-script) handles that for you. Simply clone the repository and follow the README instructions.
 
 #### Installation
-
-TODO: add hub video tutorial
+<!-- TODO: add hub video tutorial -->
 
 Next you need to install the Streamr client in your application:
 
@@ -34,9 +29,7 @@ $ npm install streamr-client
 ```
 
 ## Publishing data to the stream
-
 ### Authenticate automatically
-
 Once you have created the stream, you can start publishing data to it.
 
 The `StreamrClient` handles the authentification of your stream interactions. There are two ways of doing this, depending on your use case.
@@ -76,7 +69,6 @@ export const startPublishingTo = (streamId: string) => {
 Now that you have added a private key, the client will automatically sign messages when you publish the price to the stream to authenticate your publishing address.
 
 ### Authenticate with browser wallet
-
 What if you wanted your users to publish data without requiring them to expose their private key?
 
 Instead of passing the private key, you would pass the wallet provider like this:
@@ -98,7 +90,6 @@ export const startPublishingTo = (streamId: string) => {
 ```
 
 ## Subscribe to the data of your stream
-
 Data is flowing through your stream. Next, you want to subscribe and enable your users to read that data in your React/Next application.
 
 To do that, you need to authenticate your users to know if they have permission to read data from the stream.
@@ -126,7 +117,6 @@ export const startSubscribingTo = (streamId: string) => {
 Todo: either create a seperate guide or add this section once the hooks work again
 
 ## All done 🎉
-
 Congratulations! You accomplished:
 
 - Created a stream and modified its access control
