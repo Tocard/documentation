@@ -2,25 +2,24 @@
 sidebar_position: 2
 ---
 
-# Web app frameworks
-In this quickstart guide you'll be using Streamr in a **NextJS** web application. You'll be creating a stream that's publicly readable, but only you can write to it. Your NextJS app will be a consumer (subscriber) of the stream. If you want the browser app to be able to write data to the stream, then you'll need to create a publicly writable stream (typically not recommended) or grant access to individual users of your app. This step is typically accomplished with a centralized gate keeping service.
+# Web app frameworks v2
+
+In this quickstart guide, you'll be using Streamr in a **ReactJS** web application. You'll be reading from a publicly readable stream. Your ReactJS app will be a consumer (subscriber) of the stream. If you want your app to be able to write data to the stream, then you'll need to grant access to individual users of your app or create a publicly writable stream (the latter is typically not recommended). Publishing is typically accomplished with a centralized gatekeeping service (like a NodeJS server).
 
 **Prerequisites:**
+
 - NPM v8 or greater
 - NodeJS 16.13.x or greater
-- A basic understanding of ReactJS and/or NextJS
+- A basic understanding of ReactJS or NextJS
 - A small amount of `MATIC` to pay for gas on Polygon mainnet. You can reachout to us on the #dev channel of [Discord](https://discord.gg/gZAm8P7hK8) for some tokens.
 
 ## Setup & installation
-#### Stream creation
-First, you need to create a stream to send data from A to B. Then, you will have to set the permissions to who can `PUBLISH` (write) and `SUBSCRIBE` (read) the data from this stream.
-
-[This script](https://github.com/streamr-dev/create-stream-script) handles that for you. Simply clone the repository and follow the README instructions.
 
 #### Installation
+
 <!-- TODO: add hub video tutorial -->
 
-Next you need to install the Streamr client in your application:
+First you need to install the Streamr client in your application:
 
 The client is available on [NPM](https://www.npmjs.com/package/streamr-client) and can be installed simply with:
 
@@ -28,80 +27,31 @@ The client is available on [NPM](https://www.npmjs.com/package/streamr-client) a
 $ npm install streamr-client
 ```
 
-## Publishing data to the stream
-### Authenticate automatically
-Once you have created the stream, you can start publishing data to it.
+## Subscribe to data of a stream
 
-The `StreamrClient` handles the authentification of your stream interactions. There are two ways of doing this, depending on your use case.
+This tutorial shows how to subscribe to a `PUBLIC` [stream](https://streamr.network/marketplace/products/c188a26fc1aa4d6b91772fa4c463cc4968c1156707824a538061baa5a26b3d93/streamPreview/0x8ed334e44265a0c89b7739cb66a8f19675a5fc7a%2Fultrasound.money%2Ffees%2Fburn-categories). The current Ethereum 2.0 burn stats get published onto this stream every minute, and we want to consume this data.
 
-Let's say you wanted to publish the current BTC price to your stream every 3 seconds.
-In the BTC price use case, you need the data to be signed automatically when publishing the data to the stream. (The alternative would be to have it manually signed by, e.g., Metamak)
+To do that, we must first set up the `StreamrClient`. The `StreamrClient` handles the authentification of your stream interactions. It is needed to see if your user has permission to read from the stream.
 
-For that, you would probably have a Node server running that executes a function looking like this:
+In this case, the stream is set to `PUBLIC` (anyone can read). However, since this information gets stored in the Stream registry, which exists inside a smart contract on the Polygon chain, we need a wallet to receive the information.
 
-:::note
-Make sure you use the **same private key** you used to create the stream **or** one of the addresses you gave **`PUBLISH` permission in the `create-stream` script.**
+:::info
+By default, your stream will only have the creator address set for permission to read from your stream.
+If you have created your own stream, set the `SUBSCRIBE` permission to public or allowlist some addresses so that your users can read data from your stream. Learn more about **[access control](../usage/access-control.md)**.
 :::
-
-```ts
-import StreamrClient from 'streamr-client';
-
-export const startPublishingTo = (streamId: string) => {
-  if (streamId !== '' && process.env.PRIVATE_KEY) {
-    // Auth with private key to automate publishing instead of wallet provider
-    const streamr = new StreamrClient({
-      auth: {
-        privateKey: process.env.PRIVATE_KEY,
-      },
-    });
-
-    // Every 3 seconds you publish the current BTC price.
-    const interval = setInterval(() => {
-      streamr.publish(streamId, { btc_price: 67000 - Math.random() * 10 });
-    }, 3000);
-    return interval;
-  } else {
-    console.log('no streamId or private key');
-  }
-};
-```
-
-Now that you have added a private key, the client will automatically sign messages when you publish the price to the stream to authenticate your publishing address.
-
-### Authenticate with browser wallet
-What if you wanted your users to publish data without requiring them to expose their private key?
-
-Instead of passing the private key, you would pass the wallet provider like this:
-
-```ts
-import StreamrClient from 'streamr-client';
-
-export const startPublishingTo = (streamId: string) => {
-  if (streamId !== '' && window.ethereum) {
-    // Added browser wallet (e.g. Metamask) to check if the address has permission to write to the stream
-    const streamr = new StreamrClient({
-      auth: { ethereum: window.ethereum },
-    });
-    streamr.publish(streamId, { chatMsg: 'Hey Will, how are you?' });
-  } else {
-    console.log('no streamId or provider found.');
-  }
-};
-```
-
-## Subscribe to the data of your stream
-Data is flowing through your stream. Next, you want to subscribe and enable your users to read that data in your React/Next application.
-
-To do that, you need to authenticate your users to know if they have permission to read data from the stream.
 
 ```ts
 import StreamrClient from 'streamr-client';
 declare var window: any;
 
-export const startSubscribingTo = (streamId: string) => {
-  // Added browser wallet (e.g. Metamask) to check if the address has permission to read the stream
+export const startSubscribing = () => {
+  const streamId =
+    '0x8ed334e44265a0c89b7739cb66a8f19675a5fc7a/ultrasound.money/fees/burn-categories';
+  // Add a browser wallet (e.g. Metamask) to check if the address has permission to read the stream
   const streamr = new StreamrClient({
     auth: { ethereum: window.ethereum },
+    // if you don't want to make your users connect a wallet use this instead:
+    // auth: { privateKey: process.env.PRIVATE_KEY },
   });
 
   streamr.subscribe(streamId, (message) => {
@@ -112,16 +62,70 @@ export const startSubscribingTo = (streamId: string) => {
 
 ## Use our React hooks
 
-**If you'd like to use Streamr inside a React application, checkout the [Streamr React Client](https://www.npmjs.com/package/streamr-client-react).**
+**If you'd like to use hooks for the Streamr client, checkout the [Streamr React Client](https://www.npmjs.com/package/streamr-client-react).**
 
-Todo: either create a seperate guide or add this section once the hooks work again
+Simply install the following packages in your application:
+
+```shell
+$ npm streamr-client streamr-client-react streamr-client-protocol
+```
+
+The `Provider` component holds its own StreamrClient instance and makes it available to all its children components.
+
+Add a private key to your options and have a global StreamrClient instance. It will interact with the desired streams under the hood.
+
+```tsx title="/src/App.tsx"
+import Provider from 'streamr-client-react';
+import StreamrExample from './streamr-example';
+
+function App() {
+  const options = {
+    auth: { privateKey: process.env.PRIVATE_KEY },
+    // or authenticate with user wallet
+    // auth: { ethereum: window.ethereum }
+  };
+
+  return (
+    <Provider {...options}>
+      <StreamrExample></StreamrExample>
+    </Provider>
+  );
+}
+
+export default App;
+```
+
+You can now add `useSubscribe` in your components to read from your desired streams. In this case, we are reading from a `PUBLIC` stream to which the current Ethereum 2.0 burn rate is getting streamed.
+
+```tsx title="/src/streamr-example.tsx"
+import { useSubscribe } from 'streamr-client-react';
+
+const StreamrExample = () => {
+  const streamId =
+    '0x8ed334e44265a0c89b7739cb66a8f19675a5fc7a/ultrasound.money/fees/burn-categories';
+
+  useSubscribe(streamId, {
+    onMessage: (msg) => {
+      console.log(msg.getContent());
+    },
+  });
+  return <h1>Wow! That was easy!</h1>;
+};
+
+export default StreamrExample;
+```
+
+The result should look something like this:
+
+![image](@site/static/img/public-stream.png)
 
 ## All done 🎉
+
 Congratulations! You accomplished:
 
-- Created a stream and modified its access control
 - Published data to the Streamr Network using the Streamr client
 - Subscribed to flowing data on the Streamr Network using the Streamr client
 - Authenticated your users via Metamask
+- Learned how to use the React hooks with the Streamr client
 
 If you had any problems along the way, please drop a message to the core team on the #dev channel of our [Discord](https://discord.gg/gZAm8P7hK8).
