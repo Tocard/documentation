@@ -44,11 +44,9 @@ Streamr began in 2017, in that time we've built:
 - The Hub; A stream creation and discovery UI.
 
 ### What is the DATA token used for?
-
 DATA is the currency to improve stream security, scalability and privacy \*available in the Tatum Milestone. DATA is also gov & ecosystem..
 
 ### Is Streamr secure?
-
 Yes. Every data point is crypto signed. End to end encryption is
 
 See our paper on encryption.
@@ -56,34 +54,12 @@ See our paper on encryption.
 I'm a developer. What can I built with Streamr?
 We don't have an official list of projects that have built in Streamr, but you can try search for streamr-client on github.
 
-### What are identities on Streamr?
-
-### What does many-to-many data pipelines mean?
-
-Its group messaging
+### Do you have a Python SDK?
+Just JavaScript at the moment. But you can interact with the Network by running a Broker node, then interacting with it via WebSockets, MQTT or HTTP in any language.
 
 ### Does Streamr store data?
+Yes, but currently in a centralized way, using Streamr Storage nodes. There are ecosystem and community efforts underway to bridge the Streamr Network's data transport capabilities with decentralized data storage.
 
-To learn more about signatures, see Sign to send and receive messages using apps built with XMTP.
-
-### Do you have a Python SDK?
-
-Just JavaScript at the moment.
-The Streamr SDK is written in TypeScript for JavaScript and TypeScript projects. It can be used with browser-based frontend frameworks like React and in Node.js.\*\* TODO reword..
-
-### What is Streamr built on. How does the data flow?
-
-### Can I see the streams on Streamr?
-
-### I'm a potential technical partner, how do I get in touch?
-
-### Do I need to expose my private key in the node script?
-
-### How are peers discovered on the network?
-
-What kind of messages and data can the Network transport?
+### What kind of messages and data can the Network transport?
 The Network transports JSON messages only. Full binary support is coming soon.
-
-### Mining -
-
-Can I make an income on Streamr? Yes.
+TODO
