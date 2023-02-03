@@ -19,7 +19,7 @@ Subscribers receive and consume the data from the stream, while Publishers can s
 When a Publisher sends data to the stream, it gets delivered to all services that subscribe to them asynchronously. This increases the flexibility and robustness of the overall system.
 
 :::info
-We are not talking about an `async await` request. That's the point, a service just publishes data but does not `await` for the next service to consume the data. In fact, it does not care. Services that subscribe to the data then receive and consume the data without notifying the publisher.
+Don't confuse this with an `async await` request. That's the point, a service just publishes data but does not `await` for the next service to consume the data. In fact, it does not care. Services that subscribe to the data then receive and consume the data without notifying the publisher.
 :::
 
 The pub/sub Streamr Network allows services to communicate asynchronously, with latencies on the order of under 350 milliseconds.

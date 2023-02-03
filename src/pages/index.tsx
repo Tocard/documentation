@@ -12,8 +12,8 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero', styles.heroBanner)}>
       <div className="container">
-        <h1 className="text--left">{siteConfig.title}</h1>
-        <p className="text--left">{siteConfig.tagline}</p>
+        <h1 className={styles.header + ' text--left'}>{siteConfig.title}</h1>
+        <p className={styles.paragraph + ' text--left'}>{siteConfig.tagline}</p>
       </div>
     </header>
   );

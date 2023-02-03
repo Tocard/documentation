@@ -1,8 +1,10 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@font-face {
+  font-family: 'plex-sans';
+  font-weight: 500;
+  src: url('/fonts/IBMPlexSans-Medium.ttf');
+  font-style: normal;
+  font-display: swap;
+}
 
 /* You can override the default Infima variables here. */
 :root {
@@ -15,15 +17,46 @@
   --ifm-color-primary-lightest: #5268ff;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-emphasis-200: '#EFEFEF';
+  --ifm-heading-font-family: 'plex-sans';
+  --ifm-font-family-base: 'plex-sans';
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #4e89e8;
+  /* --ifm-font-color-base: '#A3A3A3'; */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-emphasis-200: '#333333';
+  --ifm-card-background-color: #292929;
 }
 
 table,
 thead {
   width: 100%;
+}
+
+.primary-button {
+  font-family: var(--ifm-font-family-base);
+  background-color: '#EFEFEF';
+  padding: 0.8rem 1rem 0.8rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background-color: '#FFFFFF' !important;
+}
+
+.table-of-contents::before {
+  content: 'ON THIS PAGE';
+  font-size: 0.8rem;
+  letter-spacing: 1.2px;
+  margin-left: var(--ifm-toc-padding-horizontal);
+}
+
+.navbar__title::after {
+  content: ' DOCS';
+  color: #f65f08;
 }
