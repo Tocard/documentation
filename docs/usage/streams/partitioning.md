@@ -3,16 +3,13 @@ sidebar_position: 7
 ---
 
 # Partitioning
-
-:::tip Key Point:
-Partitioning (sharding) **enables streams to scale horizontally**.
-
-Partitions can be understood as sub-streams, or in other words, parts of a stream.
+Partitions (sharding) can be understood as sub-streams, or in other words, parts of a stream, and it **enables streams to scale horizontally**. 
 
 Currently partitions don’t have well-defined rate limits, but future versions of the P2P network may enforce limits. For now, we recommend not exceeding around 100 msg/sec/partition.
-:::
 
 For streams that need to handle large data rates, partitions are used for sharding of the data. Sharding data simply means **dividing a large volume of messages to multiple partitions.**
+
+Partitions are a way for subscribers to load balance data from a stream over a number of consuming processes, up to the number of partitions. So if a stream has 5 partitions, the user could start up to 5 independent subscribers on separate physical machines, with each subscriber receiving different messages (each process subscribes to a unique partition).
 
 > _Think of it like a large river can split the same amount of water to multiple smaller branches._
 
@@ -26,15 +23,8 @@ However, the partitions **behave independently when it comes to delivering and s
 When messages are published to a stream, they are actually published to a partition within that stream. One partition per stream is the default, which is sufficient for streams with moderate rates of data (approx. less than 100 msg/sec).
 :::
 
-### Why partition a stream
-
-Partitions enable subscribers to **scale horizontally**: a user consuming data from a stream could **load balance the messages** over a number of consuming processes, up to the number of partitions.
-
-So if a stream has 5 partitions, the user could start up to 5 independent subscribers on separate physical machines, with each subscriber receiving different messages (each process subscribes to a unique partition).
-
 ## Create partitioned streams
-
-Create new partions if your messages **extend approx. 100 msg/sec per partition**
+Create new partions if your messages extend approx. 100 msg/sec per partition.
 
 By default, streams only have 1 partition when they are created. The partition count can be set to any number between 1 and 100. An example of creating a partitioned stream:
 
@@ -51,28 +41,7 @@ console.log(
 );
 ```
 
-:::note
-
-The client generally supports the following **three ways of defining a stream id**:
-
-```ts
-// Stream id as a string:
-const streamId = `${address}/foo/bar`;
-
-// Stream id + partition as a string
-const streamId = `${address}/foo/bar#4`;
-
-// Stream id + partition as an object
-const streamId = {
-  id: `${address}/foo/bar`,
-  partition: 4,
-};
-```
-
-:::
-
 ## Publish to partitioned streams
-
 In most use cases, a user wants **related messages (e.g. messages from a particular device) to be assigned to the same partition**, so that the messages retain a deterministic order and reach the same subscriber(s) to allow them to compute stateful aggregates correctly.
 
 If no partition is specified, the **data goes to partition 0 by default**.
@@ -90,7 +59,6 @@ await streamr.publish(
 ```
 
 ### Add partition keys
-
 A common approach is to utilize a `partition key`. A `partition key` is **a value chosen from the data** which is used to determine the partition of the message.
 
 For example a customer ID could be used as a `partition key` in an application that publishes customer interactions to a stream. In an IoT use case, the device id can be used as `partition key`.
@@ -110,10 +78,7 @@ await stream.publish(msg, {
 ```
 
 ## Subscribe to partitioned streams
-
 By default, the client subscribes to the first partition (partition `0`) of a stream.
-
-Be aware: this behavior will change in the future so that it will subscribe to _all_ partitions by default.
 
 The partition number can be explicitly given in `subscribe`:
 
@@ -130,7 +95,6 @@ const sub = await streamr.subscribe(
 ```
 
 #### subscribe to multiple partitions:
-
 ```ts
 const onMessage = (content, streamMessage) => {
   console.log(
