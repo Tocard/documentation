@@ -16,9 +16,6 @@ Yes. Anyone can run a node on the Network and anyone can create a stream on the 
 ### Does Streamr scale?
 Yes. We've worked very hard to prove that the Network does indeed scale. You can read more about that in our technical [Network whitepaper](https://streamr.network/network-whitepaper) and our higher level blog post about the [performance and scalability of the Network](https://blog.streamr.network/streamr-network-performance-and-scalability-whitepaper/)
 
-### How fast and scalable is the Network?
-On some of the largest streams, messages reach all interested subscribers within a third of a second.
-
 ### What has the project delivered so far?
 Streamr began in 2017, in that time the project has delivered:
 - The decentralized real time data network
