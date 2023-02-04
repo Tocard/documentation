@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Debugging
+# Debugging streams
 <!-- TODO, talking through common connectivity issues and so on -->
 Turning up the log level is a good way to diagnose tricky connectivity problems. There are two ways to set a desired logging level.
 

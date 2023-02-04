@@ -31,8 +31,24 @@ const stream = await client.createStream({
 console.log(stream.id); // e.g. `0x12345.../foo/bar`
 ```
 
-More information on Stream IDs can be found under the [stream creation project docs](https://streamr.network/docs/streams/creating-streams)
+:::note
+The client generally supports the following **three ways of defining a stream id**:
 
+```ts
+// Stream id as a string:
+const streamId = `${address}/foo/bar`;
+
+// Stream id + partition as a string
+const streamId = `${address}/foo/bar#4`;
+
+// Stream id + partition as an object
+const streamId = {
+  id: `${address}/foo/bar`,
+  partition: 4,
+};
+```
+
+:::
 
 ### Interacting with the `Stream` object
 The `Stream` type provides a convenient way to interact with a stream without having to repeatedly pass Stream IDs.
