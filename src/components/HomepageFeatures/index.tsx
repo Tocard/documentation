@@ -6,6 +6,7 @@ import Link from '@docusaurus/Link';
 type GatewayCard = {
   title: string;
   icon: string;
+  buttonText: string;
   link: string;
   description: JSX.Element;
 };
@@ -13,53 +14,65 @@ type GatewayCard = {
 const FeatureList: GatewayCard[] = [
   {
     title: 'Quickstart',
-    icon: '🪄',
-    description: <>Practical guides for developers to get started with Streamr</>,
+    icon: 'img/quickstart.png',
+    description: (
+      <>Practical guides for developers to get started with Streamr</>
+    ),
+    buttonText: 'Discover quickstart',
     link: '/docs/quickstart/nodejs',
   },
   {
     title: 'Usage',
-    icon: '👩🏽‍💻',
+    icon: 'img/usage.png',
     description: (
       <>
-        Get your head around the main concepts. Learn how to interact with the Network. 
+        Get your head around the main concepts. Learn how to interact with the
+        Network.
       </>
     ),
+    buttonText: 'Explore usage',
     link: '/docs/quickstart/nodejs',
   },
   {
     title: 'Streamr Network',
-    icon: '🌐',
+    icon: 'img/network.png',
     description: (
       <>
-        Technical theory and advanced topics related to how the Streamr Network works.
+        Technical theory and advanced topics related to how the Streamr Network
+        works.
       </>
     ),
+    buttonText: 'Explore Streamr Network',
     link: '/docs/quickstart/nodejs',
   },
   {
     title: 'Node runners',
-    icon: '👾',
+    icon: 'img/noderunner.png',
     description: (
       <>
-        Learn how to contribute your bandwidth and support the Network as a node runner.
+        Learn how to contribute your bandwidth and support the Network as a node
+        runner.
       </>
     ),
+    buttonText: 'Run a node',
     link: '/docs/quickstart/nodejs',
   },
 ];
 
-function Feature({ title, icon, description, link }: GatewayCard) {
+function Feature({ title, icon, description, buttonText, link }: GatewayCard) {
   return (
-    <Link style={{ textDecoration: 'none' }} to={link}>
-      <div className={styles.card}>
-        <div className={styles.icon}>{icon}</div>
-        <div className="text--left">
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </div>
+    <div className={styles.card}>
+      <div className={styles.icon}>
+        <img src={icon} alt="" />
       </div>
-    </Link>
+      <div className={styles.text + 'text--left'}>
+        <h3 className={styles.header}>{title}</h3>
+        <p className={styles.paragraph}>{description}</p>
+        <Link style={{ textDecoration: 'none' }} to={link}>
+          <button className="primary-button">{buttonText}</button>
+        </Link>
+      </div>
+    </div>
   );
 }
 
