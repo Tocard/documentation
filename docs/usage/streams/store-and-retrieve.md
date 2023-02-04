@@ -5,6 +5,13 @@ sidebar_position: 5
 # Store and retrieve data
 You can enable storage on your streams to **[retain historical messages](usage/storage#requesting-historical-messages) and access it later via `resend`**. By default storage is not enabled on streams.
 
+
+:::info Good to know:
+**Publisher liveness**
+
+To perform the key exchange with the subscribers, the publisher must be online and present in the Network. Streamr can be configured to work with Lit protocol to offer key exchange which removes the liveness requirement.
+:::
+
 ## Enable storage
 ```ts
 const { StreamrClient, STREAMR_STORAGE_NODE_GERMANY } = require('streamr-client')
