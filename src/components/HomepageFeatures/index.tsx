@@ -31,7 +31,7 @@ const FeatureList: GatewayCard[] = [
       </>
     ),
     buttonText: 'Explore usage',
-    link: '/docs/quickstart/nodejs',
+    link: '/docs/usage/authenticate',
   },
   {
     title: 'Streamr Network',
@@ -43,7 +43,7 @@ const FeatureList: GatewayCard[] = [
       </>
     ),
     buttonText: 'Explore Streamr Network',
-    link: '/docs/quickstart/nodejs',
+    link: '/docs/streamr-network',
   },
   {
     title: 'Node runners',
@@ -55,7 +55,7 @@ const FeatureList: GatewayCard[] = [
       </>
     ),
     buttonText: 'Run a node',
-    link: '/docs/quickstart/nodejs',
+    link: '/docs/node-runners/run-a-node',
   },
 ];
 
