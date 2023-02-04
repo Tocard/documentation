@@ -6,7 +6,7 @@ sidebar_position: 5
 You can enable storage on your streams to **[retain historical messages](usage/storage#requesting-historical-messages) and access it later via `resend`**. By default storage is not enabled on streams.
 
 ## Enable storage
-```js
+```ts
 const { StreamrClient, STREAMR_STORAGE_NODE_GERMANY } = require('streamr-client')
 ...
 // assign a stream to a storage node
@@ -15,7 +15,7 @@ await stream.addToStorageNode(STREAMR_STORAGE_NODE_GERMANY)
 
 Other operations with storage:
 
-```js
+```ts
 // remove the stream from a storage node
 await stream.removeFromStorageNode(STREAMR_STORAGE_NODE_GERMANY);
 // fetch the storage nodes for a stream
@@ -32,7 +32,7 @@ By default `subscribe` will not request historical messages.
 
 ### Fetch historical messages with the `resend` method
 
-```js
+```ts
 // Fetches the last 10 messages stored for the stream
 const resend1 = await streamr.resend(
   streamId,
@@ -45,7 +45,7 @@ const resend1 = await streamr.resend(
 
 ### Fetch historical messages and subscribe to real-time messages
 
-```js
+```ts
 // Fetches the last 10 messages and subscribes to the stream
 const sub1 = await streamr.subscribe(
   {
@@ -60,7 +60,7 @@ const sub1 = await streamr.subscribe(
 
 ### Resend from a specific timestamp up to the newest message
 
-```js
+```ts
 const sub2 = await streamr.resend(streamId, {
   from: {
     timestamp: Date.now() - 1000 * 60 * 5, // 5 minutes ago
@@ -72,7 +72,7 @@ const sub2 = await streamr.resend(streamId, {
 
 ### Resend a range of messages
 
-```js
+```ts
 const sub3 = await streamr.resend(streamId, {
   from: {
     timestamp: Date.now() - 1000 * 60 * 10, // 10 minutes ago
@@ -91,7 +91,7 @@ const sub3 = await streamr.resend(streamId, {
 
 If you choose one of the above resend options when subscribing, you can listen on the completion of this resend by doing the following:
 
-```js
+```ts
 const sub = await streamr.subscribe(options);
 sub.once('resendComplete', () => {
   console.log(

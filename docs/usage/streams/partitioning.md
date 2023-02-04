@@ -38,7 +38,7 @@ Create new partions if your messages **extend approx. 100 msg/sec per partition*
 
 By default, streams only have 1 partition when they are created. The partition count can be set to any number between 1 and 100. An example of creating a partitioned stream:
 
-```js
+```ts
 // Requires MATIC tokens (Polygon blockchain gas token)
 const stream = await streamr.createStream({
   id: `/foo/bar`,
@@ -55,7 +55,7 @@ console.log(
 
 The client generally supports the following **three ways of defining a stream id**:
 
-```js
+```ts
 // Stream id as a string:
 const streamId = `${address}/foo/bar`;
 
@@ -79,7 +79,7 @@ If no partition is specified, the **data goes to partition 0 by default**.
 
 You can specify the partition number as follows:
 
-```js
+```ts
 await streamr.publish(
   {
     id: `${address}/foo/bar`,
@@ -103,7 +103,7 @@ This way, **all messages from a particular customer always go to the same partit
 
 The `partition key` can be given as an argument to the `publish` methods, and the library assigns a deterministic partition number automatically:
 
-```js
+```ts
 await stream.publish(msg, {
   partitionKey: msg.vehicleId,
 });
@@ -117,7 +117,7 @@ Be aware: this behavior will change in the future so that it will subscribe to _
 
 The partition number can be explicitly given in `subscribe`:
 
-```js
+```ts
 const sub = await streamr.subscribe(
   {
     id: streamId,
@@ -131,7 +131,7 @@ const sub = await streamr.subscribe(
 
 #### subscribe to multiple partitions:
 
-```js
+```ts
 const onMessage = (content, streamMessage) => {
   console.log(
     'Got message %o from partition %d',
