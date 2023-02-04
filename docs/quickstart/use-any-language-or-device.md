@@ -107,7 +107,7 @@ Before your app or device can push data to the Broker node, we will need to prov
 $ cat ~/.streamr/config/default.json
 ```
 
-```json
+```tson
 
 {
     ...

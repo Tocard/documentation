@@ -6,7 +6,7 @@ sidebar_position: 6
 
 If your use case tolerates missing messages and message arriving out-of-order, you can turn off message ordering and gap filling when creating a instance of the client:
 
-```js
+```ts
 const streamr = new StreamrClient({
     auth: { ... },
     orderMessages: false,

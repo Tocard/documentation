@@ -23,7 +23,7 @@ Stream permissions can be modified using the [Streamr client](https://www.npmjs.
 
 You can import the `StreamPermission` enum with:
 
-```js
+```ts
 const { StreamPermission } = require('streamr-client');
 
 StreamPermission.PUBLISH;
@@ -36,13 +36,13 @@ StreamPermission.GRANT;
 ### Check permissions
 The full list of permissions for a stream can be queried by calling `stream.getPermissions()`:
 
-```js
+```ts
 const permissions = await stream.getPermissions();
 ```
 
 The returned value is an array of permissions containing an item for each user, and possibly one for public permissions:
 
-```js
+```ts
 permissions = [
   { user: '0x12345...', permissions: ['subscribe', 'publish'] },
   { public: true, permissions: ['subscribe'] },
@@ -51,7 +51,7 @@ permissions = [
 
 You can query the existence of a user's permission with `hasPermission()`. Usually you want to use `allowPublic: true` flag so that the existence of a public permission is also checked:
 
-```js
+```ts
 await stream.hasPermission({
     permission: StreamPermission.PUBLISH,
     user: '0x12345...',
@@ -67,7 +67,7 @@ A stream can either either be made as public or private. A stream that is public
 - Public `PUBLISH` permission is typically **not recommended** as it means anyone could write data to your stream.
 
 #### Grant public permission to subscribe
-```js
+```ts
 await stream.grantPermissions({
   public: true,
   permissions: [StreamPermission.SUBSCRIBE],
@@ -75,7 +75,7 @@ await stream.grantPermissions({
 ```
 
 #### Revoke public permission to subscribe
-```js
+```ts
 await stream.revokePermissions({
   public: true,
   permissions: [StreamPermission.SUBSCRIBE],
@@ -84,7 +84,7 @@ await stream.revokePermissions({
 
 ### Grant and revoke user permissions
 #### Grant publish permission to a user
-```js
+```ts
 await stream.grantPermissions({
   user: '0x12345...',
   permissions: [StreamPermission.PUBLISH],
@@ -92,7 +92,7 @@ await stream.grantPermissions({
 ```
 
 #### Revoke permission from a user
-```js
+```ts
 await stream.revokePermissions({
   user: '0x12345...',
   permissions: [StreamPermission.PUBLISH],
@@ -104,7 +104,7 @@ await stream.revokePermissions({
 The method `streamr.setPermissions` can be used to set an exact set of permissions for one or more streams. Note that if there are existing permissions for the same users in a stream, the previous permissions are overwritten. Also note that this method cannot be used on the `stream` object, but via the `StreamrClient` instance. The `StreamrClient` instance is typically named `streamr`.
 :::
 
-```js
+```ts
 await streamr.setPermissions({
     streamId,
     assignments: [
