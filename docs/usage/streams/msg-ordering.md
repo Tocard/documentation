@@ -3,7 +3,8 @@ sidebar_position: 6
 ---
 
 # Message ordering
-
+Streams on the Streamr Network deliver ordered messages.
+ 
 If your use case tolerates missing messages and message arriving out-of-order, you can turn off message ordering and gap filling when creating a instance of the client:
 
 ```ts
