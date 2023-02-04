@@ -21,7 +21,7 @@ Your stream would grow over time and you can add more colums/data fields to your
 ### Example data point
 Here's a data point in a stock market stream:
 
-```tson
+```json
 {
   "Symbol": "PFFT",
   "EventType": 1,
