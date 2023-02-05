@@ -57,7 +57,7 @@ We have created a stream with a stream ID that resembles `0x123.../foo/bar`. The
 :::tip Key Point:
 Take care to not mix up `stream` with `streamr`!
 
-**Learn more about [streams](../usage/streams.md)**
+**Learn more about [streams](../usage/creating-streams.md)**
 :::
 
 Alternatively, you can use `getOrCreateStream` to use an existing stream.
