@@ -5,6 +5,8 @@ sidebar_position: 7
 # Partitioning
 Partitions (sharding) can be understood as sub-streams, or in other words, parts of a stream, and it **enables streams to scale horizontally**. 
 
+<!-- TODO: copy Stream partitioning from https://www.npmjs.com/package/streamr-client -->
+
 Currently partitions don’t have well-defined rate limits, but future versions of the P2P network may enforce limits. For now, we recommend not exceeding around 100 msg/sec/partition.
 
 For streams that need to handle large data rates, partitions are used for sharding of the data. Sharding data simply means **dividing a large volume of messages to multiple partitions.**
