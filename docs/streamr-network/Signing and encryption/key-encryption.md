@@ -1,9 +1,9 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 # Key encryption
-Messages published to a non-public stream are always encrypted. The publishing client creates the encryption keys and delivers them to the subscribers automatically. In most use cases, there is no need to manage encryption keys manually.
+Messages published to a non-public (i.e. private) stream are always encrypted. The publishing client creates the encryption keys and delivers them to the subscribers automatically. In most use cases, there is no need to manage encryption keys manually.
 
 ## Typical use cases
 A new encryption key is generated when publishing activity to a stream starts. The keys don't change during the lifetime of a client unless explicitly updated.
@@ -22,7 +22,7 @@ In practice, an update is needed if:
 
 Both of the use cases are covered if you call:
 
-```
+```ts
 client.updateEncryptionKey({
     streamId,
     distributionMethod: 'rekey'
@@ -34,7 +34,7 @@ You may want to call this method regularly (e.g. daily/weekly). Alternatively yo
 ## Optimization: key rotation
 You can optimize the key distribution by using `rotate` instead of `rekey`. The optimization is applicable if subscriptions haven't expired or been removed. In that situation you can update the key by calling:
 
-```
+```ts
 client.updateEncryptionKey({
     streamId,
     distributionMethod: 'rotate'
@@ -49,7 +49,7 @@ In detail, the difference between the methods is:
 ## Pre-agreed keys
 If you don't want to exchange the keys via the network, you can use pre-agreed keys like this:
 
-```
+```ts
 const key = new GroupKey('key-id', crypto.randomBytes(32))
 publisher.updateEncryptionKey({
     key,
@@ -64,3 +64,6 @@ There are two optional configuration options related to encryption keys:
 
 - `decryption.keyRequestTimeout`: max time (in milliseconds) to wait before a key request timeouts
 - `decryption.maxKeyRequestsPerSecond`: max count of key request to be sent within a second (i.e. it throttles the requests if it receives messages from many new publishers within a short period of time)
+
+## Lit protocol
+[Lit Protocol](https://litprotocol.com) is a decentralized key management network powered by threshold cryptography. Streamr can be configured to use Lit to manage stream key management. See the [store and retrieve data](../../usage/Streams/store-and-retrieve.md) section for more information on combining Lit with Streamr.

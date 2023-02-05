@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Data signing and verification
 Authenticity and integrity of events published on a stream is guaranteed with digital signatures. All messages published to streams are cryptographically signed, which prevents tampering of messages and allows recipients to validate the message's publisher.
 
