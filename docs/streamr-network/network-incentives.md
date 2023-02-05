@@ -21,7 +21,7 @@ So, very roughly, what determines the quality of service in a stream’s topolog
 
 Traditional software products often have freemium and paid plans. Decentralized protocols usually have more of a grayscale spectrum as a result of being subject to true market conditions – you pay more for better service. Gas price on Ethereum is a good example: you bid a higher gas price to incentivise miners to execute your transaction faster. A similar economy is at play on Streamr: you pay less (or even nothing) if you’re happy with best-effort performance, while you can pay to incentivise nodes to make your stream more robust and secure.
 
-For the sake of clarity, the Streamr Network tokenomics should not be confused with the transactions happening on the [Streamr Marketplace](https://streamr.network/marketplace). On the Network, people pay for infrastructure costs; for _data delivery_. On the Marketplace, people pay for access to _data content_. Here’s an analogue: when you order an item from an online store, someone (either you or the store) pays the postal service for _package delivery_. You also pay the online store for the item you ordered, or the _package content_. Note that you can very well use the Network for data delivery without using the Marketplace at all, just like you can send and receive packages without ordering stuff from online stores.
+For the sake of clarity, the Streamr Network tokenomics should not be confused with the transactions that buy access to data. On the Network, people pay for infrastructure costs; for _data delivery_. On the application layer, people pay for access to _data content_. Here’s an analogue: when you order an item from an online store, someone (either you or the store) pays the postal service for _package delivery_. You also pay the online store for the item you ordered, or the _package content_. Note that you can very well use the Network for data delivery without using the Marketplace at all, just like you can send and receive packages without ordering stuff from online stores.
 
 ### The roles in the Streamr tokenomics
 Publishers and Subscribers are already familiar roles in the Streamr Network. These roles are only related to the data flows in the network, meaning these roles could be seen as being one layer ‘below’ the tokenomics. In the below diagrams, data flows are shown in _blue_.
@@ -29,6 +29,8 @@ Publishers and Subscribers are already familiar roles in the Streamr Network. Th
 The introduction of token economics defines three new roles: Sponsor, Broker, and Delegator. These roles use DATA tokens to participate in the incentive mechanisms, and those value flows are shown in the diagrams below in _orange_.
 
 It should be noted that the roles are independent of each other and can be mixed and matched by all actors depending on their goals, for example, the same person could be a Sponsor, Publisher, and a Delegator.
+
+<!-- TODO - re-add these images -->
 
 <!-- <Image
     src={PublisherApp}
