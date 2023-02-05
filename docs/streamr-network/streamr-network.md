@@ -3,13 +3,13 @@ sidebar_position: 1
 ---
 
 # What is the Streamr Network
-The Streamr Network is a peer-to-peer network for publishing and subscribing to data in real-time. Applications use it for _decentralized messaging_, for example sharing data across applications or broadcasting information to large audiences. The decentralized nature of the system makes the data transport scalable, robust, secure, tamper proof, and censorship resistant.
+The Streamr Network is a peer-to-peer network for publishing and subscribing to data in real-time. Applications use it for _decentralized messaging_, for example sharing data across applications or broadcasting real-time state changes to large audiences. The decentralized nature of the system makes the data transport scalable, robust, secure, tamper proof, and censorship resistant.
 
 The Streamr Network consists of _nodes_ that interconnect peer-to-peer using the Streamr protocol. Together, the nodes in the Network form a topic-based publish-subscribe messaging system. Topics in this messaging system are called streams. The job of the Network is to deliver published streams of messages to all subscribers of that stream.
 
-The Streamr Network is a building block for decentralized applications - a message transport middleware, enabling any number of parties to distribute or exchange information without directly coupling or relying on a central server to broker data. Read more about various use cases.
+The Streamr Network is a building block for decentralized applications - a message transport middleware, enabling any number of parties to distribute or exchange information without directly coupling or relying on a central server to broker data.
 
-All of the data in the [Streamr network](usage/streamr-network.md) is contained inside individual streams. The data may originate, for example from machines on the factory floor, sensors in a smart city, in-house databases or systems, or from commercial streaming data feeds.
+All of the data in the Streamr network is contained inside individual [streams](../usage/Streams/creating-streams.md). The data may originate, for example from your app, machines on the factory floor, sensors in a smart city, in-house databases or systems, or from commercial streaming data feeds.
 
 For further reading, checkout the [light paper](https://streamr.network/lightpaper) and [Network white paper](https://streamr.network/network-whitepaper).
 
