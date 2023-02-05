@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# Creating
+# Creating streams
 A stream is simply a **sequence of data points in time**, i.e. an append only log. This is semantically equivalent to **topics** in traditional pub/sub networks.
 
 :::tip Stream properties:
