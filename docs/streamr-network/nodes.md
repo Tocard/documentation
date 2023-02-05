@@ -3,18 +3,16 @@ sidebar_position: 3
 ---
 
 # Network nodes
-Applications publish and subscribe to streams via Streamr nodes. In other words, nodes are the access points to the Streamr Network. To connect your application to streams, you interface it with a Streamr node.
+Applications publish and subscribe to [streams](../usage/Streams/creating-streams.md) via Streamr nodes. In other words, nodes are the access points to the Streamr Network. To connect your application to streams, you interface it with a Streamr node.
 
 There are two strategies for interfacing applications with Streamr nodes:
-
--   **Light nodes**: the node is imported to your application as a library and runs locally as part of your application
--   **Broker nodes**: the node runs separately, and your application connects to it remotely using one of the supported protocols
+- **Light nodes**: the node (the Streamr JS client) is imported to your application as a library and runs locally as part of your application
+- **Broker nodes**: the node runs separately, and your application connects to it remotely using one of the supported protocols
 
 Which approach to choose depends on your use case. Here are some commonly used decision criteria:
-
--   If you are developing in JS, use light nodes. For other programming languages, use Broker nodes.
--   If your application runs on very limited CPU, memory, or bandwidth (such as battery-powered or embedded devices), use Broker nodes.
--   If you want the data to be cryptographically signed at the source, use light nodes.
+- If you are developing in JS, use light nodes. For other programming languages, use Broker nodes.
+- If your application runs on very limited CPU, memory, or bandwidth (such as battery-powered or embedded devices), use Broker nodes.
+- If you want the data to be cryptographically signed at the source, use light nodes.
 
 ## Light nodes
 Light nodes are Streamr nodes that run locally as part of your application instance. You use it exactly like any other library: you import it to your application and interface with it using function calls.
