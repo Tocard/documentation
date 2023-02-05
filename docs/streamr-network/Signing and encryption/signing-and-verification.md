@@ -1,5 +1,4 @@
 # Data signing and verification
-
 Authenticity and integrity of events published on a stream is guaranteed with digital signatures. All messages published to streams are cryptographically signed, which prevents tampering of messages and allows recipients to validate the message's publisher.
 
 Every message published to a stream has six fields that uniquely identify this message across time, all streams and all publishers:
@@ -11,6 +10,7 @@ Every message published to a stream has six fields that uniquely identify this m
 -   `publisherId`
 -   `msgChainId`
 
+<!-- TODO - bring in the Protocol specification -->
 More details about these fields can be found in the <a href="https://github.com/streamr-dev/streamr-specs/blob/master/PROTOCOL.md" target="_blank" rel="noopener noreferrer">protocol specification</a>. All together they form the message ID. They must be signed along with the actual message content to resist against replay attacks. So the payload to be signed for every message by every publisher is the following.
 
 ```
