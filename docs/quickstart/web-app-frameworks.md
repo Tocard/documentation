@@ -3,23 +3,18 @@ sidebar_position: 2
 ---
 
 # Web app frameworks
-
 In this quickstart guide, you'll be using Streamr in a **ReactJS** web application. You'll be reading from a publicly readable stream. Your ReactJS app will be a consumer (subscriber) of the stream. If you want your app to be able to write data to the stream, then you'll need to grant access to individual users of your app or create a publicly writable stream (the latter is typically not recommended). Publishing is typically accomplished with a centralized gatekeeping service (like a NodeJS server).
 
 **Prerequisites:**
-
 - NPM v8 or greater
 - NodeJS 16.13.x or greater
 - A basic understanding of ReactJS or NextJS
 - A small amount of `MATIC` to pay for gas on Polygon mainnet. You can reachout to us on the #dev channel of [Discord](https://discord.gg/gZAm8P7hK8) for some tokens.
 
 ## Setup & installation
-
 #### Installation
-
-<!-- TODO: add hub video tutorial -->
-
 First you need to install the Streamr client in your application:
+<!-- TODO: add hub video tutorial -->
 
 The client is available on [NPM](https://www.npmjs.com/package/streamr-client) and can be installed simply with:
 
@@ -28,7 +23,6 @@ $ npm install streamr-client
 ```
 
 ## Subscribe to data of a stream
-
 This tutorial shows how to subscribe to a `PUBLIC` [stream](https://streamr.network/marketplace/products/c188a26fc1aa4d6b91772fa4c463cc4968c1156707824a538061baa5a26b3d93/streamPreview/0x8ed334e44265a0c89b7739cb66a8f19675a5fc7a%2Fultrasound.money%2Ffees%2Fburn-categories). The current Ethereum 2.0 burn stats get published onto this stream every minute, and we want to consume this data.
 
 To do that, we must first set up the `StreamrClient`. The `StreamrClient` handles the authentification of your stream interactions. It is needed to see if your user has permission to read from the stream.
@@ -120,7 +114,6 @@ The result should look something like this:
 ![image](@site/static/img/public-stream.png)
 
 ## All done 🎉
-
 Congratulations! You accomplished:
 
 - Published data to the Streamr Network using the Streamr client
