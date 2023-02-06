@@ -78,19 +78,34 @@ const config = {
         // ],
       },
       footer: {
-        style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'DOCS',
             items: [
               {
                 label: 'Quickstart',
-                to: 'docs/quickstart/JS-client',
+                to: 'docs/quickstart/nodejs',
+              },
+              {
+                label: 'Usage',
+                to: 'docs/usage/authenticate',
+              },
+              {
+                label: 'Streamr Network',
+                to: 'docs/streamr-network',
+              },
+              {
+                label: 'Node runners',
+                to: 'docs/node-runners/run-a-node',
+              },
+              {
+                label: 'Help',
+                to: 'docs/help/developer-faq',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'COMMUNITY',
             items: [
               {
                 label: 'Discord',
@@ -103,7 +118,7 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: 'MORE',
             items: [
               {
                 label: 'Blog',
