@@ -4,15 +4,15 @@
 
 ### permission
 
-• **permission**: [`StreamPermission`](../enums/StreamPermission.md)
+• **permission**: `StreamPermission`
 
-___
+---
 
 ### public
 
-• **public**: ``true``
+• **public**: `true`
 
-___
+---
 
 ### streamId
 

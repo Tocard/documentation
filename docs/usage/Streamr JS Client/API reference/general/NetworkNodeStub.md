@@ -8,7 +8,7 @@ This in an internal interface
 
 ### addMessageListener
 
-• **addMessageListener**: (`listener`: (`msg`: [`StreamMessage`](../classes/StreamMessage.md)<`unknown`\>) => `void`) => `void`
+• **addMessageListener**: (`listener`: (`msg`: `StreamMessage`<`unknown`\>) => `void`) => `void`
 
 #### Type declaration
 
@@ -16,29 +16,29 @@ This in an internal interface
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `listener` | (`msg`: [`StreamMessage`](../classes/StreamMessage.md)<`unknown`\>) => `void` |
+| Name       | Type                                           |
+| :--------- | :--------------------------------------------- |
+| `listener` | (`msg`: `StreamMessage`<`unknown`\>) => `void` |
 
 ##### Returns
 
 `void`
 
-___
+---
 
 ### getMetricsContext
 
-• **getMetricsContext**: () => [`MetricsContext`](../classes/MetricsContext.md)
+• **getMetricsContext**: () => `MetricsContext`
 
 #### Type declaration
 
-▸ (): [`MetricsContext`](../classes/MetricsContext.md)
+▸ (): `MetricsContext`
 
 ##### Returns
 
-[`MetricsContext`](../classes/MetricsContext.md)
+`MetricsContext`
 
-___
+---
 
 ### getNeighbors
 
@@ -52,7 +52,7 @@ ___
 
 readonly `string`[]
 
-___
+---
 
 ### getNeighborsForStreamPart
 
@@ -64,15 +64,15 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name           | Type                                            |
+| :------------- | :---------------------------------------------- |
 | `streamPartId` | [`StreamPartID`](../API Reference#streampartid) |
 
 ##### Returns
 
 readonly `string`[]
 
-___
+---
 
 ### getNodeId
 
@@ -86,7 +86,7 @@ ___
 
 `string`
 
-___
+---
 
 ### getRtt
 
@@ -98,15 +98,15 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type     |
+| :------- | :------- |
 | `nodeId` | `string` |
 
 ##### Returns
 
 `undefined` \| `number`
 
-___
+---
 
 ### getStreamParts
 
@@ -120,11 +120,11 @@ ___
 
 `Iterable`<[`StreamPartID`](../API Reference#streampartid)\>
 
-___
+---
 
 ### hasProxyConnection
 
-• **hasProxyConnection**: (`streamPartId`: [`StreamPartID`](../API Reference#streampartid), `contactNodeId`: `string`, `direction`: [`ProxyDirection`](../enums/ProxyDirection.md)) => `boolean`
+• **hasProxyConnection**: (`streamPartId`: [`StreamPartID`](../API Reference#streampartid), `contactNodeId`: `string`, `direction`: `ProxyDirection`) => `boolean`
 
 #### Type declaration
 
@@ -132,17 +132,17 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `streamPartId` | [`StreamPartID`](../API Reference#streampartid) |
-| `contactNodeId` | `string` |
-| `direction` | [`ProxyDirection`](../enums/ProxyDirection.md) |
+| Name            | Type                                            |
+| :-------------- | :---------------------------------------------- |
+| `streamPartId`  | [`StreamPartID`](../API Reference#streampartid) |
+| `contactNodeId` | `string`                                        |
+| `direction`     | `ProxyDirection`                                |
 
 ##### Returns
 
 `boolean`
 
-___
+---
 
 ### hasStreamPart
 
@@ -154,19 +154,19 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name           | Type                                            |
+| :------------- | :---------------------------------------------- |
 | `streamPartId` | [`StreamPartID`](../API Reference#streampartid) |
 
 ##### Returns
 
 `boolean`
 
-___
+---
 
 ### publish
 
-• **publish**: (`streamMessage`: [`StreamMessage`](../classes/StreamMessage.md)<`unknown`\>) => `void`
+• **publish**: (`streamMessage`: `StreamMessage`<`unknown`\>) => `void`
 
 #### Type declaration
 
@@ -174,19 +174,19 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `streamMessage` | [`StreamMessage`](../classes/StreamMessage.md)<`unknown`\> |
+| Name            | Type                        |
+| :-------------- | :-------------------------- |
+| `streamMessage` | `StreamMessage`<`unknown`\> |
 
 ##### Returns
 
 `void`
 
-___
+---
 
 ### removeMessageListener
 
-• **removeMessageListener**: (`listener`: (`msg`: [`StreamMessage`](../classes/StreamMessage.md)<`unknown`\>) => `void`) => `void`
+• **removeMessageListener**: (`listener`: (`msg`: `StreamMessage`<`unknown`\>) => `void`) => `void`
 
 #### Type declaration
 
@@ -194,15 +194,15 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `listener` | (`msg`: [`StreamMessage`](../classes/StreamMessage.md)<`unknown`\>) => `void` |
+| Name       | Type                                           |
+| :--------- | :--------------------------------------------- |
+| `listener` | (`msg`: `StreamMessage`<`unknown`\>) => `void` |
 
 ##### Returns
 
 `void`
 
-___
+---
 
 ### setExtraMetadata
 
@@ -214,15 +214,15 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                           |
+| :--------- | :----------------------------- |
 | `metadata` | `Record`<`string`, `unknown`\> |
 
 ##### Returns
 
 `void`
 
-___
+---
 
 ### subscribe
 
@@ -234,15 +234,15 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name           | Type                                            |
+| :------------- | :---------------------------------------------- |
 | `streamPartId` | [`StreamPartID`](../API Reference#streampartid) |
 
 ##### Returns
 
 `void`
 
-___
+---
 
 ### subscribeAndWaitForJoin
 
@@ -254,16 +254,16 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type                                            |
+| :----------- | :---------------------------------------------- |
 | `streamPart` | [`StreamPartID`](../API Reference#streampartid) |
-| `timeout?` | `number` |
+| `timeout?`   | `number`                                        |
 
 ##### Returns
 
 `Promise`<`number`\>
 
-___
+---
 
 ### unsubscribe
 
@@ -275,19 +275,19 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name           | Type                                            |
+| :------------- | :---------------------------------------------- |
 | `streamPartId` | [`StreamPartID`](../API Reference#streampartid) |
 
 ##### Returns
 
 `void`
 
-___
+---
 
 ### waitForJoinAndPublish
 
-• **waitForJoinAndPublish**: (`msg`: [`StreamMessage`](../classes/StreamMessage.md)<`unknown`\>, `timeout?`: `number`) => `Promise`<`number`\>
+• **waitForJoinAndPublish**: (`msg`: `StreamMessage`<`unknown`\>, `timeout?`: `number`) => `Promise`<`number`\>
 
 #### Type declaration
 
@@ -295,10 +295,10 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `msg` | [`StreamMessage`](../classes/StreamMessage.md)<`unknown`\> |
-| `timeout?` | `number` |
+| Name       | Type                        |
+| :--------- | :-------------------------- |
+| `msg`      | `StreamMessage`<`unknown`\> |
+| `timeout?` | `number`                    |
 
 ##### Returns
 

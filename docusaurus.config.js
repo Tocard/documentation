@@ -11,8 +11,8 @@ const config = {
     'Publish and subscribe to your json based real-time data powered by the decentralized Streamr network.',
   url: 'https://streamr.network/',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config.

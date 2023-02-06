@@ -4,7 +4,7 @@
 
 ### distributionMethod
 
-• **distributionMethod**: ``"rotate"`` \| ``"rekey"``
+• **distributionMethod**: `"rotate"` \| `"rekey"`
 
 Determines how the new key will be distributed to subscribers.
 
@@ -17,15 +17,15 @@ provides forward secrecy.
 With `rekey`, we for each subscriber to fetch the new key individually. This ensures each subscriber's
 permissions are revalidated before they are given the new key.
 
-___
+---
 
 ### key
 
-• `Optional` **key**: [`EncryptionKey`](../classes/EncryptionKey.md)
+• `Optional` **key**: `EncryptionKey`
 
 Provide a specific key to be used. If left undefined, a new key is generated automatically.
 
-___
+---
 
 ### streamId
 

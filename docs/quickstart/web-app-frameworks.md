@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Web app frameworks v2
+# Web app frameworks
 
 In this quickstart guide, you'll be using Streamr in a **ReactJS** web application. You'll be reading from a publicly readable stream. Your ReactJS app will be a consumer (subscriber) of the stream. If you want your app to be able to write data to the stream, then you'll need to grant access to individual users of your app or create a publicly writable stream (the latter is typically not recommended). Publishing is typically accomplished with a centralized gatekeeping service (like a NodeJS server).
 
@@ -37,7 +37,7 @@ In this case, the stream is set to `PUBLIC` (anyone can read). However, since th
 
 :::info
 By default, your stream will only have the creator address set for permission to read from your stream.
-If you have created your own stream, set the `SUBSCRIBE` permission to public or allowlist some addresses so that your users can read data from your stream. Learn more about **[access control](../usage/access-control.md)**.
+If you have created your own stream, set the `SUBSCRIBE` permission to public or allowlist some addresses so that your users can read data from your stream. Learn more about **[authentification](../usage/authenticate)**.
 :::
 
 ```ts

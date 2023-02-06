@@ -3,6 +3,7 @@ sidebar_position: 4
 ---
 
 # Permissions
+
 Stream permissioning relates to who gets to read, write and edit streams on the Network. These stream permissions are stored and enforced by the [on-chain stream registry](../../help/project-contracts.md). Every permission update is a modification to the on-chain registry, and thus requires a small amount of `MATIC` tokens to fund the transaction.
 
 A user is defined by an Ethereum address. Meaning you give an address permission to read/write/edit streams.
@@ -13,13 +14,14 @@ Stream permissions can be modified using the [Streamr client](https://www.npmjs.
 :::
 
 ### Stream permissions
-| Permission  | User can                         |
-| ----------- | -------------------------------- |
-| PUBLISH     | Publish data to a stream (write) |
-| SUBSCRIBE   | Subscribe to stream (read)       |
-| EDIT        | Edit the stream details          |
-| DELETE      | Delete the stream                |
-| GRANT       | Share stream permissions         |
+
+| Permission | User can                         |
+| ---------- | -------------------------------- |
+| PUBLISH    | Publish data to a stream (write) |
+| SUBSCRIBE  | Subscribe to stream (read)       |
+| EDIT       | Edit the stream details          |
+| DELETE     | Delete the stream                |
+| GRANT      | Share stream permissions         |
 
 You can import the `StreamPermission` enum with:
 
@@ -34,6 +36,7 @@ StreamPermission.GRANT;
 ```
 
 ### Check permissions
+
 The full list of permissions for a stream can be queried by calling `stream.getPermissions()`:
 
 ```ts
@@ -60,13 +63,15 @@ await stream.hasPermission({
 ```
 
 ### The public permission
-A stream can either either be made as public or private. A stream that is publicly readable is public, but it doesn't necessasily mean its publicly writable. Private streams maintain a set of qualified subscribers which is enforced with [end-to-end encryption](../../streamr-network/signing-and-encryption/end-to-end-encryption.md) whereas public streams do not. Regardless of the type of stream, every data point pushed to a stream is always signed by the private key of the publisher.
+
+A stream can either either be made as public or private. A stream that is publicly readable is public, but it doesn't necessasily mean its publicly writable. Private streams maintain a set of qualified subscribers which is enforced with [end-to-end encryption](../../streamr-network/signing-and-encryption/end-to-end-encryption) whereas public streams do not. Regardless of the type of stream, every data point pushed to a stream is always signed by the private key of the publisher.
 
 - The `PUBLISH` and `SUBSCRIBE` stream permissions can be made **public**, meaning that anyone could `SUBSCRIBE` and/or `PUBLISH` to the stream.
 - If a stream has e.g. a public `SUBSCRIBE` permissions, it means that anyone can `SUBSCRIBE` to that stream.
 - Public `PUBLISH` permission is typically **not recommended** as it means anyone could write data to your stream.
 
 #### Grant public permission to subscribe
+
 ```ts
 await stream.grantPermissions({
   public: true,
@@ -75,6 +80,7 @@ await stream.grantPermissions({
 ```
 
 #### Revoke public permission to subscribe
+
 ```ts
 await stream.revokePermissions({
   public: true,
@@ -83,7 +89,9 @@ await stream.revokePermissions({
 ```
 
 ### Grant and revoke user permissions
+
 #### Grant publish permission to a user
+
 ```ts
 await stream.grantPermissions({
   user: '0x12345...',
@@ -92,6 +100,7 @@ await stream.grantPermissions({
 ```
 
 #### Revoke permission from a user
+
 ```ts
 await stream.revokePermissions({
   user: '0x12345...',
@@ -100,6 +109,7 @@ await stream.revokePermissions({
 ```
 
 ### Set multiple permissions
+
 :::info Good to know
 The method `streamr.setPermissions` can be used to set an exact set of permissions for one or more streams. Note that if there are existing permissions for the same users in a stream, the previous permissions are overwritten. Also note that this method cannot be used on the `stream` object, but via the `StreamrClient` instance. The `StreamrClient` instance is typically named `streamr`.
 :::

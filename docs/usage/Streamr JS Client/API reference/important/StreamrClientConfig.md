@@ -9,7 +9,7 @@
 Authentication: identity used by this StreamrClient instance.
 Can contain member privateKey or (window.)ethereum
 
-___
+---
 
 ### cache
 
@@ -17,12 +17,12 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `maxAge?` | `number` |
+| Name       | Type     |
+| :--------- | :------- |
+| `maxAge?`  | `number` |
 | `maxSize?` | `number` |
 
-___
+---
 
 ### contracts
 
@@ -30,18 +30,18 @@ ___
 
 #### Type declaration
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `ethereumNetworks?` | `Record`<`string`, [`EthereumNetworkConfig`](EthereumNetworkConfig.md)\> | - |
-| `mainChainRPCs?` | [`ChainConnectionInfo`](ChainConnectionInfo.md) | - |
-| `maxConcurrentCalls?` | `number` | - |
-| `storageNodeRegistryChainAddress?` | `string` | - |
-| `streamRegistryChainAddress?` | `string` | - |
-| `streamRegistryChainRPCs?` | [`ChainConnectionInfo`](ChainConnectionInfo.md) | - |
-| `streamStorageRegistryChainAddress?` | `string` | - |
-| `theGraphUrl?` | `string` | Some TheGraph instance, that indexes the streamr registries |
+| Name                                 | Type                                                                     | Description                                                 |
+| :----------------------------------- | :----------------------------------------------------------------------- | :---------------------------------------------------------- |
+| `ethereumNetworks?`                  | `Record`<`string`, [`EthereumNetworkConfig`](EthereumNetworkConfig.md)\> | -                                                           |
+| `mainChainRPCs?`                     | `ChainConnectionInfo`                                                    | -                                                           |
+| `maxConcurrentCalls?`                | `number`                                                                 | -                                                           |
+| `storageNodeRegistryChainAddress?`   | `string`                                                                 | -                                                           |
+| `streamRegistryChainAddress?`        | `string`                                                                 | -                                                           |
+| `streamRegistryChainRPCs?`           | `ChainConnectionInfo`                                                    | -                                                           |
+| `streamStorageRegistryChainAddress?` | `string`                                                                 | -                                                           |
+| `theGraphUrl?`                       | `string`                                                                 | Some TheGraph instance, that indexes the streamr registries |
 
-___
+---
 
 ### decryption
 
@@ -49,24 +49,24 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `keyRequestTimeout?` | `number` |
+| Name                       | Type     |
+| :------------------------- | :------- |
+| `keyRequestTimeout?`       | `number` |
 | `maxKeyRequestsPerSecond?` | `number` |
 
-___
+---
 
 ### gapFill
 
 • `Optional` **gapFill**: `boolean`
 
-___
+---
 
 ### gapFillTimeout
 
 • `Optional` **gapFillTimeout**: `number`
 
-___
+---
 
 ### id
 
@@ -74,25 +74,25 @@ ___
 
 Custom human-readable debug id for client. Used in logging.
 
-___
+---
 
 ### logLevel
 
 • `Optional` **logLevel**: [`LogLevel`](../API Reference#loglevel)
 
-___
+---
 
 ### maxGapRequests
 
 • `Optional` **maxGapRequests**: `number`
 
-___
+---
 
 ### metrics
 
-• `Optional` **metrics**: `boolean` \| { `maxPublishDelay?`: `number` ; `periods?`: { `duration`: `number` ; `streamId`: `string`  }[]  }
+• `Optional` **metrics**: `boolean` \| { `maxPublishDelay?`: `number` ; `periods?`: { `duration`: `number` ; `streamId`: `string` }[] }
 
-___
+---
 
 ### network
 
@@ -100,24 +100,24 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `acceptProxyConnections?` | `boolean` |
-| `disconnectionWaitTime?` | `number` |
-| `iceServers?` | readonly [`IceServer`](IceServer.md)[] |
-| `id?` | `string` |
-| `location?` | [`Location`](Location.md) |
-| `newWebrtcConnectionTimeout?` | `number` |
-| `peerPingInterval?` | `number` |
-| `rttUpdateTimeout?` | `number` |
-| `trackerConnectionMaintenanceInterval?` | `number` |
-| `trackerPingInterval?` | `number` |
-| `trackers?` | [`TrackerRegistryContract`](TrackerRegistryContract.md) \| [`TrackerRegistryRecord`](TrackerRegistryRecord.md)[] |
-| `webrtcDatachannelBufferThresholdHigh?` | `number` |
-| `webrtcDatachannelBufferThresholdLow?` | `number` |
-| `webrtcDisallowPrivateAddresses?` | `boolean` |
+| Name                                    | Type                                                   |
+| :-------------------------------------- | :----------------------------------------------------- |
+| `acceptProxyConnections?`               | `boolean`                                              |
+| `disconnectionWaitTime?`                | `number`                                               |
+| `iceServers?`                           | readonly `IceServer`[]                                 |
+| `id?`                                   | `string`                                               |
+| `location?`                             | `Location`                                             |
+| `newWebrtcConnectionTimeout?`           | `number`                                               |
+| `peerPingInterval?`                     | `number`                                               |
+| `rttUpdateTimeout?`                     | `number`                                               |
+| `trackerConnectionMaintenanceInterval?` | `number`                                               |
+| `trackerPingInterval?`                  | `number`                                               |
+| `trackers?`                             | `TrackerRegistryContract` \| `TrackerRegistryRecord`[] |
+| `webrtcDatachannelBufferThresholdHigh?` | `number`                                               |
+| `webrtcDatachannelBufferThresholdLow?`  | `number`                                               |
+| `webrtcDisallowPrivateAddresses?`       | `boolean`                                              |
 
-___
+---
 
 ### orderMessages
 
@@ -125,7 +125,7 @@ ___
 
 Attempt to order messages
 
-___
+---
 
 ### retryResendAfter
 

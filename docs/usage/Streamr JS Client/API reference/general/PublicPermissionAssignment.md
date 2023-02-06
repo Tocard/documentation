@@ -4,10 +4,10 @@
 
 ### permissions
 
-• **permissions**: [`StreamPermission`](../enums/StreamPermission.md)[]
+• **permissions**: `StreamPermission`[]
 
-___
+---
 
 ### public
 
-• **public**: ``true``
+• **public**: `true`

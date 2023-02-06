@@ -18,17 +18,17 @@ A convenience API for managing an individual subscription.
 
 ### [asyncIterator]
 
-▸ **[asyncIterator]**(): `AsyncIterator`<[`Message`](../interfaces/Message.md), `any`, `undefined`\>
+▸ **[asyncIterator]**(): `AsyncIterator`<`Message`, `any`, `undefined`\>
 
 #### Returns
 
-`AsyncIterator`<[`Message`](../interfaces/Message.md), `any`, `undefined`\>
+`AsyncIterator`<`Message`, `any`, `undefined`\>
 
 #### Inherited from
 
 [MessageStream](MessageStream.md).[[asyncIterator]](MessageStream.md#[asynciterator])
 
-___
+---
 
 ### off
 
@@ -38,22 +38,22 @@ Removes an event listener from the subscription.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends keyof [`SubscriptionEvents`](../interfaces/SubscriptionEvents.md) |
+| Name | Type                               |
+| :--- | :--------------------------------- |
+| `E`  | extends keyof `SubscriptionEvents` |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `eventName` | `E` | event name, see [SubscriptionEvents](../interfaces/SubscriptionEvents.md) for options |
-| `listener` | [`SubscriptionEvents`](../interfaces/SubscriptionEvents.md)[`E`] | the callback function to remove |
+| Name        | Type                      | Description                                    |
+| :---------- | :------------------------ | :--------------------------------------------- |
+| `eventName` | `E`                       | event name, see SubscriptionEvents for options |
+| `listener`  | `SubscriptionEvents`[`E`] | the callback function to remove                |
 
 #### Returns
 
 `void`
 
-___
+---
 
 ### on
 
@@ -63,22 +63,22 @@ Adds an event listener to the subscription.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends keyof [`SubscriptionEvents`](../interfaces/SubscriptionEvents.md) |
+| Name | Type                               |
+| :--- | :--------------------------------- |
+| `E`  | extends keyof `SubscriptionEvents` |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `eventName` | `E` | event name, see [SubscriptionEvents](../interfaces/SubscriptionEvents.md) for options |
-| `listener` | [`SubscriptionEvents`](../interfaces/SubscriptionEvents.md)[`E`] | the callback function |
+| Name        | Type                      | Description                                    |
+| :---------- | :------------------------ | :--------------------------------------------- |
+| `eventName` | `E`                       | event name, see SubscriptionEvents for options |
+| `listener`  | `SubscriptionEvents`[`E`] | the callback function                          |
 
 #### Returns
 
 `void`
 
-___
+---
 
 ### once
 
@@ -88,22 +88,22 @@ Adds an event listener to the subscription that is invoked only once.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends keyof [`SubscriptionEvents`](../interfaces/SubscriptionEvents.md) |
+| Name | Type                               |
+| :--- | :--------------------------------- |
+| `E`  | extends keyof `SubscriptionEvents` |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `eventName` | `E` | event name, see [SubscriptionEvents](../interfaces/SubscriptionEvents.md) for options |
-| `listener` | [`SubscriptionEvents`](../interfaces/SubscriptionEvents.md)[`E`] | the callback function |
+| Name        | Type                      | Description                                    |
+| :---------- | :------------------------ | :--------------------------------------------- |
+| `eventName` | `E`                       | event name, see SubscriptionEvents for options |
+| `listener`  | `SubscriptionEvents`[`E`] | the callback function                          |
 
 #### Returns
 
 `void`
 
-___
+---
 
 ### unsubscribe
 

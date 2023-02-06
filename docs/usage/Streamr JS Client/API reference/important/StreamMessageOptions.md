@@ -3,8 +3,8 @@
 ## Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 ## Properties
 
@@ -12,49 +12,49 @@
 
 • **content**: `string` \| `T`
 
-___
+---
 
 ### contentType
 
-• `Optional` **contentType**: [`JSON`](../enums/ContentType.md#json)
+• `Optional` **contentType**: `JSON`
 
-___
+---
 
 ### encryptionType
 
-• `Optional` **encryptionType**: [`EncryptionType`](../enums/EncryptionType.md)
+• `Optional` **encryptionType**: `EncryptionType`
 
-___
+---
 
 ### groupKeyId
 
-• `Optional` **groupKeyId**: ``null`` \| `string`
+• `Optional` **groupKeyId**: `null` \| `string`
 
-___
+---
 
 ### messageId
 
-• **messageId**: [`MessageID`](../classes/MessageID.md)
+• **messageId**: `MessageID`
 
-___
+---
 
 ### messageType
 
-• `Optional` **messageType**: [`StreamMessageType`](../enums/StreamMessageType.md)
+• `Optional` **messageType**: `StreamMessageType`
 
-___
+---
 
 ### newGroupKey
 
-• `Optional` **newGroupKey**: ``null`` \| [`EncryptedGroupKey`](../classes/EncryptedGroupKey.md)
+• `Optional` **newGroupKey**: `null` \| `EncryptedGroupKey`
 
-___
+---
 
 ### prevMsgRef
 
-• `Optional` **prevMsgRef**: ``null`` \| [`MessageRef`](../classes/MessageRef.md)
+• `Optional` **prevMsgRef**: `null` \| `MessageRef`
 
-___
+---
 
 ### signature
 

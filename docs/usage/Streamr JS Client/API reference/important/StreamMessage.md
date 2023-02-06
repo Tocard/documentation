@@ -2,9 +2,9 @@
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | `unknown` |
+| Name | Type      |
+| :--- | :-------- |
+| `T`  | `unknown` |
 
 ## Constructors
 
@@ -14,81 +14,81 @@
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | `unknown` |
+| Name | Type      |
+| :--- | :-------- |
+| `T`  | `unknown` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | [`StreamMessageOptions`](../interfaces/StreamMessageOptions.md)<`T`\> |
+| Name             | Type                         |
+| :--------------- | :--------------------------- |
+| `«destructured»` | `StreamMessageOptions`<`T`\> |
 
 ## Properties
 
 ### contentType
 
-• **contentType**: [`JSON`](../enums/ContentType.md#json)
+• **contentType**: `JSON`
 
-___
+---
 
 ### encryptionType
 
-• **encryptionType**: [`EncryptionType`](../enums/EncryptionType.md)
+• **encryptionType**: `EncryptionType`
 
-___
+---
 
 ### groupKeyId
 
-• **groupKeyId**: ``null`` \| `string`
+• **groupKeyId**: `null` \| `string`
 
-___
+---
 
 ### messageId
 
 • **messageId**: [`MessageID`](MessageID.md)
 
-___
+---
 
 ### messageType
 
-• **messageType**: [`StreamMessageType`](../enums/StreamMessageType.md)
+• **messageType**: `StreamMessageType`
 
-___
+---
 
 ### newGroupKey
 
-• **newGroupKey**: ``null`` \| [`EncryptedGroupKey`](EncryptedGroupKey.md)
+• **newGroupKey**: `null` \| `EncryptedGroupKey`
 
-___
+---
 
 ### parsedContent
 
 • `Optional` **parsedContent**: `T`
 
-___
+---
 
 ### prevMsgRef
 
-• **prevMsgRef**: ``null`` \| [`MessageRef`](MessageRef.md)
+• **prevMsgRef**: `null` \| [`MessageRef`](MessageRef.md)
 
-___
+---
 
 ### serializedContent
 
 • **serializedContent**: `string`
 
-___
+---
 
 ### signature
 
 • **signature**: `string`
 
-___
+---
 
-### LATEST\_VERSION
+### LATEST_VERSION
 
-▪ `Static` **LATEST\_VERSION**: `number`
+▪ `Static` **LATEST_VERSION**: `number`
 
 ## Methods
 
@@ -102,7 +102,7 @@ Create a new StreamMessage identical to the passed-in streamMessage.
 
 [`StreamMessage`](StreamMessage.md)<`T`\>
 
-___
+---
 
 ### getContent
 
@@ -116,9 +116,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `parsedContent` | ``false`` |
+| Name            | Type    |
+| :-------------- | :------ |
+| `parsedContent` | `false` |
 
 #### Returns
 
@@ -128,15 +128,15 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `parsedContent` | ``true`` |
+| Name            | Type   |
+| :-------------- | :----- |
+| `parsedContent` | `true` |
 
 #### Returns
 
 `T`
 
-___
+---
 
 ### getMessageID
 
@@ -146,7 +146,7 @@ ___
 
 [`MessageID`](MessageID.md)
 
-___
+---
 
 ### getMessageRef
 
@@ -156,7 +156,7 @@ ___
 
 [`MessageRef`](MessageRef.md)
 
-___
+---
 
 ### getMsgChainId
 
@@ -166,17 +166,17 @@ ___
 
 `string`
 
-___
+---
 
 ### getNewGroupKey
 
-▸ **getNewGroupKey**(): ``null`` \| [`EncryptedGroupKey`](EncryptedGroupKey.md)
+▸ **getNewGroupKey**(): `null` \| `EncryptedGroupKey`
 
 #### Returns
 
-``null`` \| [`EncryptedGroupKey`](EncryptedGroupKey.md)
+`null` \| `EncryptedGroupKey`
 
-___
+---
 
 ### getParsedContent
 
@@ -188,17 +188,17 @@ Lazily parses the content to JSON
 
 `T`
 
-___
+---
 
 ### getPreviousMessageRef
 
-▸ **getPreviousMessageRef**(): ``null`` \| [`MessageRef`](MessageRef.md)
+▸ **getPreviousMessageRef**(): `null` \| [`MessageRef`](MessageRef.md)
 
 #### Returns
 
-``null`` \| [`MessageRef`](MessageRef.md)
+`null` \| [`MessageRef`](MessageRef.md)
 
-___
+---
 
 ### getPublisherId
 
@@ -208,7 +208,7 @@ ___
 
 [`EthereumAddress`](../API Reference#ethereumaddress)
 
-___
+---
 
 ### getSequenceNumber
 
@@ -218,7 +218,7 @@ ___
 
 `number`
 
-___
+---
 
 ### getSerializedContent
 
@@ -228,7 +228,7 @@ ___
 
 `string`
 
-___
+---
 
 ### getStreamId
 
@@ -238,7 +238,7 @@ ___
 
 [`StreamID`](../API Reference#streamid)
 
-___
+---
 
 ### getStreamPartID
 
@@ -248,7 +248,7 @@ ___
 
 [`StreamPartID`](../API Reference#streampartid)
 
-___
+---
 
 ### getStreamPartition
 
@@ -258,7 +258,7 @@ ___
 
 `number`
 
-___
+---
 
 ### getTimestamp
 
@@ -268,7 +268,7 @@ ___
 
 `number`
 
-___
+---
 
 ### serialize
 
@@ -276,15 +276,15 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `version?` | `number` |
 
 #### Returns
 
 `string`
 
-___
+---
 
 ### deserialize
 
@@ -294,15 +294,15 @@ Takes a serialized representation (array or string) of a message, and returns a 
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type                |
+| :---- | :------------------ |
 | `msg` | `string` \| `any`[] |
 
 #### Returns
 
 [`StreamMessage`](StreamMessage.md)<`unknown`\>
 
-___
+---
 
 ### getSupportedVersions
 
@@ -312,7 +312,7 @@ ___
 
 `number`[]
 
-___
+---
 
 ### isEncrypted
 
@@ -320,21 +320,21 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | `unknown` |
+| Name | Type      |
+| :--- | :-------- |
+| `T`  | `unknown` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type                                      |
+| :---- | :---------------------------------------- |
 | `msg` | [`StreamMessage`](StreamMessage.md)<`T`\> |
 
 #### Returns
 
 msg is StreamMessageEncrypted<T\>
 
-___
+---
 
 ### isUnencrypted
 
@@ -342,21 +342,21 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | `unknown` |
+| Name | Type      |
+| :--- | :-------- |
+| `T`  | `unknown` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type                                      |
+| :---- | :---------------------------------------- |
 | `msg` | [`StreamMessage`](StreamMessage.md)<`T`\> |
 
 #### Returns
 
 msg is StreamMessageUnencrypted<T\>
 
-___
+---
 
 ### validateContentType
 
@@ -364,15 +364,15 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `contentType` | [`JSON`](../enums/ContentType.md#json) |
+| Name          | Type   |
+| :------------ | :----- |
+| `contentType` | `JSON` |
 
 #### Returns
 
 `void`
 
-___
+---
 
 ### validateEncryptionType
 
@@ -380,15 +380,15 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `encryptionType` | [`EncryptionType`](../enums/EncryptionType.md) |
+| Name             | Type             |
+| :--------------- | :--------------- |
+| `encryptionType` | `EncryptionType` |
 
 #### Returns
 
 `void`
 
-___
+---
 
 ### validateMessageType
 
@@ -396,15 +396,15 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `messageType` | [`StreamMessageType`](../enums/StreamMessageType.md) |
+| Name          | Type                |
+| :------------ | :------------------ |
+| `messageType` | `StreamMessageType` |
 
 #### Returns
 
 `void`
 
-___
+---
 
 ### validateSequence
 
@@ -412,17 +412,17 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `messageId` | [`MessageID`](MessageID.md) |
-| › `prevMsgRef?` | ``null`` \| [`MessageRef`](MessageRef.md) |
+| Name             | Type                                    |
+| :--------------- | :-------------------------------------- |
+| `«destructured»` | `Object`                                |
+| › `messageId`    | [`MessageID`](MessageID.md)             |
+| › `prevMsgRef?`  | `null` \| [`MessageRef`](MessageRef.md) |
 
 #### Returns
 
 `void`
 
-___
+---
 
 ### versionSupportsEncryption
 
@@ -430,8 +430,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name                   | Type     |
+| :--------------------- | :------- |
 | `streamMessageVersion` | `number` |
 
 #### Returns

@@ -6,19 +6,19 @@
 
 • **allowPublic**: `boolean`
 
-___
+---
 
 ### permission
 
-• **permission**: [`StreamPermission`](../enums/StreamPermission.md)
+• **permission**: `StreamPermission`
 
-___
+---
 
 ### streamId
 
 • **streamId**: `string`
 
-___
+---
 
 ### user
 

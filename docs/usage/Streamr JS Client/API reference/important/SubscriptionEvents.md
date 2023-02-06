@@ -1,6 +1,6 @@
 # Interface: SubscriptionEvents
 
-Events emitted by [Subscription](../classes/Subscription.md).
+Events emitted by Subscription.
 
 ## Properties
 
@@ -16,15 +16,15 @@ Emitted if an error occurred in the subscription.
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type    |
+| :---- | :------ |
 | `err` | `Error` |
 
 ##### Returns
 
 `void`
 
-___
+---
 
 ### resendComplete
 

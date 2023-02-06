@@ -6,35 +6,35 @@
 
 • **chainId**: `number`
 
-___
+---
 
 ### gasPriceStrategy
 
-• `Optional` **gasPriceStrategy**: (`estimatedGasPrice`: [`BigNumber`](../classes/BigNumber.md)) => [`BigNumber`](../classes/BigNumber.md)
+• `Optional` **gasPriceStrategy**: (`estimatedGasPrice`: `BigNumber`) => `BigNumber`
 
 #### Type declaration
 
-▸ (`estimatedGasPrice`): [`BigNumber`](../classes/BigNumber.md)
+▸ (`estimatedGasPrice`): `BigNumber`
 
 **`Deprecated`**
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `estimatedGasPrice` | [`BigNumber`](../classes/BigNumber.md) |
+| Name                | Type        |
+| :------------------ | :---------- |
+| `estimatedGasPrice` | `BigNumber` |
 
 ##### Returns
 
-[`BigNumber`](../classes/BigNumber.md)
+`BigNumber`
 
-___
+---
 
 ### highGasPriceStrategy
 
 • `Optional` **highGasPriceStrategy**: `boolean`
 
-___
+---
 
 ### overrides
 

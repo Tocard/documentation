@@ -4,7 +4,7 @@
 
 ### addToStorageNode
 
-• **addToStorageNode**: (`payload`: [`StorageNodeAssignmentEvent`](StorageNodeAssignmentEvent.md)) => `void`
+• **addToStorageNode**: (`payload`: `StorageNodeAssignmentEvent`) => `void`
 
 #### Type declaration
 
@@ -12,19 +12,19 @@
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `payload` | [`StorageNodeAssignmentEvent`](StorageNodeAssignmentEvent.md) |
+| Name      | Type                         |
+| :-------- | :--------------------------- |
+| `payload` | `StorageNodeAssignmentEvent` |
 
 ##### Returns
 
 `void`
 
-___
+---
 
 ### removeFromStorageNode
 
-• **removeFromStorageNode**: (`payload`: [`StorageNodeAssignmentEvent`](StorageNodeAssignmentEvent.md)) => `void`
+• **removeFromStorageNode**: (`payload`: `StorageNodeAssignmentEvent`) => `void`
 
 #### Type declaration
 
@@ -32,9 +32,9 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `payload` | [`StorageNodeAssignmentEvent`](StorageNodeAssignmentEvent.md) |
+| Name      | Type                         |
+| :-------- | :--------------------------- |
+| `payload` | `StorageNodeAssignmentEvent` |
 
 ##### Returns
 

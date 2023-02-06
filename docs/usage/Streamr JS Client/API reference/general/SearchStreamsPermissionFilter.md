@@ -4,21 +4,21 @@
 
 ### allOf
 
-• `Optional` **allOf**: [`StreamPermission`](../enums/StreamPermission.md)[]
+• `Optional` **allOf**: `StreamPermission`[]
 
-___
+---
 
 ### allowPublic
 
 • **allowPublic**: `boolean`
 
-___
+---
 
 ### anyOf
 
-• `Optional` **anyOf**: [`StreamPermission`](../enums/StreamPermission.md)[]
+• `Optional` **anyOf**: `StreamPermission`[]
 
-___
+---
 
 ### user
 

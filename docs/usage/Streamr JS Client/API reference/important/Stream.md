@@ -12,11 +12,11 @@ Assigns the stream to a storage node.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `storageNodeAddress` | `string` | - |
-| `waitOptions` | `Object` | control how long to wait for storage node to pick up on assignment |
-| `waitOptions.timeout?` | `number` | - |
+| Name                   | Type     | Description                                                        |
+| :--------------------- | :------- | :----------------------------------------------------------------- |
+| `storageNodeAddress`   | `string` | -                                                                  |
+| `waitOptions`          | `Object` | control how long to wait for storage node to pick up on assignment |
+| `waitOptions.timeout?` | `number` | -                                                                  |
 
 #### Returns
 
@@ -26,7 +26,7 @@ a resolved promise if (1) stream was assigned to storage node and (2) the storag
 assignment within `timeout`, otherwise rejects. Notice that is possible for this promise to reject but for the
 storage node assignment to go through eventually.
 
-___
+---
 
 ### getPermissions
 
@@ -38,7 +38,7 @@ See [StreamrClient.getPermissions](StreamrClient.md#getpermissions).
 
 `Promise`<[`PermissionAssignment`](../API Reference#permissionassignment)[]\>
 
-___
+---
 
 ### grantPermissions
 
@@ -48,15 +48,15 @@ See [StreamrClient.grantPermissions](StreamrClient.md#grantpermissions).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type                                                              |
+| :--------------- | :---------------------------------------------------------------- |
 | `...assignments` | [`PermissionAssignment`](../API Reference#permissionassignment)[] |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### hasPermission
 
@@ -66,34 +66,34 @@ See [StreamrClient.hasPermission](StreamrClient.md#haspermission).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `query` | `Omit`<[`UserPermissionQuery`](../interfaces/UserPermissionQuery.md), ``"streamId"``\> \| `Omit`<[`PublicPermissionQuery`](../interfaces/PublicPermissionQuery.md), ``"streamId"``\> |
+| Name    | Type                                                                                           |
+| :------ | :--------------------------------------------------------------------------------------------- |
+| `query` | `Omit`<`UserPermissionQuery`, `"streamId"`\> \| `Omit`<`PublicPermissionQuery`, `"streamId"`\> |
 
 #### Returns
 
 `Promise`<`boolean`\>
 
-___
+---
 
 ### publish
 
-▸ **publish**(`content`, `metadata?`): `Promise`<[`Message`](../interfaces/Message.md)\>
+▸ **publish**(`content`, `metadata?`): `Promise`<`Message`\>
 
 See [StreamrClient.publish](StreamrClient.md#publish).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `content` | `unknown` |
-| `metadata?` | [`PublishMetadata`](../interfaces/PublishMetadata.md) |
+| Name        | Type              |
+| :---------- | :---------------- |
+| `content`   | `unknown`         |
+| `metadata?` | `PublishMetadata` |
 
 #### Returns
 
-`Promise`<[`Message`](../interfaces/Message.md)\>
+`Promise`<`Message`\>
 
-___
+---
 
 ### revokePermissions
 
@@ -103,8 +103,8 @@ See [StreamrClient.revokePermissions](StreamrClient.md#revokepermissions).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type                                                              |
+| :--------------- | :---------------------------------------------------------------- |
 | `...assignments` | [`PermissionAssignment`](../API Reference#permissionassignment)[] |
 
 #### Returns
@@ -117,7 +117,7 @@ See [StreamrClient.revokePermissions](StreamrClient.md#revokepermissions).
 
 • `Readonly` **id**: [`StreamID`](../API Reference#streamid)
 
-___
+---
 
 ### delete
 
@@ -133,13 +133,13 @@ Stream instance should not be used afterwards.
 
 `Promise`<`void`\>
 
-___
+---
 
 ### detectFields
 
 ▸ **detectFields**(): `Promise`<`void`\>
 
-Attempts to detect and update the [config](../interfaces/StreamMetadata.md#config) metadata of the stream by performing a resend.
+Attempts to detect and update the config metadata of the stream by performing a resend.
 
 **`Remarks`**
 
@@ -152,19 +152,19 @@ Only works on stored streams.
 be mindful that in the case of there being zero messages stored, the returned promise will resolve even
 though fields were not updated
 
-___
+---
 
 ### getMetadata
 
-▸ **getMetadata**(): [`StreamMetadata`](../interfaces/StreamMetadata.md)
+▸ **getMetadata**(): `StreamMetadata`
 
 Returns the metadata of the stream.
 
 #### Returns
 
-[`StreamMetadata`](../interfaces/StreamMetadata.md)
+`StreamMetadata`
 
-___
+---
 
 ### getStorageNodes
 
@@ -176,7 +176,7 @@ See [StreamrClient.getStorageNodes](StreamrClient.md#getstoragenodes).
 
 `Promise`<`string`[]\>
 
-___
+---
 
 ### getStreamParts
 
@@ -188,7 +188,7 @@ Returns the partitions of the stream.
 
 [`StreamPartID`](../API Reference#streampartid)[]
 
-___
+---
 
 ### removeFromStorageNode
 
@@ -198,15 +198,15 @@ See [StreamrClient.removeStreamFromStorageNode](StreamrClient.md#removestreamfro
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type     |
+| :------------ | :------- |
 | `nodeAddress` | `string` |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### update
 
@@ -216,9 +216,9 @@ Updates the metadata of the stream by merging with the existing metadata.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `metadata` | `Partial`<[`StreamMetadata`](../interfaces/StreamMetadata.md)\> |
+| Name       | Type                        |
+| :--------- | :-------------------------- |
+| `metadata` | `Partial`<`StreamMetadata`> |
 
 #### Returns
 

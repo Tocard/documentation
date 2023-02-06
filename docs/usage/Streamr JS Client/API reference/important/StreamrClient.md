@@ -12,15 +12,15 @@ Creates a new stream.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `propsOrStreamIdOrPath` | `string` \| `Partial`<[`StreamMetadata`](../interfaces/StreamMetadata.md)\> & { `id`: `string`  } | the stream id to be used for the new stream, and optionally, any associated metadata |
+| Name                    | Type                                                          | Description                                                                          |
+| :---------------------- | :------------------------------------------------------------ | :----------------------------------------------------------------------------------- |
+| `propsOrStreamIdOrPath` | `string` \| `Partial`<`StreamMetadata`\> & { `id`: `string` } | the stream id to be used for the new stream, and optionally, any associated metadata |
 
 #### Returns
 
 `Promise`<[`Stream`](Stream.md)\>
 
-___
+---
 
 ### getOrCreateStream
 
@@ -30,17 +30,17 @@ Gets a stream, creating one if it does not exist.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `props` | `Object` | the stream id to get or create. Field `partitions` is only used if creating the stream. |
-| `props.id` | `string` | - |
-| `props.partitions?` | `number` | - |
+| Name                | Type     | Description                                                                             |
+| :------------------ | :------- | :-------------------------------------------------------------------------------------- |
+| `props`             | `Object` | the stream id to get or create. Field `partitions` is only used if creating the stream. |
+| `props.id`          | `string` | -                                                                                       |
+| `props.partitions?` | `number` | -                                                                                       |
 
 #### Returns
 
 `Promise`<[`Stream`](Stream.md)\>
 
-___
+---
 
 ### getStream
 
@@ -50,8 +50,8 @@ Gets a stream.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type     |
+| :--------------- | :------- |
 | `streamIdOrPath` | `string` |
 
 #### Returns
@@ -60,7 +60,7 @@ Gets a stream.
 
 rejects if the stream is not found
 
-___
+---
 
 ### getSubscriptions
 
@@ -70,51 +70,51 @@ Returns a list of subscriptions matching the given criteria.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name                | Type                                                    | Description                                   |
+| :------------------ | :------------------------------------------------------ | :-------------------------------------------- |
 | `streamDefinition?` | [`StreamDefinition`](../API Reference#streamdefinition) | leave as `undefined` to get all subscriptions |
 
 #### Returns
 
 `Promise`<[`Subscription`](Subscription.md)[]\>
 
-___
+---
 
 ### publish
 
-▸ **publish**(`streamDefinition`, `content`, `metadata?`): `Promise`<[`Message`](../interfaces/Message.md)\>
+▸ **publish**(`streamDefinition`, `content`, `metadata?`): `Promise`<`Message`\>
 
 Publishes a message to a stream partition in the network.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `streamDefinition` | [`StreamDefinition`](../API Reference#streamdefinition) | the stream or stream partition to publish the message to |
-| `content` | `unknown` | the content (the payload) of the message (must be JSON serializable) |
-| `metadata?` | [`PublishMetadata`](../interfaces/PublishMetadata.md) | provide additional metadata to be included in the message or to control the publishing process |
+| Name               | Type                                                    | Description                                                                                    |
+| :----------------- | :------------------------------------------------------ | :--------------------------------------------------------------------------------------------- |
+| `streamDefinition` | [`StreamDefinition`](../API Reference#streamdefinition) | the stream or stream partition to publish the message to                                       |
+| `content`          | `unknown`                                               | the content (the payload) of the message (must be JSON serializable)                           |
+| `metadata?`        | `PublishMetadata`                                       | provide additional metadata to be included in the message or to control the publishing process |
 
 #### Returns
 
-`Promise`<[`Message`](../interfaces/Message.md)\>
+`Promise`<`Message`\>
 
-the published message (note: the field [content](../interfaces/Message.md#content) is encrypted if the stream is private)
+the published message (note: the field content is encrypted if the stream is private)
 
-___
+---
 
 ### resend
 
-▸ **resend**(`streamDefinition`, `options`, `onMessage?`): `Promise`<[`MessageStream`](MessageStream.md)\>
+▸ **resend**(`streamDefinition`, `options`, `onMessage?`): `Promise`<`MessageStream`\>
 
 Performs a resend of stored historical data.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name               | Type                                                    | Description                                          |
+| :----------------- | :------------------------------------------------------ | :--------------------------------------------------- |
 | `streamDefinition` | [`StreamDefinition`](../API Reference#streamdefinition) | the stream partition for which data should be resent |
-| `options` | [`ResendOptions`](../API Reference#resendoptions) | defines the kind of resend that should be performed |
-| `onMessage?` | [`MessageListener`](../API Reference#messagelistener) | callback will be invoked for each message retrieved |
+| `options`          | [`ResendOptions`](../API Reference#resendoptions)       | defines the kind of resend that should be performed  |
+| `onMessage?`       | [`MessageListener`](../API Reference#messagelistener)   | callback will be invoked for each message retrieved  |
 
 #### Returns
 
@@ -123,7 +123,7 @@ Performs a resend of stored historical data.
 a [MessageStream](MessageStream.md) that provides an alternative way of iterating messages. Rejects if the stream is
 not stored (i.e. is not assigned to a storage node).
 
-___
+---
 
 ### subscribe
 
@@ -133,10 +133,10 @@ Subscribes to a stream partition in the network.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options` | `Object` | the stream or stream partition to subscribe to, additionally a resend can be performed by providing resend options |
-| `onMessage?` | [`MessageListener`](../API Reference#messagelistener) | callback will be invoked for each message received in subscription |
+| Name         | Type                                                  | Description                                                                                                        |
+| :----------- | :---------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
+| `options`    | `Object`                                              | the stream or stream partition to subscribe to, additionally a resend can be performed by providing resend options |
+| `onMessage?` | [`MessageListener`](../API Reference#messagelistener) | callback will be invoked for each message received in subscription                                                 |
 
 #### Returns
 
@@ -144,7 +144,7 @@ Subscribes to a stream partition in the network.
 
 a [Subscription](Subscription.md) that can be used to manage the subscription etc.
 
-___
+---
 
 ### unsubscribe
 
@@ -158,8 +158,8 @@ no-op if subscription does not exist
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name                              | Type                                                                                         | Description                                                          |
+| :-------------------------------- | :------------------------------------------------------------------------------------------- | :------------------------------------------------------------------- |
 | `streamDefinitionOrSubscription?` | [`StreamDefinition`](../API Reference#streamdefinition) \| [`Subscription`](Subscription.md) | leave as `undefined` to unsubscribe from all existing subscriptions. |
 
 #### Returns
@@ -174,21 +174,21 @@ no-op if subscription does not exist
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `config` | [`StreamrClientConfig`](../interfaces/StreamrClientConfig.md) |
+| Name     | Type                  |
+| :------- | :-------------------- |
+| `config` | `StreamrClientConfig` |
 
-___
+---
 
 ### id
 
 • `Readonly` **id**: `string`
 
-___
+---
 
 ### generateEthereumAccount
 
-▪ `Static` `Readonly` **generateEthereumAccount**: () => { `address`: `string` ; `privateKey`: `string`  } = `_generateEthereumAccount`
+▪ `Static` `Readonly` **generateEthereumAccount**: () => { `address`: `string` ; `privateKey`: `string` } = `_generateEthereumAccount`
 
 #### Type declaration
 
@@ -198,12 +198,12 @@ ___
 
 `Object`
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `string` |
+| Name         | Type     |
+| :----------- | :------- |
+| `address`    | `string` |
 | `privateKey` | `string` |
 
-___
+---
 
 ### addEncryptionKey
 
@@ -218,16 +218,16 @@ manually add some known keys into the store.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | [`EncryptionKey`](EncryptionKey.md) |
-| `streamIdOrPath` | `string` |
+| Name             | Type            |
+| :--------------- | :-------------- |
+| `key`            | `EncryptionKey` |
+| `streamIdOrPath` | `string`        |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### addStreamToStorageNode
 
@@ -237,16 +237,16 @@ Assigns a stream to a storage node.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `streamIdOrPath` | `string` |
+| Name                 | Type     |
+| :------------------- | :------- |
+| `streamIdOrPath`     | `string` |
 | `storageNodeAddress` | `string` |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### closeProxyConnections
 
@@ -254,17 +254,17 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name               | Type                                                    |
+| :----------------- | :------------------------------------------------------ |
 | `streamDefinition` | [`StreamDefinition`](../API Reference#streamdefinition) |
-| `nodeIds` | `string`[] |
-| `direction` | [`ProxyDirection`](../enums/ProxyDirection.md) |
+| `nodeIds`          | `string`[]                                              |
+| `direction`        | `ProxyDirection`                                        |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### connect
 
@@ -280,7 +280,7 @@ Connecting is handled automatically by the client. Generally this method need no
 
 `Promise`<`void`\>
 
-___
+---
 
 ### deleteStream
 
@@ -290,15 +290,15 @@ Deletes a stream.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type     |
+| :--------------- | :------- |
 | `streamIdOrPath` | `string` |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### destroy
 
@@ -316,7 +316,7 @@ be used after calling this method.
 
 `Promise`<`void`\>
 
-___
+---
 
 ### getAddress
 
@@ -328,11 +328,11 @@ Gets the Ethereum address of the wallet associated with the current [StreamrClie
 
 `Promise`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
-___
+---
 
 ### getNode
 
-▸ **getNode**(): `Promise`<[`NetworkNodeStub`](../interfaces/NetworkNodeStub.md)\>
+▸ **getNode**(): `Promise`<`NetworkNodeStub`\>
 
 **`Deprecated`**
 
@@ -340,9 +340,9 @@ This in an internal method
 
 #### Returns
 
-`Promise`<[`NetworkNodeStub`](../interfaces/NetworkNodeStub.md)\>
+`Promise`<`NetworkNodeStub`\>
 
-___
+---
 
 ### getPermissions
 
@@ -352,35 +352,35 @@ Returns the list of all permissions in effect for a given stream.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type     |
+| :--------------- | :------- |
 | `streamIdOrPath` | `string` |
 
 #### Returns
 
 `Promise`<[`PermissionAssignment`](../API Reference#permissionassignment)[]\>
 
-___
+---
 
 ### getStorageNodeMetadata
 
-▸ **getStorageNodeMetadata**(`nodeAddress`): `Promise`<[`StorageNodeMetadata`](../interfaces/StorageNodeMetadata.md)\>
+▸ **getStorageNodeMetadata**(`nodeAddress`): `Promise`<`StorageNodeMetadata`\>
 
 Gets the metadata of a storage node from the storage node registry.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type     |
+| :------------ | :------- |
 | `nodeAddress` | `string` |
 
 #### Returns
 
-`Promise`<[`StorageNodeMetadata`](../interfaces/StorageNodeMetadata.md)\>
+`Promise`<`StorageNodeMetadata`\>
 
 rejects if the storage node is not found
 
-___
+---
 
 ### getStorageNodes
 
@@ -390,71 +390,71 @@ Gets a list of storage nodes.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name              | Type     | Description                                                                                                                               |
+| :---------------- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
 | `streamIdOrPath?` | `string` | if a stream is given, returns the list of storage nodes the stream has been assigned to; leave as `undefined` to return all storage nodes |
 
 #### Returns
 
 `Promise`<[`EthereumAddress`](../API Reference#ethereumaddress)[]\>
 
-___
+---
 
 ### getStoredStreams
 
-▸ **getStoredStreams**(`storageNodeAddress`): `Promise`<{ `blockNumber`: `number` ; `streams`: [`Stream`](Stream.md)[]  }\>
+▸ **getStoredStreams**(`storageNodeAddress`): `Promise`<{ `blockNumber`: `number` ; `streams`: [`Stream`](Stream.md)[] }\>
 
 Gets all streams assigned to a storage node.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name                 | Type     |
+| :------------------- | :------- |
 | `storageNodeAddress` | `string` |
 
 #### Returns
 
-`Promise`<{ `blockNumber`: `number` ; `streams`: [`Stream`](Stream.md)[]  }\>
+`Promise`<{ `blockNumber`: `number` ; `streams`: [`Stream`](Stream.md)[] }\>
 
 a list of [Stream](Stream.md) as well as `blockNumber` of result (i.e. blockchain state)
 
-___
+---
 
 ### getStreamPublishers
 
 ▸ **getStreamPublishers**(`streamIdOrPath`): `AsyncIterable`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
-Gets all ethereum addresses that have [PUBLISH](../enums/StreamPermission.md#publish) permission to the stream.
+Gets all ethereum addresses that have PUBLISH permission to the stream.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type     |
+| :--------------- | :------- |
 | `streamIdOrPath` | `string` |
 
 #### Returns
 
 `AsyncIterable`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
-___
+---
 
 ### getStreamSubscribers
 
 ▸ **getStreamSubscribers**(`streamIdOrPath`): `AsyncIterable`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
-Gets all ethereum addresses that have [SUBSCRIBE](../enums/StreamPermission.md#subscribe) permission to the stream.
+Gets all ethereum addresses that have SUBSCRIBE permission to the stream.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type     |
+| :--------------- | :------- |
 | `streamIdOrPath` | `string` |
 
 #### Returns
 
 `AsyncIterable`<[`EthereumAddress`](../API Reference#ethereumaddress)\>
 
-___
+---
 
 ### grantPermissions
 
@@ -464,16 +464,16 @@ Grants permissions on a given stream.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `streamIdOrPath` | `string` |
+| Name             | Type                                                              |
+| :--------------- | :---------------------------------------------------------------- |
+| `streamIdOrPath` | `string`                                                          |
 | `...assignments` | [`PermissionAssignment`](../API Reference#permissionassignment)[] |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### hasPermission
 
@@ -483,15 +483,15 @@ Checks whether the given permission is in effect.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type                                                  |
+| :------ | :---------------------------------------------------- |
 | `query` | [`PermissionQuery`](../API Reference#permissionquery) |
 
 #### Returns
 
 `Promise`<`boolean`\>
 
-___
+---
 
 ### isStoredStream
 
@@ -501,54 +501,54 @@ Checks whether a stream is assigned to a storage node.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `streamIdOrPath` | `string` |
+| Name                 | Type     |
+| :------------------- | :------- |
+| `streamIdOrPath`     | `string` |
 | `storageNodeAddress` | `string` |
 
 #### Returns
 
 `Promise`<`boolean`\>
 
-___
+---
 
 ### isStreamPublisher
 
 ▸ **isStreamPublisher**(`streamIdOrPath`, `userAddress`): `Promise`<`boolean`\>
 
-Checks whether a given ethereum address has [PUBLISH](../enums/StreamPermission.md#publish) permission to a stream.
+Checks whether a given ethereum address has PUBLISH permission to a stream.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type     |
+| :--------------- | :------- |
 | `streamIdOrPath` | `string` |
-| `userAddress` | `string` |
+| `userAddress`    | `string` |
 
 #### Returns
 
 `Promise`<`boolean`\>
 
-___
+---
 
 ### isStreamSubscriber
 
 ▸ **isStreamSubscriber**(`streamIdOrPath`, `userAddress`): `Promise`<`boolean`\>
 
-Checks whether a given ethereum address has [SUBSCRIBE](../enums/StreamPermission.md#subscribe) permission to a stream.
+Checks whether a given ethereum address has SUBSCRIBE permission to a stream.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type     |
+| :--------------- | :------- |
 | `streamIdOrPath` | `string` |
-| `userAddress` | `string` |
+| `userAddress`    | `string` |
 
 #### Returns
 
 `Promise`<`boolean`\>
 
-___
+---
 
 ### off
 
@@ -558,22 +558,22 @@ Removes an event listener from the client.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends keyof [`StreamrClientEvents`](../interfaces/StreamrClientEvents.md) |
+| Name | Type                                |
+| :--- | :---------------------------------- |
+| `T`  | extends keyof `StreamrClientEvents` |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `eventName` | `T` | event name, see [StreamrClientEvents](../interfaces/StreamrClientEvents.md) for options |
-| `listener` | [`StreamrClientEvents`](../interfaces/StreamrClientEvents.md)[`T`] | the callback function to remove |
+| Name        | Type                       | Description                                     |
+| :---------- | :------------------------- | :---------------------------------------------- |
+| `eventName` | `T`                        | event name, see StreamrClientEvents for options |
+| `listener`  | `StreamrClientEvents`[`T`] | the callback function to remove                 |
 
 #### Returns
 
 `void`
 
-___
+---
 
 ### on
 
@@ -583,22 +583,22 @@ Adds an event listener to the client.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends keyof [`StreamrClientEvents`](../interfaces/StreamrClientEvents.md) |
+| Name | Type                                |
+| :--- | :---------------------------------- |
+| `T`  | extends keyof `StreamrClientEvents` |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `eventName` | `T` | event name, see [StreamrClientEvents](../interfaces/StreamrClientEvents.md) for options |
-| `listener` | [`StreamrClientEvents`](../interfaces/StreamrClientEvents.md)[`T`] | the callback function |
+| Name        | Type                       | Description                                     |
+| :---------- | :------------------------- | :---------------------------------------------- |
+| `eventName` | `T`                        | event name, see StreamrClientEvents for options |
+| `listener`  | `StreamrClientEvents`[`T`] | the callback function                           |
 
 #### Returns
 
 `void`
 
-___
+---
 
 ### once
 
@@ -608,22 +608,22 @@ Adds an event listener to the client that is invoked only once.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends keyof [`StreamrClientEvents`](../interfaces/StreamrClientEvents.md) |
+| Name | Type                                |
+| :--- | :---------------------------------- |
+| `T`  | extends keyof `StreamrClientEvents` |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `eventName` | `T` | event name, see [StreamrClientEvents](../interfaces/StreamrClientEvents.md) for options |
-| `listener` | [`StreamrClientEvents`](../interfaces/StreamrClientEvents.md)[`T`] | the callback function |
+| Name        | Type                       | Description                                     |
+| :---------- | :------------------------- | :---------------------------------------------- |
+| `eventName` | `T`                        | event name, see StreamrClientEvents for options |
+| `listener`  | `StreamrClientEvents`[`T`] | the callback function                           |
 
 #### Returns
 
 `void`
 
-___
+---
 
 ### openProxyConnections
 
@@ -631,17 +631,17 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name               | Type                                                    |
+| :----------------- | :------------------------------------------------------ |
 | `streamDefinition` | [`StreamDefinition`](../API Reference#streamdefinition) |
-| `nodeIds` | `string`[] |
-| `direction` | [`ProxyDirection`](../enums/ProxyDirection.md) |
+| `nodeIds`          | `string`[]                                              |
+| `direction`        | `ProxyDirection`                                        |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### removeStreamFromStorageNode
 
@@ -651,16 +651,16 @@ Unassigns a stream from a storage node.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `streamIdOrPath` | `string` |
+| Name                 | Type     |
+| :------------------- | :------- |
+| `streamIdOrPath`     | `string` |
 | `storageNodeAddress` | `string` |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### revokePermissions
 
@@ -670,16 +670,16 @@ Revokes permissions on a given stream.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `streamIdOrPath` | `string` |
+| Name             | Type                                                              |
+| :--------------- | :---------------------------------------------------------------- |
+| `streamIdOrPath` | `string`                                                          |
 | `...assignments` | [`PermissionAssignment`](../API Reference#permissionassignment)[] |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### searchStreams
 
@@ -689,16 +689,16 @@ Searches for streams based on given criteria.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `term` | `undefined` \| `string` | a search term that should be part of the stream id of a result |
-| `permissionFilter` | `undefined` \| [`SearchStreamsPermissionFilter`](../interfaces/SearchStreamsPermissionFilter.md) | permissions that should be in effect for a result |
+| Name               | Type                                           | Description                                                    |
+| :----------------- | :--------------------------------------------- | :------------------------------------------------------------- |
+| `term`             | `undefined` \| `string`                        | a search term that should be part of the stream id of a result |
+| `permissionFilter` | `undefined` \| `SearchStreamsPermissionFilter` | permissions that should be in effect for a result              |
 
 #### Returns
 
 `AsyncIterable`<[`Stream`](Stream.md)\>
 
-___
+---
 
 ### setPermissions
 
@@ -714,15 +714,15 @@ defined will be removed (per stream).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `...items` | { `assignments`: [`PermissionAssignment`](../API Reference#permissionassignment)[] ; `streamId`: `string`  }[] |
+| Name       | Type                                                                                                          |
+| :--------- | :------------------------------------------------------------------------------------------------------------ |
+| `...items` | { `assignments`: [`PermissionAssignment`](../API Reference#permissionassignment)[] ; `streamId`: `string` }[] |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### setStorageNodeMetadata
 
@@ -736,15 +736,15 @@ Acts on behalf of the wallet associated with the current [StreamrClient](Streamr
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `metadata` | `undefined` \| [`StorageNodeMetadata`](../interfaces/StorageNodeMetadata.md) | if `undefined`, removes the storage node from the registry |
+| Name       | Type                                 | Description                                                |
+| :--------- | :----------------------------------- | :--------------------------------------------------------- |
+| `metadata` | `undefined` \| `StorageNodeMetadata` | if `undefined`, removes the storage node from the registry |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### updateEncryptionKey
 
@@ -754,15 +754,15 @@ Manually updates the encryption key used when publishing messages to a given str
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `opts` | [`UpdateEncryptionKeyOptions`](../interfaces/UpdateEncryptionKeyOptions.md) |
+| Name   | Type                         |
+| :----- | :--------------------------- |
+| `opts` | `UpdateEncryptionKeyOptions` |
 
 #### Returns
 
 `Promise`<`void`\>
 
-___
+---
 
 ### updateStream
 
@@ -772,15 +772,15 @@ Updates the metadata of a stream.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `props` | `Partial`<[`StreamMetadata`](../interfaces/StreamMetadata.md)\> & { `id`: `string`  } | the stream id and the metadata fields to be updated |
+| Name    | Type                                              | Description                                         |
+| :------ | :------------------------------------------------ | :-------------------------------------------------- |
+| `props` | `Partial`<`StreamMetadata`\> & { `id`: `string` } | the stream id and the metadata fields to be updated |
 
 #### Returns
 
 `Promise`<[`Stream`](Stream.md)\>
 
-___
+---
 
 ### waitForStorage
 
@@ -790,14 +790,14 @@ Waits for a message to be stored by a storage node.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `message` | [`Message`](../interfaces/Message.md) | the message to be awaited for |
-| `options?` | `Object` | additional options for controlling waiting and message matching |
-| `options.count?` | `number` | Controls size of internal resend used in polling. |
-| `options.interval?` | `number` | Determines how often should storage node be polled. |
-| `options.messageMatchFn?` | (`msgTarget`: [`Message`](../interfaces/Message.md), `msgGot`: [`Message`](../interfaces/Message.md)) => `boolean` | Used to set a custom message equality operator. **`Deprecated`** |
-| `options.timeout?` | `number` | Timeout after which to give up if message was not seen. |
+| Name                      | Type                                                       | Description                                                      |
+| :------------------------ | :--------------------------------------------------------- | :--------------------------------------------------------------- |
+| `message`                 | `Message`                                                  | the message to be awaited for                                    |
+| `options?`                | `Object`                                                   | additional options for controlling waiting and message matching  |
+| `options.count?`          | `number`                                                   | Controls size of internal resend used in polling.                |
+| `options.interval?`       | `number`                                                   | Determines how often should storage node be polled.              |
+| `options.messageMatchFn?` | (`msgTarget`: `Message`, `msgGot`: `Message`) => `boolean` | Used to set a custom message equality operator. **`Deprecated`** |
+| `options.timeout?`        | `number`                                                   | Timeout after which to give up if message was not seen.          |
 
 #### Returns
 

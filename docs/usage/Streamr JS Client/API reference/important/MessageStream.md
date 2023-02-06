@@ -11,17 +11,17 @@ Provides asynchronous iteration with
 
 ## Implements
 
-- `AsyncIterable`<[`Message`](../interfaces/Message.md)\>
+- `AsyncIterable`<`Message`\>
 
 ## Methods
 
 ### [asyncIterator]
 
-▸ **[asyncIterator]**(): `AsyncIterator`<[`Message`](../interfaces/Message.md), `any`, `undefined`\>
+▸ **[asyncIterator]**(): `AsyncIterator`<`Message`, `any`, `undefined`\>
 
 #### Returns
 
-`AsyncIterator`<[`Message`](../interfaces/Message.md), `any`, `undefined`\>
+`AsyncIterator`<`Message`, `any`, `undefined`\>
 
 #### Implementation of
 
