@@ -10,7 +10,7 @@ const config = {
   tagline:
     'Publish and subscribe to your json based real-time data powered by the decentralized Streamr network.',
   url: 'https://streamr.network/',
-  baseUrl: '/documentation/',
+  baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -34,6 +34,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/streamr-dev/documentation',
         },
