@@ -64,7 +64,7 @@ await stream.hasPermission({
 
 ### The public permission
 
-A stream can either either be made as public or private. A stream that is publicly readable is public, but it doesn't necessasily mean its publicly writable. Private streams maintain a set of qualified subscribers which is enforced with [end-to-end encryption](../../streamr-network/signing-and-encryption/end-to-end-encryption) whereas public streams do not. Regardless of the type of stream, every data point pushed to a stream is always signed by the private key of the publisher.
+A stream can either either be made as public or private. A stream that is publicly readable is public, but it doesn't necessasily mean its publicly writable. Private streams maintain a set of qualified subscribers which is enforced with [end-to-end encryption](../../streamr-network/Signing%20and%20encryption/end-to-end-encryption) whereas public streams do not. Regardless of the type of stream, every data point pushed to a stream is always signed by the private key of the publisher.
 
 - The `PUBLISH` and `SUBSCRIBE` stream permissions can be made **public**, meaning that anyone could `SUBSCRIBE` and/or `PUBLISH` to the stream.
 - If a stream has e.g. a public `SUBSCRIBE` permissions, it means that anyone can `SUBSCRIBE` to that stream.

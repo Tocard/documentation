@@ -85,23 +85,23 @@ const config = {
             items: [
               {
                 label: 'Quickstart',
-                to: 'docs/quickstart/nodejs',
+                to: 'quickstart/nodejs',
               },
               {
                 label: 'Usage',
-                to: 'docs/usage/authenticate',
+                to: 'usage/authenticate',
               },
               {
                 label: 'Streamr Network',
-                to: 'docs/streamr-network',
+                to: 'streamr-network',
               },
               {
                 label: 'Node runners',
-                to: 'docs/node-runners/run-a-node',
+                to: 'node-runners/run-a-node',
               },
               {
                 label: 'Help',
-                to: 'docs/help/developer-faq',
+                to: 'help/developer-faq',
               },
             ],
           },

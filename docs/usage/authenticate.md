@@ -30,7 +30,7 @@ You can also create an anonymous client instance that can interact with public s
 const streamr = new StreamrClient();
 ```
 
-Streamr supports ENS names to allow streams to have human readable names, for example `mydomain.eth/traffic/helsinki`. More on that in the [Streams section](./streams/creating-stream).
+Streamr supports ENS names to allow streams to have human readable names, for example `mydomain.eth/traffic/helsinki`. More on that in the [Streams section](./streams/creating-streams).
 
 ## Generate Ethereum account
 

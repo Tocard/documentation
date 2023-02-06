@@ -53,3 +53,49 @@ Due to the stricter security rules inside browser extensions you must use the we
 #### React Native
 
 We are actively working on React Native compatibility but currently the Streamr JavaScript Client is not compatible with React Native. To connect, pull or push data into the Streamr Network, use the [Broker integration pattern](https://streamr.network/docs/streamr-network/connecting-applications).
+
+## Troubleshooting
+
+When on mac, you might run into the problem of not having **cmake** and/or **openssl** installed and configured.
+
+Follow these steps to solve these problems:
+
+### cmake is not installed on mac:
+
+Open your terminal and run
+
+```shell
+$ brew install cmake
+```
+
+### OpenSSL is not installed and configured on mac
+
+Open your terminal and run
+
+```shell
+$ brew install cmake
+```
+
+Then cd into your root directory
+
+```shell
+$ cd ~
+```
+
+Create a file named .zshrc to create environment variables for your terminal.
+
+```shell
+$ nano .zshrc
+```
+
+Add the following lines to the file:
+
+```
+export OPENSSL_CRYPTO_LIBRARY="/opt/homebrew/opt/openssl@1.1"
+export OPENSSL_INCLUDE_DIR="/opt/homebrew/opt/openssl@1.1"
+export OPENSSL_ROOT_DIR="/opt/homebrew/opt/openssl@1.1"
+```
+
+Make sure to restart your terminal as the system variables then reload into your zsh terminal
+
+Run `npm install streamr-client` in your project folder
