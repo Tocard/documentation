@@ -1,69 +1,14 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Publishing
-Let's say you have a temperature measurement device that publishes the **temperature of your house every second**. Then this is how your stream would look like:
+Publishing to a stream means to write or push data/messages to a stream. 
 
-| Timestamp               | Temperature |
-| :---------------------- | :---------- |
-| 2019-08-01 11:30:01.012 | 312.56      |
-| 2019-08-01 11:30:02.239 | 312.49      |
-| 2019-08-01 11:30:03.105 | 312.42      |
-| 2019-08-01 11:30:04.122 | 312.64      |
-| 2019-08-01 11:30:05.882 | 312.32      |
-
-Your stream would grow over time and you can add more colums/data fields to your timestamp.
-
-### Example data point
-Here's a data point in a stock market stream:
-
-```json
-{
-  "Symbol": "PFFT",
-  "EventType": 1,
-  "OrderId": 6454321,
-  "Direction": "Up",
-  "Trade": { "Price": 118.55, "Size": 100 },
-  "Ask": [
-    { "Price": 118.6, "Size": 22500 },
-    { "Price": 118.65, "Size": 18000 }
-  ],
-  "Bid": [
-    { "Price": 118.5, "Size": 16500 },
-    { "Price": 118.45, "Size": 11000 }
-  ]
-}
-```
-
-### Publishing to a stream
-
-```ts
-// Here's our example data point
-const msg = {
-  temperature: 25.4,
-  humidity: 10,
-  happy: true,
-};
-
-// Publish using the stream id only
-await streamr.publish(streamId, msg);
-
-// Publish with a specific timestamp as a Date object (default is now)
-await streamr.publish(streamId, msg, { timestamp: new Date(1546300800123) });
-
-// Publish with a specific timestamp in ms
-await streamr.publish(streamId, msg, { timestamp: 1546300800123 });
-
-// Publish with a specific timestamp as a ISO8601 string
-await streamr.publish(streamId, msg, { timestamp: '2019-01-01T00:00:00.123Z' });
-
-// For convenience, stream.publish(...) equals streamr.publish(stream, ...)
-await stream.publish(msg);
-```
+Applications publish and subscribe to streams via Streamr nodes. In other words, nodes are the access points to the Streamr Network. You can either run a light node which is imported as a library and runs locally as part of your application (Streamr JS client) or you can interface your app with a Streamr Broker node. The Broker node runs separately, and your application connects to it remotely using one of the supported protocols, WebSockets, HTTP or MQTT.
 
 :::caution Important:
 You must grant `PUBLISH` permission **before** the user can publish data to the stream.
@@ -71,8 +16,9 @@ You must grant `PUBLISH` permission **before** the user can publish data to the 
 Learn more about [stream permissions](./permissions.md)
 :::
 
+### Publish code snippets
 <Tabs groupId="environment">
-  <TabItem value="light-node" label="Light node">
+  <TabItem value="js-client" label="JS client">
 
 ```ts
 // Run a Streamr node right inside your JS app
@@ -88,7 +34,7 @@ const streamr = new StreamrClient({
 
 // Publish messages to this stream
 streamr.publish(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d',
+  streamId,
   {
     hello: 'world',
   }
@@ -96,7 +42,7 @@ streamr.publish(
 ```
 
 </TabItem>
-<TabItem value="bn-websocket" label="Broker node websocket">
+<TabItem value="bn-websocket" label="Broker node WebSocket">
 
 ```ts
 // Use your favourite language and Websocket library!
@@ -104,7 +50,7 @@ streamr.publish(
 
 // You'll want to URI-encode the stream id
 const streamId = encodeURIComponent(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d'
+  streamId
 );
 
 // Connect to the Websocket interface on your Streamr Broker node
@@ -127,7 +73,7 @@ pub.send({
 
 // You'll want to URI-encode the stream id
 const streamId = encodeURIComponent(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d'
+  streamId
 );
 
 // Use the Broker node to publish JSON messages to the stream.
@@ -151,7 +97,7 @@ mqtt.connect('mqtt://127.0.0.1:1883');
 // Use the Broker node to publish JSON messages to the stream.
 // Make sure that your Broker node has permission to publish on this stream
 mqtt.publish(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d',
+  streamId,
   {
     hello: 'world',
   }
@@ -161,89 +107,27 @@ mqtt.publish(
 </TabItem>
 </Tabs>
 
-## Subscribe
-
-<Tabs groupId="environment">
-  
-  <TabItem value="light-node" label="Light node">
-
+### Publishing examples
 ```ts
-// Run a Streamr node right inside your JS app
-const StreamrClient = require('streamr-client');
-
-// Initialize the Client with an Ethereum account
-// If the stream is private then this account will need
-// the subscribe permission on this stream to subscribe
-const streamr = new StreamrClient({
-  auth: {
-    // If this stream is publicly subscribable you can skip this part
-    // or use a throwaway accounts with:
-    // privateKey: StreamrClient.generateEthereumAccount().privateKey,
-    privateKey: 'ethereum-private-key',
-  },
-});
-
-// Subscribe to the stream of messages
-streamr.subscribe(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d',
-  (msg) => {
-    // Handle incoming messages
-  }
-);
-```
-
-</TabItem>
-<TabItem value="bn-websocket" label="Broker node websocket">
-
-```ts
-// Use your favourite language and Websocket library!
-// https://github.com/streamr-dev/network/blob/main/packages/broker/plugins.md
-
-// You'll want to URI-encode the stream id
-const streamId = encodeURIComponent(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d'
-);
-
-// Connect to the Websocket interface on your Streamr Broker node
-const sub = ws.connect(`ws://127.0.0.1:7170/streams/${streamId}/subscribe`);
-
-// Use the Broker node to subscribe to the stream.
-// If this stream is private then make sure that your Broker node
-// has subscribe permission to subscribe to this stream
-sub.onmessage = (msg) => {
-  // Handle incoming messages
+// Here's our example data point
+const msg = {
+  temperature: 25.4,
+  humidity: 10,
+  happy: true,
 };
+
+// Publish using the stream id only
+await streamr.publish(streamId, msg);
+
+// Publish with a specific timestamp as a Date object (default is now)
+await streamr.publish(streamId, msg, { timestamp: new Date(1546300800123) });
+
+// Publish with a specific timestamp in ms
+await streamr.publish(streamId, msg, { timestamp: 1546300800123 });
+
+// Publish with a specific timestamp as a ISO8601 string
+await streamr.publish(streamId, msg, { timestamp: '2019-01-01T00:00:00.123Z' });
+
+// For convenience, stream.publish(...) equals streamr.publish(stream, ...)
+await stream.publish(msg);
 ```
-
-</TabItem>
-
-<TabItem value="bn-http" label="Broker node HTTP">
-
-```ts
-N / A;
-```
-
-</TabItem>
-
-<TabItem value="bn-mqtt" label="Broker node MQTT">
-
-```ts
-// Use your favourite language and MQTT library!
-// https://github.com/streamr-dev/network/blob/main/packages/broker/plugins.md
-
-// Connect to MQTT interface on your Streamr Broker node
-mqtt.connect('mqtt://127.0.0.1:1883');
-
-// Use the Broker node to subscribe to the stream.
-// If this stream is private then make sure that your Broker node
-// has subscribe permission to subscribe to this stream
-mqtt.subscribe(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d',
-  (msg) => {
-    // Handle incoming messages
-  }
-);
-```
-
-</TabItem>
-</Tabs>

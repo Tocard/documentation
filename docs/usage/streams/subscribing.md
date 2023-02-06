@@ -1,134 +1,19 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Subscribing
+Subscribing to a stream means to read/consume data/messages from a stream. 
 
-### Subscribing to a stream
+Applications publish and subscribe to streams via Streamr nodes. In other words, nodes are the access points to the Streamr Network. You can either run a light node which is imported as a library and runs locally as part of your application (Streamr JS client) or you can interface your app with a Streamr Broker node. The Broker node runs separately, and your application connects to it remotely using one of the supported protocols, WebSockets, HTTP or MQTT.
 
-```ts
-const subscription = await streamr.subscribe(
-    streamId,
-    (content, metadata) => { ... }
-)
-```
-
-The callback's first parameter, `content`, contains the value given to the `publish` method.
-
-The second parameter `metadata` contains metadata about the message, e.g. timestamp.
-
-Unsubscribing from an existent subscription:
-
-```ts
-await streamr.unsubscribe(streamId);
-// or, unsubscribe them all:
-const streams = await streamr.unsubscribe();
-```
-
-Getting all streams the client is subscribed to:
-
-```ts
-const subscriptions = streamr.getSubscriptions();
-```
-
-<Tabs groupId="environment">
-  <TabItem value="light-node" label="Light node">
-
-```ts
-// Run a Streamr node right inside your JS app
-const StreamrClient = require('streamr-client');
-
-// Initialize the Client with an Ethereum account
-// This account will need the publish permission on this stream to publish
-const streamr = new StreamrClient({
-  auth: {
-    privateKey: 'ethereum-private-key',
-  },
-});
-
-// Publish messages to this stream
-streamr.publish(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d',
-  {
-    hello: 'world',
-  }
-);
-```
-
-</TabItem>
-<TabItem value="bn-websocket" label="Broker node websocket">
-
-```ts
-// Use your favourite language and Websocket library!
-// https://github.com/streamr-dev/network/blob/main/packages/broker/plugins.md
-
-// You'll want to URI-encode the stream id
-const streamId = encodeURIComponent(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d'
-);
-
-// Connect to the Websocket interface on your Streamr Broker node
-const pub = ws.connect(`ws://127.0.0.1:7170/streams/${streamId}/publish`);
-
-// Use the Broker node to publish JSON messages to the stream.
-// Make sure that your Broker node has permission to publish on this stream
-pub.send({
-  hello: 'world',
-});
-```
-
-</TabItem>
-
-<TabItem value="bn-http" label="Broker node HTTP">
-
-```ts
-// Use your favourite language and HTTP library!
-// https://github.com/streamr-dev/network/blob/main/packages/broker/plugins.md
-
-// You'll want to URI-encode the stream id
-const streamId = encodeURIComponent(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d'
-);
-
-// Use the Broker node to publish JSON messages to the stream.
-// Make sure that your Broker node has permission to publish on this stream
-http.post(`http://127.0.0.1:7171/streams/${streamId}`, {
-  hello: 'world',
-});
-```
-
-</TabItem>
-
-<TabItem value="bn-mqtt" label="Broker node MQTT">
-
-```ts
-// Use your favourite language and MQTT library!
-// https://github.com/streamr-dev/network/blob/main/packages/broker/plugins.md
-
-// Connect to MQTT interface on your Streamr node
-mqtt.connect('mqtt://127.0.0.1:1883');
-
-// Use the Broker node to publish JSON messages to the stream.
-// Make sure that your Broker node has permission to publish on this stream
-mqtt.publish(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d',
-  {
-    hello: 'world',
-  }
-);
-```
-
-</TabItem>
-</Tabs>
-
-## Subscribe
-
+### Subscribe code snippets
 <Tabs groupId="environment">
   
-  <TabItem value="light-node" label="Light node">
+  <TabItem value="js-client" label="JS client">
 
 ```ts
 // Run a Streamr node right inside your JS app
@@ -148,15 +33,15 @@ const streamr = new StreamrClient({
 
 // Subscribe to the stream of messages
 streamr.subscribe(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d',
-  (msg) => {
+  streamId,
+  (content, metadata) => { ... }
     // Handle incoming messages
   }
 );
 ```
 
 </TabItem>
-<TabItem value="bn-websocket" label="Broker node websocket">
+<TabItem value="bn-websocket" label="Broker node WebSocket">
 
 ```ts
 // Use your favourite language and Websocket library!
@@ -164,7 +49,7 @@ streamr.subscribe(
 
 // You'll want to URI-encode the stream id
 const streamId = encodeURIComponent(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d'
+  streamId
 );
 
 // Connect to the Websocket interface on your Streamr Broker node
@@ -201,8 +86,8 @@ mqtt.connect('mqtt://127.0.0.1:1883');
 // If this stream is private then make sure that your Broker node
 // has subscribe permission to subscribe to this stream
 mqtt.subscribe(
-  '0x0ebcccdefbc47043f996dc7bdcadbf44bc0ab480/streamr-chat/room/e133a612-0b26-426a-b751-99cc420ca31d',
-  (msg) => {
+  streamId,
+  (content, metadata) => { ... }
     // Handle incoming messages
   }
 );
@@ -210,3 +95,15 @@ mqtt.subscribe(
 
 </TabItem>
 </Tabs>
+
+### Unsubscribing from a subscription
+```ts
+await streamr.unsubscribe(streamId);
+// or, unsubscribe them all:
+const streams = await streamr.unsubscribe();
+```
+
+### Getting all subscriptions
+```ts
+const subscriptions = streamr.getSubscriptions();
+```

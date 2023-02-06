@@ -1,6 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
+
 # Interacting with streams
 The `Stream` type provides a convenient way to interact with a stream without having to repeatedly pass Stream IDs.
 
