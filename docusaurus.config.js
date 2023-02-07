@@ -10,7 +10,7 @@ const config = {
   tagline:
     'Publish and subscribe to your json based real-time data powered by the decentralized Streamr network.',
   url: 'https://streamr.network/',
-  baseUrl: '/documentation',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/streamr-logo.svg',
