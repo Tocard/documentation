@@ -3,9 +3,11 @@ sidebar_position: 3
 ---
 
 # Use any language or device
+
 This tutorial will show you how to publish data into the Streamr Network from inside your app by interfacing with a Broker node that you run using the MQTT protocol. MQTT client libraries are available for a huge variety of programming languages but you can also use WebSockets or HTTP if you prefer.
 
 **Prerequisites:**
+
 - NPM v8 or greater
 - NodeJS 16.13.x or greater
 - MacOS/Linux environments (Windows environments may require minor adjustments)
@@ -15,6 +17,7 @@ This tutorial will show you how to publish data into the Streamr Network from in
 If you have a Helium setup, you may benefit from reading this blog post first, [Helium x Streamr](https://blog.helium.com/helium-x-streamr-ea89c4b61a14)
 
 ## Install & run the Broker node.
+
 You'll need to run a [Streamr Broker node](../streamr-network/nodes#broker-nodes) to connect your app to.
 
 ```shell
@@ -60,6 +63,8 @@ The client is available on [NPM](https://www.npmjs.com/package/streamr-client) a
 ```shell
 $ npm install streamr-client
 ```
+
+Having trouble installing the client? Maybe our [troubleshooting](../usage/Streamr%20JS%20Client/how-to-use#Troubleshooting) section will help.
 
 :::note
 Make sure the `PRIVATE_KEY` you add has a small amount of `MATIC` (the native token of the Polygon blockchain) in its wallet to pay for gas to create the stream and make the permission assignment.

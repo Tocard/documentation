@@ -2,7 +2,7 @@
   "label": "🌐 Streamr Network",
   "position": 2,
   "link": {
-    "type": "generated-index",
-    "description": "5 minutes to learn the most important Docusaurus concepts."
+    "slug": "/streamr-network",
+    "type": "generated-index"
   }
 }

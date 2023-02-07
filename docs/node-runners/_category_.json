@@ -2,7 +2,7 @@
   "label": "👾 Node runners",
   "position": 3,
   "link": {
-    "type": "generated-index",
-    "description": "test test test"
+    "slug": "/node-runners",
+    "type": "generated-index"
   }
 }

@@ -10,10 +10,10 @@ const config = {
   tagline:
     'Publish and subscribe to your json based real-time data powered by the decentralized Streamr network.',
   url: 'https://streamr.network/',
-  baseUrl: '/',
+  baseUrl: '/documentation',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/streamr-logo.svg',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

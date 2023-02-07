@@ -73,7 +73,7 @@ $ brew install cmake
 Open your terminal and run
 
 ```shell
-$ brew install cmake
+$ brew install openssl
 ```
 
 Then cd into your root directory
