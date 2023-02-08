@@ -1,0 +1,43 @@
+name: Deploy to production
+
+on:
+  push:
+    tags:
+      - v*
+concurrency:
+  group: production
+  cancel-in-progress: true
+
+jobs:  
+  deploy:
+    name: Build and deploy to production
+    environment:
+      name: production
+      url: https://streamr.network/documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+          cache-dependency-path: 'package-lock.json'
+      - name: Install dependencies
+        run: npm ci
+      - name: Get version string from git tag name
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+      - name: Print version string
+        run: echo ${{ steps.get_version.outputs.VERSION }}
+      - name: Build app with production environment variables
+        run: npm run build --if-present
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with: 
+          aws-access-key-id: ${{ secrets.AWS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+          aws-region: eu-west-1
+      - name: Deploy to S3
+        run: |
+          aws s3 sync build/. s3://streamr-documentation --acl private
