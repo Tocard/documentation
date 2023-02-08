@@ -3,7 +3,7 @@ sidebar_position: 8
 ---
 
 # Partitioning
-Partitions (sharding) can be understood as sub-streams, or in other words, parts of a stream, and it **enables streams to scale horizontally**. 
+Partitions (sharding) can be understood as substreams, or in other words, parts of a stream, and it **enables streams to scale horizontally**. 
 
 <!-- TODO: copy Stream partitioning from https://www.npmjs.com/package/streamr-client -->
 
