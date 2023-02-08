@@ -96,7 +96,7 @@ const sub = await streamr.subscribe(
 );
 ```
 
-#### subscribe to multiple partitions:
+#### Subscribe to multiple partitions:
 ```ts
 const onMessage = (content, streamMessage) => {
   console.log(
