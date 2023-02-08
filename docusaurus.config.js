@@ -36,7 +36,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/streamr-dev/documentation',
+          editUrl: 'https://github.com/streamr-dev/documentation/blob/main/',
         },
         blog: {
           showReadingTime: true,
