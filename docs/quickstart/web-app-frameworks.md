@@ -69,7 +69,7 @@ export const startSubscribing = () => {
 Simply install the following packages in your application:
 
 ```shell
-$ npm streamr-client streamr-client-react streamr-client-protocol
+$ npm install streamr-client streamr-client-react@hkt
 ```
 
 The `Provider` component holds its own StreamrClient instance and makes it available to all its children components.
