@@ -2,8 +2,8 @@ name: Deploy to production
 
 on:
   push:
-    tags:
-      - v*
+    branch:
+      - main
 concurrency:
   group: production
   cancel-in-progress: true
