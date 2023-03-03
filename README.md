@@ -1,8 +1,11 @@
 # Welcome to the Streamr Docs repo!
 
-## Content updates
-At the bottom of every content page is a link to edit the markdown file on GitHub called, "Edit this page". Simply edit the raw contents and submit a pull request to have the change reviewed before it is implemented.
+Checkout the [Docs](https://docs.streamr.network)!
 
-## Deployment (Streamr Dev only)
-To deploy structural changes to the [documentation](https://docs.streamr.network), simply push a tagged release. Ensure that the tag begins with a letter.   
-e.g. `git tag v1.13` & `git push origin v1.13`.
+## Community contributions
+Please feel very welcome to submit content suggestions!
+
+For ease of use, small changes can be suggested by editing the markdown file on GitHub. Every content page has an "Edit this page" link at the bottom- Simply edit the text contents and submit a pull request to have the change reviewed before it is implemented.
+
+## Streamr core devs
+Deployments are automatically made after every commit to `main`, therefore editing markdown files directly on `main` will be reflected in production within a minute or two.
