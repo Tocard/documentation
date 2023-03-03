@@ -1,41 +1,8 @@
-# Website
+# Welcome to the Streamr Docs repo!
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+## Content updates
+At the bottom of every content page is a link to edit the markdown file on GitHub called, "Edit this page". Simply edit the raw contents and submit a pull request to have the change reviewed before it is implemented.
 
-### Installation
-
-```
-$ yarn
-```
-
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Deployment (Streamr Dev only)
+To deploy structural changes to the [documentation](https://docs.streamr.network), simply push a tagged release. Ensure that the tag begins with a letter.   
+e.g. `git tag v1.13` & `git push origin v1.13`.
