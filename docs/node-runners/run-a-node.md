@@ -2,75 +2,217 @@
 sidebar_position: 1
 ---
 
-# Run a node
-## Setting up a Broker node
-Broker nodes are Streamr nodes that run externally to your application. You start up a node on a server, and interface with it remotely using one of the supported protocols.
+# Run a Streamr node
 
-The Broker node ships with plugins for HTTP, Websocket, and MQTT protocols. Libraries for these protocols exist in practically every programming language, meaning that you can conveniently publish and subscribe to data from the Streamr Network using any programming language. Learn how to connect your applications to your node using one of these protocols.
+:::tip
 
-When applications use the Streamr Network via a Broker node, data signing, encryption, validation, and other complex cryptography happens at the node. This offloads processing from the application, and is also suitable for environments with limited hardware resources.
+- You can run up to 5 nodes per IP address
+- Rewards are automatically paid out at the beginning of the following month. The DATA token rewards are transferred to the wallet(s) you use for staking.
+- You can stake up to 20K DATA per node. However, if you stake the full amount, you will need to transfer the amount above 20K after you get your first rewards paid out to also stake and earn rewards on those. You can avoid the need to transfer tokens every month by staking less than 20K per node, such as 17K-18K DATA.
 
-## Two ways to run your node
-The software comes in two flavours of packaging: a Docker image and an npm package.
+:::
 
-Which method should you choose? If you have either Docker or Node.js (16.x) already installed, use the one you know. Otherwise, try the Docker approach first, and if that doesn’t work for you, go for the npm approach.
+## Pick a method
+You have two methods to choose from: Docker and npm. Docker is the most straightforward and recommended method unless you are well-acquainted with npm. You only need 300MB of available memory per node that runs using Docker and a little less if you use the npm method.
 
-Once you have either Docker or Node.js installed, the steps to download and start the node are very similar, regardless of whether you’re running Linux, macOS, or Windows (use PowerShell). You may need to adapt the commands for your platform or install OS-specific dependencies, if they are missing.
+Once you have either Docker or Node.js installed, the steps to download and start the node are very similar, regardless of whether you’re running Linux, macOS, or Windows (use PowerShell). You may need to adapt the commands for your platform or install OS-specific dependencies if they are missing.
 
 ## The configuration wizard
-As part of both approaches, we show how to run the configuration wizard to initialize your node’s config file, which will be saved on your disk. The wizard will let you either generate or import an Ethereum private key for your node, as well as ask which plugins you want to enable.
+As part of both approaches, we show how to run the configuration wizard to initialize your node’s config file, which will be saved on your disk. The wizard will let you either generate or import an Ethereum private key for your node. It will also allow you to enable additional plugins, but they are entirely unnecessary if you simply want to run a node to help expand the network and stake DATA tokens.
 
 ## The Docker approach
-If you don’t have Docker, get it [here](https://docs.docker.com/get-docker/). Once installed, you can download, configure, and start the Streamr Broker.
+If you are using Windows/PowerShell or macOS and don’t have Docker installed, get Docker Desktop [here](https://docs.docker.com/get-docker/). 
 
-### Step 1: Set up a directory to be mounted into a running Docker container
-You’ll need a place in the host operating system where the Broker configuration file will be stored. This directory will be mounted into the running Docker container so that it persists and remains accessible outside of Docker.
+**Linux**
 
--   Create the directory with the command:
+Note that Ubuntu is the recommended Linux distribution, but the commands should work as-is on most Debian derivatives.
+
+If you are using Linux and you are not sure if you have Docker installed, run the following command:
 
 ```
-mkdir ~/.streamrDocker
+docker -v
 ```
 
-### Step 2: Configure your node with Docker and Config Wizard
--   Start the config wizard with the below command. Docker will download the Broker image unless you have it already.
+If that returns a Docker version, you are good to go. If, however, the response is something along the lines of `"The command 'docker' could not be found"`, go ahead and install Docker with the following commands.
+
+First check if you have `curl` installed:
+
+```
+curl --version
+```
+
+If you get a response saying "command not found", install `curl`:
+
+```
+sudo apt update ; sudo apt install curl
+```
+
+Download the Docker install script:
+
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+```
+
+Run the install script:
+
+```
+sudo sh get-docker.sh
+```
+
+Docker's install script also installs all required dependencies.
+
+When you have Docker installed, you can download, configure, and start the Streamr Broker node.
+
+### Step 1: Create a folder for your node
+
+You need a folder for your node where the node's config file will be stored. Create the folder with the following command:
+
+```
+mkdir ~/.streamrDocker1
+```
+
+:::info
+
+Notice the `1` at the end of the folder name. It is there in case you later want to create additional nodes on the same device/server, which you will need folders for too, a la `.streamrDocker2` for your second node, `.streamrDocker3` for your third node, etc. If you decide to create additional nodes, you need to change the number accordingly in the various commands. If you fail to adjust the folder name, you will end up with two or more nodes using the same config file and staking wallet, which will create a conflict and the result will be that only one of the nodes will able to claim rewards.
+
+:::
+
+### Step 2: Set permissions
+
+Change the permissions on the node folder:
+
+```
+sudo chmod -R 777 ~/.streamrDocker*/
+```
+
+### Step 3: Run the config wizard to create and configure your Streamr node
+
+Start the config wizard with the below command. Docker will download the Broker image unless you have it already.
 
 **Linux / macOS**
 
 ```
-docker run -it -v $(cd ~/.streamrDocker; pwd):/home/streamr/.streamr streamr/broker-node:latest bin/config-wizard
+sudo docker run -it -v $(cd ~/.streamrDocker1 && pwd):/home/streamr/.streamr streamr/broker-node:latest bin/config-wizard
 ```
 
 **Windows PowerShell**
 
+Change the working directory (move into your node's folder):
+
 ```
-cd ~/.streamrDocker
+cd ~/.streamrDocker1
+```
+
+Then run the config wizard:
+
+```
 docker run -it -v ${pwd}:/home/streamr/.streamr streamr/broker-node:latest bin/config-wizard
 ```
 
--   Generate or Import Ethereum private key: generate one unless you have one you want to use with the node
--   Plugins to enable: select the interface protocols you're planning to use and press 'enter'
--   Select ports for plugins: press 'enter' for each one to use the defaults
--   Path to store the configuration: press 'enter' to use the default
+**Using the config wizard**
 
-Towards the end, the wizard asks if you would like it to display your Ethereum private key. From here you should copy-paste it to a safe place! You can also find it later in the configuration file, which is saved by default to `.streamrDocker/broker-config.json` under your home directory.
+"Generate or import Ethereum private key"
 
-### Step 3: Start the Broker Node using Docker
--   Start the node with the below command:
+Generate one unless you already have one you want to use with the node. You can avoid having the private key of the wallet with your staked DATA stored in a plain text file by generating a new private key and adding your staking wallet's public key as a Beneficiary Address once you are done configuring the node via the config wizard (highly recommended).
 
-Note that the `--publish` argument for Docker command is not required and only provided for examples sake. Streamr Node is smart enough to find it's way to connect to another Streamr Node without punching holes in the firewall.
+"Plugins to enable"
+
+Press 'enter' (do not select/enable any additional plugins)
+
+"Path to store the configuration"
+
+Press 'enter' to use the default path
+
+Towards the end, the wizard asks if you would like it to display your Ethereum private key. From here you should copy-paste it to a safe place! You can also find it later in the configuration file, which is saved by default to `~/.streamrDocker1/config/default.json`.
+
+:::caution
+
+The path to the config file in the `docker run` command and the path defined via the config wizard differs and tend to cause some confusion. They are different for a reason. The path in the `docker run` command (`/home/streamr/.streamr`) refers to the path _inside_ the Docker container, whereas the path you define via the config wizard refers to the path _outside_ the Docker container. Hence, you need to use the default path as mentioned above.
+
+:::
+
+### Step 4: Add a Beneficiary Address to your node (optional)
+
+A Beneficiary Address allows you to only add the public key of the wallet with your staked DATA tokens to the config file instead of the private key. This way nothing sensitive is included in the config file, meaning if your device or server is comprised sometime in the future, your DATA tokens are safe. We highly recommend you use a Beneficiary Address.
+
+Be careful when you edit the JSON file. If you accidentally remove a character such as a curly bracket, the JSON format will be invalid and your node will fail to run.
+
+**Linux / macOS**
+
+Open your node's config file with the `nano` text editor:
+
+```
+nano ~/.streamrDocker1/config/default.json
+```
+
+Add the Beneficiary Address's public key within the curly brackets after `"brubeckMiner": `:
+
+```
+        "brubeckMiner": { "beneficiaryAddress": "0x........................................" }
+```
+
+Hit `CTRL-S` to save on Linux (`CMD-S` on macOS) followed by `CTRL-X` (`CMD-X` on macOS) to exit.
+
+**Windows PowerShell**
+
+Edit the config file with Notepad. This assumes that you've created the node folder in your Windows user's home folder. If that's not the case, then you need to correct the path. Replace `user` with your Windows username.
+
+```
+notepad.exe C:\Users\user\.streamrDocker1\config\default.json
+```
+
+Add the Beneficiary Address's public key within the curly brackets after `"brubeckMiner": `:
+
+```
+        "brubeckMiner": { "beneficiaryAddress": "0x........................................" }
+```
+
+Hit `CTRL+S` to save. Close the editor.
+
+### Step 5: Start your Streamr Broker Node using Docker
 
 **Linux / macOS**
 
 ```
-docker run --interactive --tty --publish 7170:7170 --publish 7171:7171 --publish 1883:1883 --env NODE_ENV=production --volume $(cd ~/.streamrDocker && pwd):/home/streamr/.streamr streamr/broker-node:latest
+sudo docker run --name streamr1 --restart unless-stopped -d -v $(cd ~/.streamrDocker1 && pwd):/home/streamr/.streamr streamr/broker-node:latest
+```
+
+**Windows PowerShell**
+
+First move into your node's folder:
+
+```
+cd ~/.streamrDocker1
+```
+
+Start your node:
+
+```
+docker run --name streamr1 --restart unless-stopped -d -v $(cd ~/.streamrDocker1 && pwd):/home/streamr/.streamr streamr/broker-node:latest
+```
+
+**The `docker run` command, deconstructed:**
+
+The `--name` option gives the Docker container a custom name, in this case `streamr1`. This makes it easier to check in on your node later, in case you have more than one node running. If you end up with several nodes, you will appreciate the ability to easily distinguish between them. If you don't set a custom name, Docker will automatically give each container a funky name a la `nifty_lovelace`.
+
+The `--restart` option enables a restart policy of `unless-stopped`. This means that if a node stops running due to an error (such as it running out of memory), it will start up again automatically and continue to claim rewards. If you, however, stop a node manually, it won't start again on its own, which is practical in case you need to make changes to the config file before you start it again. You can restart a stopped node manually with the command `sudo docker restart streamr1` (remove `sudo ` if you are using Windows PowerShell). If you don't set a restart policy and your node stops running, you will miss out on rewards if you don't notice that the node is down and restart it shortly after.
+
+The `-d` option starts your Docker container and node in detached mode, meaning it runs in the background and you can check in on and follow the logs as you please. The alternative is to start it in attached mode, which requires you to keep the window open to keep the node running. The latter is not practical in most cases unless you use a terminal multiplexer such as `tmux` or `screen` to detach.
+
+### Step 5: Follow the node log
+
+Since you started the node in detached mode, you won't see the log streamed to your screen automatically when you start the node. Run the command below to see and follow the logs.
+
+**Linux / macOS**
+
+```
+sudo docker logs --follow streamr1
 ```
 
 **Windows PowerShell**
 
 ```
-cd ~/.streamrDocker
-docker run --interactive --tty --publish 7170:7170 --publish 7171:7171 --publish 1883:1883 --env NODE_ENV=production --volume ${pwd}:/home/streamr/.streamr streamr/broker-node:latest
+docker logs --follow streamr1
 ```
 
 You should start to see logging similar to this:
@@ -86,8 +228,40 @@ INFO [2022-02-17T07:51:07.033] (httpServer          ): HTTP server listening on 
 INFO [2022-02-17T07:51:07.056] (broker              ): Welcome to the Streamr Network. Your node's generated name is ...
 ```
 
+Hit `CTRL-Z` to exit. The node will keep running in the background.
+
+If you just want to check the current log and not see new lines printed to the screen, you can run the `docker logs` command without the `--follow` option, as follows:
+
+**Linux / macOS**
+
+```
+sudo docker logs streamr1
+```
+
+**Windows PowerShell**
+
+```
+docker logs streamr1
+```
+
+If your node has been running for a while, that command will stream the entire log. If you just want to see the last 50 rows to see if your node is claiming rewards as it should, use the following command:
+
+**Linux / macOS**
+
+```
+sudo docker logs --tail 50 streamr1
+```
+
+**Windows PowerShell**
+
+```
+docker logs --tail 50 streamr1
+```
+
+See [Docker's documentation](https://docs.docker.com/engine/reference/commandline/logs/) to learn more about how to use the `docker logs` command.
+
 ## The npm approach
-If you don’t have Node.js, install it using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) or manually from the [Node.js site](https://nodejs.org/en/download/). The Broker requires at least Node.js version 14.x. Once installed, you can download, configure, and start the Streamr Broker.
+If you don’t have Node.js installed, install it using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) or manually from the [Node.js site](https://nodejs.org/en/download/). The Broker requires at least Node.js version 14.x. Once installed, you can download, configure, and start the Streamr Broker.
 
 ### Step 1: Install the latest version using npm
 -   Run `npm install -g streamr-broker@latest` to download and install the package. You may need administrative access to run this command.
@@ -96,14 +270,13 @@ If you don’t have Node.js, install it using [nvm](https://github.com/nvm-sh/nv
 npm install -g streamr-broker@latest
 ```
 
--   There can be plenty of output from npm. If the installation fails with an error, you should address it before continuing.
+There can be plenty of output from npm. If the installation fails with an error, you should address it before continuing.
 
 ### Step 2: Configure your node with streamr-broker-init
 -   Run `streamr-broker-init` to generate a configuration file using a step-by-step wizard. Answer the questions by using arrow keys and ‘enter’ to navigate.
--   Generate or Import Ethereum private key: generate one unless you have one you want to use with the node
--   Plugins to enable: select the interface protocols you're planning to use and press 'enter'
--   Select ports for plugins: press 'enter' for each one to use the defaults
--   Path to store the configuration: press 'enter' to use the default
+-   Generate or Import Ethereum private key: Generate one unless you have one you want to use with the node
+-   Plugins to enable: Hit enter
+-   Path to store the configuration: Press 'enter' to use the default path
 
 Towards the end, the wizard asks if you would like it to display your Ethereum private key. From here, you should copy-paste it to a safe place! You can also find it later in the configuration file, which is saved by default to `.streamr/broker-config.json` under your home directory.
 
@@ -120,6 +293,3 @@ INFO [2022-02-17T07:51:07.029] (BrubeckMinerPlugin  ): Brubeck miner plugin star
 INFO [2022-02-17T07:51:07.033] (httpServer          ): HTTP server listening on 7171
 INFO [2022-02-17T07:51:07.056] (broker              ): Welcome to the Streamr Network. Your node's generated name is ...
 ```
-
-## Staying safe
-The config file contains your node’s private key. If someone gets access to the private key, they can publish and subscribe as you, and steal any tokens you might have in your node's wallet! Read more about identity, keys, and wallets.
