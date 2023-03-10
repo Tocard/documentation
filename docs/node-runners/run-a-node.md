@@ -27,7 +27,7 @@ If you are using Windows/PowerShell or macOS and don’t have Docker installed, 
 
 Note that Ubuntu is the recommended Linux distribution, but the commands should work as-is on most Debian derivatives.
 
-If you are using Linux and you are not sure if you have Docker installed, run the following command:
+If you are not sure if you have Docker installed, run the following command:
 
 ```
 docker -v
@@ -73,13 +73,13 @@ mkdir ~/.streamrDocker1
 
 :::info
 
-Notice the `1` at the end of the folder name. It is there in case you later want to create additional nodes on the same device/server, which you will need folders for too, a la `.streamrDocker2` for your second node, `.streamrDocker3` for your third node, etc. If you decide to create additional nodes, you need to change the number accordingly in the various commands. If you fail to adjust the folder name, you will end up with two or more nodes using the same config file and staking wallet, which will create a conflict and the result will be that only one of the nodes will able to claim rewards.
+Notice the number (`1`) at the end of the folder name. It is there in case you later want to create additional nodes on the same device/server, which you will need folders for too, a la `.streamrDocker2` for your second node, `.streamrDocker3` for your third node, etc. If you decide to create additional nodes, you need to change the number accordingly in the various commands. If you fail to adjust the folder name, you will end up with two or more nodes using the same config file and staking wallet, which will create a conflict and the result will be that only one of the nodes will able to claim rewards.
 
 :::
 
 ### Step 2: Set permissions
 
-Change the permissions on the node folder:
+Change the permissions on the node's folder:
 
 ```
 sudo chmod -R 777 ~/.streamrDocker*/
@@ -111,19 +111,17 @@ docker run -it -v ${pwd}:/home/streamr/.streamr streamr/broker-node:latest bin/c
 
 **Using the config wizard**
 
-"Generate or import Ethereum private key"
+_"Generate or import Ethereum private key"_
 
-Generate one unless you already have one you want to use with the node. You can avoid having the private key of the wallet with your staked DATA stored in a plain text file by generating a new private key and adding your staking wallet's public key as a Beneficiary Address once you are done configuring the node via the config wizard (highly recommended).
+You can generate a new private key or use one you already have. You can avoid having the private key of the wallet with your soon-to-be staked DATA stored in a plain text file by generating a new private key in this step and adding your staking wallet's public key as a Beneficiary Address once you are done configuring the node via the config wizard (highly recommended).
 
-"Plugins to enable"
+_"Plugins to enable"_
 
-Press 'enter' (do not select/enable any additional plugins)
+Press 'enter' (do not select/enable any additional plugins).
 
-"Path to store the configuration"
+_"Path to store the configuration"_
 
-Press 'enter' to use the default path
-
-Towards the end, the wizard asks if you would like it to display your Ethereum private key. From here you should copy-paste it to a safe place! You can also find it later in the configuration file, which is saved by default to `~/.streamrDocker1/config/default.json`.
+Press 'enter' to use the default path.
 
 :::caution
 
@@ -133,7 +131,7 @@ The path to the config file in the `docker run` command and the path defined via
 
 ### Step 4: Add a Beneficiary Address to your node (optional)
 
-A Beneficiary Address allows you to only add the public key of the wallet with your staked DATA tokens to the config file instead of the private key. This way nothing sensitive is included in the config file, meaning if your device or server is comprised sometime in the future, your DATA tokens are safe. We highly recommend you use a Beneficiary Address.
+A Beneficiary Address allows you to only add the public key of the wallet with your staked DATA tokens to the config file instead of the private key. This way nothing sensitive is included in the config file, meaning if your device or server is comprised sometime in the future, your DATA tokens are safe. We highly recommend you use a Beneficiary Address. IF you
 
 Be careful when you edit the JSON file. If you accidentally remove a character such as a curly bracket, the JSON format will be invalid and your node will fail to run.
 
@@ -155,7 +153,7 @@ Hit `CTRL-S` to save on Linux (`CMD-S` on macOS) followed by `CTRL-X` (`CMD-X` o
 
 **Windows PowerShell**
 
-Edit the config file with Notepad. This assumes that you've created the node folder in your Windows user's home folder. If that's not the case, then you need to correct the path. Replace `user` with your Windows username.
+Edit the config file with Notepad. This assumes that you've created the node folder in your Windows user's home folder. If that's not the case, then you need to correct the path. Replace `user` with your username for Windows.
 
 ```
 notepad.exe C:\Users\user\.streamrDocker1\config\default.json
@@ -244,18 +242,18 @@ sudo docker logs streamr1
 docker logs streamr1
 ```
 
-If your node has been running for a while, that command will stream the entire log. If you just want to see the last 50 rows to see if your node is claiming rewards as it should, use the following command:
+If your node has been running for a while, printing the entire log out might not make sense, since there will be a lot of log lines. If you just want to see the last 100 lines to see if your node is claiming rewards as it should, use the following command:
 
 **Linux / macOS**
 
 ```
-sudo docker logs --tail 50 streamr1
+sudo docker logs --tail 100 streamr1
 ```
 
 **Windows PowerShell**
 
 ```
-docker logs --tail 50 streamr1
+docker logs --tail 100 streamr1
 ```
 
 See [Docker's documentation](https://docs.docker.com/engine/reference/commandline/logs/) to learn more about how to use the `docker logs` command.
@@ -293,3 +291,25 @@ INFO [2022-02-17T07:51:07.029] (BrubeckMinerPlugin  ): Brubeck miner plugin star
 INFO [2022-02-17T07:51:07.033] (httpServer          ): HTTP server listening on 7171
 INFO [2022-02-17T07:51:07.056] (broker              ): Welcome to the Streamr Network. Your node's generated name is ...
 ```
+
+## The alternative: Nodes-as-a-Service
+
+Scared of the command line? Not feeling up to docking anything besides your yacht? Nodes-as-a-Service (NaaS) to the rescue! You can spin up Streamr nodes with just a few clicks through either Zonaris or Flux on fully decentralised infrastructure without issuing a single command in a Command-Line Interface.
+
+### Zonaris
+
+To create one or more Streamr nodes via Zonaris, go to [Zonaris's website](https://www.zonaris.io/), click 'Deploy nodes' and follow the onboarding process.
+
+### Flux
+
+**Prerequisites**
+
+- A ZelID
+- A Polygon wallet with the DATA tokens you want to stake
+- Flux coins
+
+**Instructions**
+
+To create a Streamr node via Flux, you first need to log in [here](https://home.runonflux.io/) using your ZelID. If you don't have a ZelID yet, you can get one via the [Zelcore app](https://zelcore.io/).
+
+Then visit [Flux's app marketplace](https://home.runonflux.io/apps/marketplace) in the same browser window, search for `StreamrNode` and paste your Polygon wallet's address into the field where it says "Enter your Polygon address here". Click "Start Launching Marketplace App", authenticate with your ZelID and pay for the service with Flux coins.
