@@ -165,7 +165,7 @@ Add the Beneficiary Address's public key within the curly brackets after `"brube
         "brubeckMiner": { "beneficiaryAddress": "0x........................................" }
 ```
 
-Hit `CTRL+S` to save. Close the editor.
+Press `CTRL+S` to save. Close the editor.
 
 ### Step 5: Start your Streamr Broker Node using Docker
 
