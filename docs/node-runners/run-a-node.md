@@ -113,7 +113,7 @@ docker run -it -v ${pwd}:/home/streamr/.streamr streamr/broker-node:latest bin/c
 
 _"Generate or import Ethereum private key"_
 
-You can generate a new private key or use one you already have. You can avoid having the private key of the wallet with your soon-to-be staked DATA stored in a plain text file by generating a new private key in this step and adding your staking wallet's public key as a Beneficiary Address once you are done configuring the node via the config wizard (highly recommended).
+You can generate a new private key or use one you already have. You can avoid having the private key of the wallet with your soon-to-be staked DATA stored in a plain text file by generating a new private key in this step and adding your staking wallet's public key as a *beneficiary address* once you are done configuring the node via the config wizard (highly recommended).
 
 _"Plugins to enable"_
 
