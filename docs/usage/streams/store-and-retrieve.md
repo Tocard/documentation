@@ -56,7 +56,8 @@ The [Lit Protocol](https://litprotocol.com) is a decentralized key management ne
 - Lit must be enabled for both the publisher(s) and subscriber(s)
 - Enabling and using Lit is a client constructor parameter. It is not specific to any stream.
 - If Lit fails for any reason, the client will fallback to the native Streamr key exchange mechanism.
-  :::
+
+:::
 
 ## Request historical messages
 
@@ -75,7 +76,9 @@ const resend1 = await streamr.resend(
   {
     last: 10,
   },
-  onMessage
+  (msg) => {
+    console.log(msg);
+  }
 );
 ```
 
@@ -90,7 +93,9 @@ const sub1 = await streamr.subscribe(
       last: 10,
     },
   },
-  onMessage
+  (msg) => {
+    console.log(msg);
+  }
 );
 ```
 
