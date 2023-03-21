@@ -12,7 +12,7 @@ User's are identified by their Ethereum public key address. It is these addresse
 
 - The user that created the stream typically has all stream permissions.
 - Stream permissions can be modified using the [Streamr JS client](https://www.npmjs.com/package/streamr-client) or with the [Streamr user interface](https://streamr.network/core)
-  :::
+:::
 
 **Here is the full list of permissions a user may have on a stream:**
 
