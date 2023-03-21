@@ -33,7 +33,7 @@ await publishingClient.setProxies(streamPartition, ['0x11111...', '0x22222...', 
 The node that is used as a proxy must have set the option on the network layer to accept incoming proxy connections and must have joined to the stream that a proxy connection is wanted for.
 :::
 
-**Example client config:**
+### Example JS Client config
 
 ```json
 {
@@ -45,7 +45,7 @@ The node that is used as a proxy must have set the option on the network layer t
 }
 ```
 
-Example broker config
+### Example Broker config
 
 ```json
 {
