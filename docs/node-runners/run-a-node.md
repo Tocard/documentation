@@ -153,7 +153,7 @@ Hit `CTRL-S` to save on Linux (`CMD-S` on macOS) followed by `CTRL-X` (`CMD-X` o
 
 **Windows PowerShell**
 
-Edit the config file with Notepad. This assumes that you've created the node folder in your Windows user's home folder. If that's not the case, then you need to correct the path. Replace `user` with your username for Windows.
+Edit the config file with Notepad. This assumes that you've created the node folder in your Windows user's home folder. If that's not the case, then you need to correct the path. Replace `user` with your logged in username.
 
 ```
 notepad.exe C:\Users\user\.streamrDocker1\config\default.json
