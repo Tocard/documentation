@@ -133,7 +133,7 @@ The path to the config file in the `docker run` command and the path defined via
 
 A *beneficiary address* allows you to only add the public key of the wallet with your staked DATA tokens to the config file instead of the private key. By using a beneficiary address, if your node is comprised, the staked DATA tokens will not be at risk. We highly recommend you use a beneficiary address.
 
-Be careful when you edit the JSON file. If you accidentally remove a character such as a curly bracket, the JSON format will be invalid and your node will fail to run.
+Exercise caution when you editing the config file. If you accidentally remove a character such as a curly bracket or use the wrong type of quotation symbol, the config file's JSON format will be invalid and your node will fail to run.
 
 **Linux / macOS**
 
