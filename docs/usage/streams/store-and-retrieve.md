@@ -52,7 +52,6 @@ The [Lit Protocol](https://litprotocol.com) is a decentralized key management ne
 
 :::info Good to know:
 
-- Lit is available in the Streamr JS client versions `v7.3.0-beta.0` and above as an experimental feature. It is not yet available in the Broker node.
 - Lit must be enabled for both the publisher(s) and subscriber(s)
 - Enabling and using Lit is a client constructor parameter. It is not specific to any stream.
 - If Lit fails for any reason, the client will fallback to the native Streamr key exchange mechanism.
