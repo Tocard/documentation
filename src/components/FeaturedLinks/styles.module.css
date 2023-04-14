@@ -1,15 +1,15 @@
 .linkList {
-  width: 100%;
-  padding: 0;
+    width: 100%;
+    padding: 0;
 }
 
 .link {
-  display: flex;
-  cursor: pointer;
-  flex-direction: column;
-  padding: 1rem;
-  border: solid 1px #efefef;
-  border-radius: 16px;
-  background-color: var(--ifm-card-background-color);
-  margin-bottom: 1rem;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    padding: 1rem;
+    border: solid 1px #efefef;
+    border-radius: 16px;
+    background-color: var(--ifm-card-background-color);
+    margin-bottom: 1rem;
 }
